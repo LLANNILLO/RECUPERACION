@@ -1,3 +1,9 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ejercicio3;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +31,7 @@
 <body>
 
     <?php
+
 
     include "PHP/Enums/Turno.php";
     include "PHP/Classes/Medico.php";

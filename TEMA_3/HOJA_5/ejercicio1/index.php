@@ -1,6 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
+namespace ejercicio1;
+
 include 'PHP/Classes/Empleado.php';
 include 'PHP/Classes/Encargado.php';
 

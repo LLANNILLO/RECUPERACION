@@ -1,5 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
+namespace ejercicio2;
+
+
 include("PHP/Classes/Cuenta.php");
 include("PHP/Classes/CuentaAhorro.php");
 include("PHP/Classes/CuentaCorriente.php");
