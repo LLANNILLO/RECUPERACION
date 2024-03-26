@@ -15,16 +15,16 @@ class Entrada {
         precioTotal = this.personas * this.precioBase;
         break;
       case "jueves":
-        if (numeroPersonas % 2 === 0) {
+        if (this.personas % 2 === 0) {
           // Precio para parejas
-          precioBase = 11 / 2;
+          this.precioBase = 11 / 2;
         }
         precioTotal =
-          Math.floor(numeroPersonas / 2) * 11 + (numeroPersonas % 2);
+          Math.floor(this.personas / 2) * 11 +
+          (this.personas % 2) * this.precioBase;
         break;
-
       default:
-        precioTotal = this.precioBase * this.precioTotal;
+        precioTotal = this.personas * this.precioBase;
     }
 
     if (this.tarjeta) {
