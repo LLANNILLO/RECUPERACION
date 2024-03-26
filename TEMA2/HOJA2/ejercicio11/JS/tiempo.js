@@ -4,7 +4,7 @@ function tiempoHastaFinDeSemana(dia, hora, minutos) {
   );
 
   console.log(diaSemana);
-  var minutosRestantes = (4 - diaSemana) * 24 * 60 - (hora * 60 - minutos);
+  var minutosRestantes = (4 - diaSemana) * 24 * 60 - (hora * 60 + minutos);
 
   minutosRestantes =
     minutosRestantes < 0 ? minutosRestantes * -1 : minutosRestantes;
