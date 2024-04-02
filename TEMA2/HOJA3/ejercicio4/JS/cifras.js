@@ -18,7 +18,7 @@ function numeroCifras(numero) {
 
   do {
     let cifra = numero % 10;
-    numero /= 10;
+    cifra > 0 ? (numero /= 10) : 0;
     console.log(numero);
     var continuar = numero !== 0;
     cifras.push(cifra);
