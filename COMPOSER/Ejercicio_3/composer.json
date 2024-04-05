@@ -1,0 +1,20 @@
+{
+    "name": "composer/contrasena",
+    "description": "Ejercicio para gestionar contraseñas",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Composer\\Contrasena\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LLANNILLO",
+            "email": "david.llanilloantolin@iesmiguelherrero.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "hackzilla/password-generator": "^1.6"
+    }
+}
