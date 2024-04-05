@@ -3,7 +3,7 @@
         'name' => 'composer/contrasena',
         'pretty_version' => 'dev-DWES',
         'version' => 'dev-DWES',
-        'reference' => 'dc4d2719e5d4a0945ad7e0cf9a4180c4b83a0355',
+        'reference' => '4ff65d676cde60dee1d3e3de69b0ca089ebeeb16',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'composer/contrasena' => array(
             'pretty_version' => 'dev-DWES',
             'version' => 'dev-DWES',
-            'reference' => 'dc4d2719e5d4a0945ad7e0cf9a4180c4b83a0355',
+            'reference' => '4ff65d676cde60dee1d3e3de69b0ca089ebeeb16',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
