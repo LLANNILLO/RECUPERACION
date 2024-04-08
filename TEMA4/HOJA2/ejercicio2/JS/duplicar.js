@@ -8,5 +8,6 @@ function multi(array) {
   return duplicados;
 }
 
+console.log(valores);
 var duplicados = multi(valores);
 console.log(duplicados);
