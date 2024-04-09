@@ -9,13 +9,17 @@ function traducciones() {
   let arrayIdiomas = [...diccionario.keys()];
   let arrayPalabras = [...diccionario.values()];
 
-  console.log(arrayIdiomas);
-  console.log(arrayPalabras);
-
   let traducciones = "<p>Traducciones:</p>";
 
-  for (let i = 0; i < arrayPalabras.length; i++) {
-    traducciones += `<p>Palabra: ${arrayPalabras[0][i]}</p>`;
+  for (let i = 0; i < arrayPalabras[0].length; i++) {
+    let palabra = arrayPalabras[0][i];
+    traducciones += `<p>Palabra: <strong>${palabra}</strong></p>`;
+
+    for (let j = 1; j < arrayIdiomas.length; j++) {
+      let idioma = arrayIdiomas[j];
+      let traduccion = diccionario.get(idioma)[i];
+      traducciones += `<p>${idioma}: ${traduccion}</p>`;
+    }
   }
 
   document.write(traducciones);
