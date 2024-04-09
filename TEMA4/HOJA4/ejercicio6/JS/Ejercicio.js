@@ -13,9 +13,9 @@ const estudiantes = [estudiante1, estudiante2, estudiante3, estudiante4];
 const universidad = new Universidad(estudiantes);
 
 // Obtener cursos únicos
-const cursosUnicos = universidad.getCursosUnicos();
-console.log("Cursos Únicos:");
-console.log(cursosUnicos);
+const cursos = universidad.getCursos();
+console.log("Cursos:");
+console.log(cursos);
 
 // Encontrar estudiantes por curso
 const estudiantesMatematicas =

@@ -3,7 +3,7 @@ class Universidad {
     this.estudiantes = estudiantes;
   }
 
-  getCursosUnicos() {
+  getCursos() {
     let cursos = new Set();
     this.estudiantes.forEach((estudiante) => {
       estudiante.getCursos().forEach((curso) => {
