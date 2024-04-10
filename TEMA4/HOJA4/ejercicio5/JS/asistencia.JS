@@ -1,7 +1,7 @@
 var asistencia = new Map();
 
 function asistenciaClase(nombreEstudiante) {
-  var asistenciaClase = Math.round(Math.random());
+  var asistenciaClase = Math.random();
   asistencia.set(nombreEstudiante, asistenciaClase);
 }
 
@@ -12,5 +12,5 @@ estudiantes.forEach((estudiante) => {
 });
 
 asistencia.forEach((asistenciaClase, nombre) => {
-  console.log(`${nombre}: ${asistenciaClase ? "Presente" : "Ausente"}`);
+  console.log(`${nombre}: ${asistenciaClase < 0.8 ? "Presente" : "Ausente"}`);
 });
