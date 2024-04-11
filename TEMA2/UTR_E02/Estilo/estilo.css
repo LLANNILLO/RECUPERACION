@@ -1,0 +1,53 @@
+/* Selector Universal para definir las propiedades bases para todos los elementos */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* Clase del contenedor de las cajas*/
+.contenedor {
+  /* margin:atuo empleado para centrar el contenedor */
+  margin: auto;
+  margin-top: 20px;
+  padding: 2em;
+  width: 90%;
+  border: 2.5px solid red;
+}
+
+/* Clase comun para todas las cajas */
+.caja {
+  width: 30%;
+  margin: 2em 0.5em;
+  height: 100px;
+  background: firebrick;
+  border: 1px solid;
+  /* Emplear position para poder usar el z-index */
+  /* position: relative; */
+}
+
+/* Caja flotando a la izquierda */
+.izquierda {
+  z-index: 100;
+  float: left;
+}
+
+/* Caja flotando a la derecha */
+.derecha {
+  float: right;
+}
+
+/* Elemento para hacer pruebas en el modelo de cajas */
+.espacio-disponible {
+  /* Emplear otro color para hacerla destacar entre las demás */
+  background-color: blue;
+  z-index: 10;
+  float: left;
+}
+
+/*
+    El padre se ridemnsionara cuando todos sus elementos hijos sean flotantes para corregir su altura
+*/
+.limpiar {
+  clear: both;
+}

@@ -1,0 +1,36 @@
+/* Estilos compartidos entre todos los elementos */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo de la barra de herramientas */
+
+/* Estilo del contenedor */
+
+.contenedor {
+  margin: auto;
+}
+
+/* Estilo de las cajas */
+
+.caja {
+}
+
+.izquierda {
+  background-color: chocolate;
+}
+
+.centro {
+  background-color: darkorange;
+}
+
+.derecha {
+  background-color: coral;
+}
