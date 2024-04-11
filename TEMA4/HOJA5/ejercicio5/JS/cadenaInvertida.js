@@ -7,7 +7,6 @@ const invertida1 = function (cadena) {
   let cadenaInvertida = "";
 
   for (let i = cadena.length - 1; i >= 0; i--) {
-    console.log(cadena[i]);
     cadenaInvertida += cadena[i];
   }
 
@@ -23,13 +22,13 @@ console.log(invertida1("hola"));
  */
 const invertida2 = function (cadena) {
   // Paso 1. Usa el método split() para devolver un nuevo arreglo
-  var invrtirCadena = cadena.split("").reverse();
+  var invertirCadena = cadena.split("").reverse();
 
   // Paso 2. Usa el método join() para unir todos los elementos del arreglo en una cadena
-  var unirArreglo = invrtirCadena.join("");
+  var unirCadena = invertirCadena.join("");
 
-  //Paso 4. Devolver la cadena invertida
-  return unirArreglo; // "aloh"
+  //Paso 3. Devolver la cadena invertida
+  return unirCadena; // "aloh"
 };
 
 console.log(invertida2("hola"));

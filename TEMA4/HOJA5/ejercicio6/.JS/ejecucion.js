@@ -1,8 +1,6 @@
 (function () {
   let fechaEjecucion = new Date();
 
-  let fechaFormateada = fechaEjecucion.toLocaleDateString("es-ES", {
-    timeZone: "UTC",
-  });
+  let fechaFormateada = fechaEjecucion.toISOString();
   console.log(fechaFormateada);
 })();

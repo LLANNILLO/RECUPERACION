@@ -1,10 +1,10 @@
-var palabraSecreta = "secreto";
+var palabraSecreta = "sargento";
 
 function adivina(...palabras) {
   let resultado = palabraSecreta;
 
-  for (let i = 0; i < palabraSecreta.length; i++) {
-    if (!palabras.includes(palabraSecreta[i])) {
+  for (let i = 0; i < resultado.length; i++) {
+    if (!palabras.includes(resultado[i])) {
       resultado = resultado.replace(palabraSecreta[i], "-");
     }
   }

@@ -31,4 +31,4 @@ const vocales = (cadena1, cadena2) => {
   return resultado;
 };
 
-console.log(vocales("caca", "cococo"));
+console.log(vocales("coco", "cococo"));
