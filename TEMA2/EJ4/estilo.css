@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.contenedor {
+  position: relative;
+  left: 5%;
+  margin: 2em 1em;
+  padding: 2em;
+  width: 90%;
+  border: 2.5px solid firebrick;
+}
+
+.caja {
+  width: 30%;
+  margin: 2em 0.5em;
+  height: 100px;
+  background: red;
+  border: 1px solid;
+}
+
+.izquierda {
+  float: left;
+}
+
+.derecha {
+  float: left;
+}
+
+.espacio-disponible {
+  float: right;
+}
+
+/*
+    Corrige la dimension del contenedor padre pues al flotar los elementos hijos,
+    no reconoce sus dimensiones y permite que escapen de su interior
+*/
+.limpiar {
+  clear: both;
+}
