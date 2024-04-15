@@ -13,7 +13,7 @@ class ComposerStaticInitac4b9e882cbc94718c1c3944080fb2d2
         ),
         'C' => 
         array (
-            'Composer\\Contrasena\\' => 20,
+            'Contrasenas\\' => 12,
         ),
     );
 
@@ -22,9 +22,9 @@ class ComposerStaticInitac4b9e882cbc94718c1c3944080fb2d2
         array (
             0 => __DIR__ . '/..' . '/hackzilla/password-generator',
         ),
-        'Composer\\Contrasena\\' => 
+        'Contrasenas\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/app',
         ),
     );
 

@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'composer/contrasena',
-        'pretty_version' => 'dev-DWES',
-        'version' => 'dev-DWES',
-        'reference' => '4ff65d676cde60dee1d3e3de69b0ca089ebeeb16',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '121b123fc2f5768b09bd5fc667c02bfa4fd1772a',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'composer/contrasena' => array(
-            'pretty_version' => 'dev-DWES',
-            'version' => 'dev-DWES',
-            'reference' => '4ff65d676cde60dee1d3e3de69b0ca089ebeeb16',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '121b123fc2f5768b09bd5fc667c02bfa4fd1772a',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

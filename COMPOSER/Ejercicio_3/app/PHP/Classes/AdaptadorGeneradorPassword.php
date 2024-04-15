@@ -3,7 +3,6 @@
 namespace Contrasenas\PHP\Classes;
 
 use Contrasenas\PHP\Interfaces\InterfazGeneradorPassword;
-use Hackzilla\PasswordGenerator\Generator\ComputerPasswordGenerator;
 
 class AdaptadorGeneradorPassword implements InterfazGeneradorPassword
 {
@@ -13,26 +12,23 @@ class AdaptadorGeneradorPassword implements InterfazGeneradorPassword
     protected bool $minusculas;
     protected bool $numeros;
     protected bool $simbolos;
+    protected int  $longitud;
     protected int  $cantidad;
 
 
-    public function __construct($mayusculas,$minusculas,$numeros,$simbolos,$cantidad)
+    public function __construct(bool $mayusculas, bool $minusculas, bool $numeros, bool $simbolos, int $longitud, int $cantidad)
     {
         $this->mayusculas = $mayusculas;
         $this->minusculas = $minusculas;
         $this->numeros = $numeros;
         $this->simbolos = $simbolos;
+        $this->longitud = $longitud;
         $this->cantidad = $cantidad;
     }
 
-    public function generar(){
+    public function generar()
+    {
 
-        $contrasenasGeneradas = GeneradorPassword::generarPassword($this->mayusculas, $this->minusculas,$this->numeros,$this->simbolos);
-        
-
+        return GeneradorPassword::generarPassword($this->mayusculas, $this->minusculas, $this->numeros, $this->simbolos, $this->longitud, $this->cantidad);
     }
-    
-
 }
-
-?>
