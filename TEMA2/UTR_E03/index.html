@@ -6,50 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Position y Overflow</title>
     <link rel="stylesheet" href="./Estilo/estilo.css" />
-    <script src="./JS/toolbar.js"></script>
+    <script src="./JS/estilar.js"></script>
   </head>
   <body>
     <!-- Herramentas de seleccion position y ovwerflow -->
-    <div class="tool-bar">
+    <div class="herramientas">
       <p>Área de controles</p>
-      <!-- Seleccion del valor de la posicion de las cajas -->
+      <div class="opciones">
+        <!-- Seleccion del valor de la posicion de las cajas -->
 
-      <span>Posicion de las cajas</span>
-      <select id="position">
-        <option value="static">static</option>
-        <option value="relative">relative</option>
-        <option value="absolute">absolute</option>
-        <option value="fixed">fixed</option>
-        <option value="sticky">sticky</option>
-      </select>
+        <span>Posicion de las cajas</span>
+        <select id="position">
+          <option value="static">static</option>
+          <option value="relative">relative</option>
+          <option value="absolute">absolute</option>
+          <option value="fixed">fixed</option>
+          <option value="sticky">sticky</option>
+        </select>
 
-      <!-- Herramientas para la seleccion de top y left -->
-      <div>
-        <p>Valores del top y left</p>
-        <!-- Seleccion del valor del top de las cajas -->
-        <label for="top_value">Valor del top</label>
-        <input type="number" id="top_value" />
+        <!-- Herramientas para la seleccion de top y left -->
+        <div>
+          <span>Valores del top y left:</span>
+          <!-- Seleccion del valor del top de las cajas -->
+          <label for="top_valor">Valor del top</label>
+          <input type="number" id="top_valor" />
 
-        <!-- Seleccion del valor del left de las cajas -->
-        <label for="left_value">Valor del left</label>
-        <input type="number" id="top_value" />
+          <!-- Seleccion del valor del left de las cajas -->
+          <label for="left_valor">Valor del left</label>
+          <input type="number" id="left_valor" />
+        </div>
+
+        <!-- Seleccion del valor del overflow -->
+        <span>Desbordamiento de las cajas</span>
+        <select id="overflow">
+          <option value="visible">visible</option>
+          <option value="hidden">hidden</option>
+          <option value="scroll">scroll</option>
+          <option value="auto">auto</option>
+        </select>
       </div>
-
-      <!-- Seleccion del valor del overflow -->
-      <span>Desbordamiento de las cajas</span>
-      <select id="overflow">
-        <option value="visible">visible</option>
-        <option value="hidden">hidden</option>
-        <option value="scroll">scroll</option>
-        <option value="auto">auto</option>
-      </select>
     </div>
 
     <!-- Contenedor de las cajas modificadas con la tool-bar -->
     <div class="contenedor">
       <div class="caja izquierda"></div>
-      <div class="caja centro"></div>
-      <div class="caja derecha"></div>
+      <div class="caja centro" id="segundoDiv"></div>
+      <div class="caja derecha"></div>        
+      </div>
+    <div class="scroll"></div>
     </div>
   </body>
 </html>

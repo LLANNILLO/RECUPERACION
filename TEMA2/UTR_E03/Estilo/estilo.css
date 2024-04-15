@@ -14,23 +14,68 @@ html {
 
 /* Estilo del contenedor */
 
+.herramientas {
+  margin: auto;
+  margin-top: 20px;
+  padding: 2em;
+  width: fit-content;
+  border: 5px solid rgb(151, 113, 255);
+  border-radius: 4px;
+}
+
+.herramientas > p {
+  margin: 0 auto; /* Márgenes automáticos para centrar horizontalmente */
+  text-align: center;
+  width: fit-content;
+  padding: 10px 20px;
+  border: 3px solid rgba(69, 35, 219, 0.986);
+  background-color: rgba(223, 135, 231, 0.76);
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: x-large;
+  text-decoration: underline rgba(69, 35, 219, 0.986);
+}
+
+.herramientas .opciones {
+  margin-top: 2%;
+  padding: 2em;
+  border: 2px solid rgba(69, 35, 219, 0.986);
+  background-color: rgba(223, 135, 231, 0.76);
+  width: fit-content;
+}
+
 .contenedor {
   margin: auto;
+  margin-top: 20px;
+  width: fit-content;
+  height: 40vh;
+  border: 5px solid rgb(151, 113, 255);
+  border-radius: 4px;
 }
 
 /* Estilo de las cajas */
 
 .caja {
+  display: inline-block;
+  width: 232px;
+  margin: 10px 20px 10px 20px;
+  height: 100px;
+  background: firebrick;
+  border: 1px solid;
 }
 
 .izquierda {
-  background-color: chocolate;
+  background-color: red;
 }
 
 .centro {
-  background-color: darkorange;
+  background-color: blue;
 }
 
 .derecha {
-  background-color: coral;
+  background-color: green;
+}
+
+.scroll {
+  height: 400vh;
 }
