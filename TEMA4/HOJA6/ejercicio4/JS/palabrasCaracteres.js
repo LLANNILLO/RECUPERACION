@@ -25,5 +25,5 @@ function caracteresIgualesCadenas(cadena1, cadena2) {
   return resultado;
 }
 
-console.log(caracteresIgualesCadenas("Hola", "aloH"));
+console.log(caracteresIgualesCadenas("Hola", "aloh"));
 console.log(caracteresIgualesCadenas("Hola", "Jola"));

@@ -1,8 +1,7 @@
 var arrayPalabras = [];
-
 do {
   let palabra = prompt("Nueva palabra");
-  let continuar = false;
+  var continuar = false;
 
   if (palabra !== "" && palabra !== null) {
     continuar = true;
