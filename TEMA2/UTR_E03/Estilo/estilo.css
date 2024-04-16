@@ -8,6 +8,9 @@
 
 html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --borde-cajas: rgb(151, 113, 255);
+  --border-violeta: rgb(69, 35, 219);
+  --color-fondo: rgb(223 135 231 / 0.76);
 }
 
 /* Estilo de la barra de herramientas */
@@ -18,49 +21,58 @@ html {
   margin: auto;
   margin-top: 20px;
   padding: 2em;
-  width: fit-content;
-  border: 5px solid rgb(151, 113, 255);
+  width: 800px;
+  border: 5px solid var(--borde-cajas);
   border-radius: 4px;
 }
 
-.herramientas > p {
-  margin: 0 auto; /* Márgenes automáticos para centrar horizontalmente */
-  text-align: center;
-  width: fit-content;
-  padding: 10px 20px;
-  border: 3px solid rgba(69, 35, 219, 0.986);
-  background-color: rgba(223, 135, 231, 0.76);
-  border-radius: 20px;
+/* Estilo de los span dentro de la caja de herramientas */
+span {
   font-weight: bold;
-  font-size: x-large;
-  text-decoration: underline rgba(69, 35, 219, 0.986);
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline 0.5px;
+}
+
+/* margenes entre las herramientas */
+input[type="number"] {
+  margin: 1.5% 0px;
+}
+.herramientas > h2 {
+  margin: 0 auto; /* Márgenes automáticos para centrar horizontalmente */
+  width: max-content;
+  padding: 10px 20px;
+  border: 3px solid var(--border-violeta);
+  background-color: var(--color-fondo);
+  border-radius: 20px;
+  text-decoration: underline var(--border-violeta);
 }
 
 .herramientas .opciones {
-  margin-top: 2%;
-  padding: 2em;
-  border: 2px solid rgba(69, 35, 219, 0.986);
-  background-color: rgba(223, 135, 231, 0.76);
+  margin: 2% auto;
+  padding: 2%;
+  border: 2px solid var(--border-violeta);
+  background-color: var(--color-fondo);
   width: fit-content;
 }
 
 .contenedor {
   margin: auto;
   margin-top: 20px;
-  width: fit-content;
+  width: 800px;
   height: 40vh;
-  border: 5px solid rgb(151, 113, 255);
+  border: 5px solid var(--borde-cajas);
   border-radius: 4px;
 }
 
 /* Estilo de las cajas */
 
 .caja {
+  /* Mostrar las cajas en paralelo al mismo nivel*/
   display: inline-block;
-  width: 232px;
-  margin: 10px 20px 10px 20px;
+  width: 25%;
+  margin-left: 47.5px;
+  margin-top: 20px;
   height: 100px;
-  background: firebrick;
   border: 1px solid;
 }
 
@@ -76,6 +88,11 @@ html {
   background-color: green;
 }
 
+/* altura extra para trabajar con overflow y p:fixed y sticky */
 .div-modificable {
   height: 400vh;
+}
+
+.limpiar {
+  clear: both;
 }
