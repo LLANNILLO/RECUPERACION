@@ -1,3 +1,14 @@
+/* function sonAnagramas(...textos) {
+  // Convertir cada texto en un array de caracteres ordenados alfabéticamente
+  const arraysOrdenados = textos.map((texto) =>
+    texto.toLowerCase().split("").sort().join("")
+  );
+
+  // Comprobar si todos los arrays son iguales
+  const primerArray = arraysOrdenados[0];
+  return arraysOrdenados.every((array) => array === primerArray);
+} */
+
 /**
  *
  * @param  {...string} textos
