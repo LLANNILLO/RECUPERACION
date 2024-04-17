@@ -27,3 +27,4 @@ function jugarPartida(numPartidas = 5) {
 console.log(jugarPartida());
 console.log(jugarPartida(3));
 console.log(jugarPartida(10));
+console["log"](jugarPartida(10));
