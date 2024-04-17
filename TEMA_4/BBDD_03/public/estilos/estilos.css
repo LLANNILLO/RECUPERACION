@@ -1,0 +1,144 @@
+html {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/*** Estilo exclusivo BBDD_03 ***/
+.centrar {
+  margin: auto;
+  border: 5px solid #68b12f;
+  border-radius: 10px;
+  padding: 2.5% 5%;
+  width: 800px;
+}
+
+.centrar h1{
+  margin: 0 auto;
+  background-color: #396715;
+  color: #ffffff;
+  border-radius: 4.05px;
+  text-decoration: underline 2px;
+  padding: 2px 25px;
+  width: fit-content;
+}
+
+
+ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+li {
+  padding: 20px 0px;
+  border-bottom: 1px solid;
+
+}
+
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #396715;
+}
+
+.plazas {
+  margin: 6% auto;
+  width: fit-content;
+}
+
+.plazas label {
+  display: block;
+  margin: 12px;
+}
+
+
+
+
+
+
+.formulario h1 {
+  margin: 0;
+  display: inline;
+}
+
+
+
+.formulario input {
+  height: 30px;
+  width: 220px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.formulario select {
+  height: 30px;
+  width: 238px;
+  padding: 5px 8px;
+}
+
+.formulario input {
+  margin-left: 130px;
+  margin-right: 15px;
+}
+
+/*** botón formulario ***/
+input[type="submit"] {
+  background-color: #68b12f;
+  border: 1px solid #509111;
+  border-bottom: 1px solid #5b992b;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 #9fd574;
+  color: white;
+  font-weight: bold;
+  padding: 6px 0px;
+  text-align: center;
+  text-shadow: 0 -1px 0 #396715;
+}
+
+input[type="submit"]:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+input[type="submit"]:active {
+  border: 1px solid #20911e;
+  box-shadow: 0 0 10px 5px #356b0b inset;
+}
+
+/*** aviso ***/
+.aviso {
+  width: 710px;
+  padding: 20px;
+  background-color: #2196f3;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/*** tabla ***/
+.tabla {
+  padding: 0;
+  width: 650px;
+  margin: 20px 0 0 30px;
+}
+
+.tabla th {
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.4;
+  text-transform: uppercase;
+  background-color: #68b12f;
+}
+
+.tabla td {
+  font-size: 14px;
+  color: #808080;
+  line-height: 1.4;
+  padding: 8px;
+  padding-left: 16px;
+  text-align: center;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: #eaf8e6;
+}
