@@ -15,11 +15,11 @@ class Bombilla implements Encendible{
     public function encender(){
         if($this->horas_de_vida > 1){
             echo "<p>La bombilla ha sido encendida<p>";
+            $this->horas_de_vida -= 2;
         }else{
             echo "<p>No se puede encender porque 
             no hay horas de vida util en la bombilla<p>";
         }
-        $this->horas_de_vida -= 2;
     }
 
     public function apagar(){
