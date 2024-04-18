@@ -102,7 +102,7 @@ class FuncionesBD
 
         try {
 
-            $consulta = $conexion->prepare('INSERT INTO pasajeros (dni,nombre,sexo,numero_plaza) VALUES()(?,?,?,?)');
+            $consulta = $conexion->prepare('INSERT INTO pasajeros (dni,nombre,sexo,numero_plaza) VALUES(?,?,?,?)');
 
             $consulta->bindParam(1, $dni);
             $consulta->bindParam(2, $nombre);
@@ -111,11 +111,114 @@ class FuncionesBD
 
             if ($consulta->execute()) {
                 $resultado = 'Se ha resrvado satisfactoriamente el asiento' . $numero_plaza . self::$paginaIncio;
+                self::actualizar_reserva_plaza($numero_plaza);
             }
         } catch (PDOException $exception) {
-            $resultado = 'Error en la reserva: ' . $exception->getMessage();
+            if ($exception->getCode() === '23000') {
+                $resultado = 'Usted ya es propietario de un boleto en el funicular';
+            } else {
+                $resultado = 'Error en la reserva: ' . $exception->getMessage();
+            }
         }
 
         return $resultado;
+    }
+
+
+    private static function actualizar_reserva_plaza($numero_plaza): void
+    {
+
+        $conexion = ConexionBD::getConnection();
+
+        try {
+
+            // Seleccionar la columna reservada
+            $registro = $conexion->query('SELECT reservada FROM plazas where numero = ' . $numero_plaza);
+            // Obtener el valor de la columna reservada
+            $reserva = $registro->fetch(PDO::FETCH_OBJ)->reservada;
+
+            $conexion->beginTransaction();
+            // Verificar si la plaza está reservada o no y actualizar en consecuencia
+            if ($reserva === 0) {
+                $actualizacion = $conexion->prepare('UPDATE plazas SET reservada = 1 WHERE numero = ?');
+
+                $actualizacion->bindParam(1, $numero_plaza);
+
+                if ($actualizacion->execute()) {
+                    $conexion->commit();
+                } else {
+                    $conexion->rollBack();
+                }
+            }
+        } catch (PDOException $exception) {
+            var_dump('Error' . $exception->getMessage());
+        }
+    }
+
+
+    public static function llegada_pasajeros(): string
+    {
+        $mensaje = '';
+        $borrado = self::borrar_pasajeros();
+        if ($borrado['correcto']) {
+            $mensaje = self::reorganizar_reservas();
+        } else {
+            $mensaje =  $borrado['error'];
+        }
+
+        return $mensaje;
+    }
+
+    /**
+     * 
+     * Funcion para eliminar todos los pasajeros de una
+     */
+    private static function borrar_pasajeros()
+    {
+        $correcto = false;
+        $conexion = ConexionBD::getConnection();
+        $mensaje_error = '';
+        try {
+            $conexion->beginTransaction();
+            $consulta = $conexion->exec('DELETE FROM pasajeros');
+
+            if ($consulta === 0) {
+                $conexion->rollBack();
+                $mensaje_error = 'No habia que hacer cambios ' . self::$paginaIncio;
+            } else {
+                $correcto = true;
+                $conexion->commit();
+            }
+        } catch (PDOException $exception) {
+            $mensaje_error =  'Error a la hora de borrar los pasajeros: ' . $exception->getMessage();
+        }
+
+        //retornar el array con los valores del booleano de la funcion y del mensaje de error (si es que falla)
+        return ['correcto' => $correcto, 'error' => $mensaje_error];
+    }
+
+    /**
+     * 
+     * Funcion para actualizar las reservas una vez eliminados todos los pasajeros
+     */
+    private static function reorganizar_reservas()
+    {
+        $mensaje = "";
+        $conexion = ConexionBD::getConnection();
+
+        try {
+            $conexion->beginTransaction();
+            $consulta = $conexion->prepare('UPDATE plazas SET reservada = 0 WHERE reservada = 1');
+            if ($consulta->execute()) {
+                $conexion->commit();
+                $mensaje = 'Realizado los cambios ' . self::$paginaIncio;
+            } else {
+                $conexion->rollBack();
+            }
+        } catch (PDOException $exception) {
+            $mensaje = 'Error a la de la reorganizacion: ' . $exception->getMessage();
+        }
+
+        return $mensaje;
     }
 }

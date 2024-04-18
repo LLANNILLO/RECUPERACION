@@ -34,6 +34,11 @@ html {
   display: block;
 }
 
+span {
+  display: inline-block;
+  margin-top: 20px;
+}
+
 .reserva_plaza input,
 .reserva_plaza select {
   display: block; /* Alinea los elementos en la misma línea */
@@ -113,6 +118,7 @@ a {
 
 /*** botón formulario ***/
 input[type="submit"] {
+  margin-top: 15px;
   background-color: #68b12f;
   border: 1px solid #509111;
   border-bottom: 1px solid #5b992b;
