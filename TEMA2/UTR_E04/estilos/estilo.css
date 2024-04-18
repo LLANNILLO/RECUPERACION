@@ -1,0 +1,213 @@
+/* selector universal */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --fondo-cabecera-footer: #0f76a0;
+  --fondo-color: #9fc8d9;
+  --fondo-aside: #e7f1f5;
+  --color-resalto: #094660;
+  --color-li: #6facc6;
+  --color-pie-anchor: #666666;
+  --color-nav-anchor: #333333;
+}
+
+/* identificador de la cabecera: #cabeceralogo */
+
+/* estilo del header*/
+#cabeceralogo {
+  width: 96%;
+  height: 150px;
+  padding: 2%;
+  background-color: var(--fondo-cabecera-footer);
+}
+
+/* estilo del div y del h1 */
+#cabeceralogo div {
+  margin: auto;
+  width: 960px;
+}
+
+#cabeceralogo h1 {
+  font-size: 54px;
+  font-weight: bolder;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* identificador de la barra de navegacion: #menuprincipal */
+
+#menuprincipal {
+  width: 96%;
+  height: 50px;
+  padding: 2% 0;
+  background-color: var(--fondo-color);
+  border-top: 1px solid var(--color-resalto);
+  border-bottom: 1px solid var(--color-resalto);
+}
+
+#menuprincipal li {
+  display: inline;
+  padding: 15px 10px 0px 10px;
+}
+
+#listamenu {
+  display: inline-block;
+  height: 35px;
+  position: relative;
+  padding: 15px 10px 0px;
+  margin-left: 5px;
+}
+
+#listamenu li > ul {
+  display: none;
+}
+
+/* hover en los enlaces */
+#menuprincipal li:hover {
+  background-color: var(--color-li);
+}
+
+/* estilo de los enlaces de la nav */
+#menuprincipal li a {
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: bolder;
+  color: var(--nando);
+  text-decoration: none;
+}
+
+/* selector de la seccion principal */
+
+main {
+  width: 96%;
+  padding: 2%;
+  /* configuracion de la imagen del fondo */
+  background-image: url(./../imagen/fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 40% 30%;
+  background-attachment: fixed;
+}
+
+main div {
+  margin: 0 auto;
+  width: 960px;
+}
+
+/* identificador de la seccion principales:#articulosprincipales */
+
+#articulosprincipales {
+  float: left;
+  width: 620px;
+  background-color: white;
+  border-radius: 10px;
+  padding-top: 30px;
+}
+
+#articulosprincipales article {
+  position: relative;
+  margin-bottom: 10px;
+  padding: 30px 50px 20px;
+}
+
+/* selector del aside dentro del main principal */
+aside {
+  float: right;
+  width: 280px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--fondo-aside);
+}
+
+/* div para consolidar las dimensiones de los articulos */
+.limpiar {
+  clear: both;
+}
+
+/* estilo de las fechas */
+#articulosprincipales time {
+  display: block;
+  position: absolute;
+  top: 3%;
+  left: -12%;
+  width: 90px;
+  padding: 15px 5px;
+  background-color: var(--color-resalto);
+  box-shadow: 3px 3px 5px rgb(100 100 100 /0.7);
+  border-radius: 5px;
+}
+
+/* estilo de la clase del numero del dia (FECHAS) */
+.numerodia {
+  font-size: 36px;
+  /* centrar elementos en el time */
+  width: fit-content;
+  font-weight: bold;
+  font-family: Verdana, sans-serif;
+  color: white;
+}
+
+/* estilo de la clase del nombre del dia (FECHAS) */
+.nombredia {
+  width: fit-content;
+  font-size: 12px;
+  font-family: Verdana, sans-serif;
+  color: white;
+}
+
+/* estilo de titulos en los articulos */
+
+article h1 {
+  margin-bottom: 5px;
+  font-family: Georgia, sans-serif;
+  font-size: 30px;
+}
+
+article p {
+  font-size: 18px;
+  font-family: Georgia, sans-serif;
+}
+
+/* identificador del pie de pagina:#pielogo */
+
+#pielogo {
+  width: 96%;
+  padding: 2%;
+  background-color: var(--fondo-cabecera-footer);
+}
+
+#pielogo div {
+  margin: 0 auto;
+  width: 960px;
+  background-color: var(--fondo-color);
+  border-radius: 10px;
+}
+
+#pielogo section {
+  float: left;
+  width: 27.33%;
+  padding: 3%;
+}
+
+#pielogo h1 {
+  font-family: Arial, sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+#pielogo p {
+  margin-top: 5px;
+}
+
+#pielogo a {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--color-pie-anchor);
+  text-decoration: none;
+}
