@@ -16,6 +16,11 @@ html {
   --color-nav-anchor: #333333;
 }
 
+img {
+  border: 1px solid;
+  padding: 4px;
+}
+
 /* identificador de la cabecera: #cabeceralogo */
 
 /* estilo del header*/
@@ -43,33 +48,12 @@ html {
 
 #menuprincipal {
   width: 96%;
-  height: 50px;
-  padding: 2% 0;
+  height: 100px;
+  padding: 2%;
+  position: relative;
   background-color: var(--fondo-color);
   border-top: 1px solid var(--color-resalto);
   border-bottom: 1px solid var(--color-resalto);
-}
-
-#menuprincipal li {
-  display: inline;
-  padding: 15px 10px 0px 10px;
-}
-
-#listamenu {
-  display: inline-block;
-  height: 35px;
-  position: relative;
-  padding: 15px 10px 0px;
-  margin-left: 5px;
-}
-
-#listamenu li > ul {
-  display: none;
-}
-
-/* hover en los enlaces */
-#menuprincipal li:hover {
-  background-color: var(--color-li);
 }
 
 /* estilo de los enlaces de la nav */
@@ -79,6 +63,43 @@ html {
   font-weight: bolder;
   color: var(--nando);
   text-decoration: none;
+}
+
+/* estilo de la lista del nav */
+#listamenu {
+  /* posicion absoluta para ser el punto de referencia de cada li */
+  position: absolute;
+  top: 24%;
+  left: 25%;
+}
+#listamenu li {
+  /* mostrarlos en linea de bloque */
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  padding: 15px 10px 0px;
+  margin-left: 0%;
+}
+
+/* hover en los enlaces */
+#listamenu > li:hover {
+  background: #6facc6;
+}
+
+/* Ocultar el submenu */
+#listamenu li > ul {
+  display: none;
+}
+
+/* Submenu visible cuando se heace hover en el li correcto*/
+#listamenu li:hover > ul {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  background-color: var(--fondo-color);
+  border: 10px;
+  border-radius: 0 0 10px 10px;
 }
 
 /* selector de la seccion principal */
@@ -106,20 +127,22 @@ main div {
   width: 620px;
   background-color: white;
   border-radius: 10px;
-  padding-top: 30px;
+  padding-top: 4%;
 }
 
 #articulosprincipales article {
+  /* posicion relativa para ser punto de referencia de las fechas */
   position: relative;
   margin-bottom: 10px;
-  padding: 30px 50px 20px;
+  padding: 3% 8% 2%;
 }
 
 /* selector del aside dentro del main principal */
 aside {
+  /* flotando a la derecha de la seccion */
   float: right;
   width: 280px;
-  padding: 20px;
+  padding: 2%;
   border-radius: 10px;
   background-color: var(--fondo-aside);
 }
@@ -131,12 +154,13 @@ aside {
 
 /* estilo de las fechas */
 #articulosprincipales time {
+  /* mostrar las fechas al lado de cada articulo */
   display: block;
   position: absolute;
   top: 3%;
   left: -12%;
   width: 90px;
-  padding: 15px 5px;
+  padding: 3% 0.5%;
   background-color: var(--color-resalto);
   box-shadow: 3px 3px 5px rgb(100 100 100 /0.7);
   border-radius: 5px;
@@ -163,7 +187,7 @@ aside {
 /* estilo de titulos en los articulos */
 
 article h1 {
-  margin-bottom: 5px;
+  margin-bottom: 2%;
   font-family: Georgia, sans-serif;
   font-size: 30px;
 }
@@ -201,7 +225,7 @@ article p {
 }
 
 #pielogo p {
-  margin-top: 5px;
+  margin-top: 2.5%;
 }
 
 #pielogo a {
