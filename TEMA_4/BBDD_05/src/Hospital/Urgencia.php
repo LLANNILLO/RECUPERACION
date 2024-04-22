@@ -2,7 +2,7 @@
 
 namespace BD5\Hospital;
 
-use BD5\Enum\Turno;
+
 
 class Urgencia extends Medico
 {
