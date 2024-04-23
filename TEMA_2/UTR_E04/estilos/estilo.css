@@ -25,8 +25,9 @@ img {
 
 /* estilo del header*/
 #cabeceralogo {
+  width: 100%;
   height: 150px;
-  padding: 2%;
+  padding: 2% 0;
   background-color: var(--fondo-cabecera-footer);
 }
 
@@ -53,59 +54,54 @@ tamaño de los li coincide con tamaño nav
 #menuprincipal {
   width: 100%;
   height: 50px;
-  padding: 2% 0;
+  padding: 0 2%;
   background-color: var(--fondo-color);
   outline: 1px solid var(--color-resalto);
 }
-
-/* estilo de los enlaces de la nav */
-#menuprincipal li a {
+#listamenu {
+  width: fit-content;
+  margin: auto;
+}
+#listamenu li a {
   font-family: Arial;
-  font-size: 18px;
   font-weight: bolder;
-  color: var(--nando);
+  font-size: 1em;
+  color: var(--color-nav-anchor);
   text-decoration: none;
 }
-
-/* estilo de la lista del nav */
-#listamenu {
-  /* posicion absoluta para ser el punto de referencia de cada li */
-}
 #listamenu li {
-  /* mostrarlos en linea de bloque */
   display: inline-block;
   position: relative;
+  height: 50px;
+  padding: 15px 10px;
 }
-
-/* hover en los enlaces */
 #listamenu li:hover {
-  background: #6facc6;
+  background-color: var(--color-li);
 }
 
-/* Ocultar el submenu */
 #listamenu li > ul {
   display: none;
 }
-
-/* Submenu visible cuando se heace hover en el li correcto*/
 #listamenu li:hover > ul {
   display: block;
   position: absolute;
-  top: 100%;
-  left: 0%;
+  top: 50px;
+  left: 0px;
   background-color: var(--fondo-color);
-  border: 10px;
-  border-radius: 0 0 10px 10px;
-  /* agregar la sombra */
-  box-shadow: 0 10px 5px 5px rgb(100 100 100 /0.7);
+  border-radius: 0px 0px 8px 8px;
+  box-shadow: 0 10px 5px 5px rgb(100 100 100 / 0.7);
 }
+
 li > ul li {
   width: 120px;
   height: 35px;
-  padding-top: 15px;
-  padding-left: 10px;
+  padding: 15px 10px;
 }
 
+/* Agregado para no perder las esquinas redondeadas del menu con el hover del li */
+li > ul li:last-child {
+  border-radius: 0px 0px 8px 8px;
+}
 /* selector de la seccion principal */
 
 main {
@@ -137,6 +133,7 @@ main div {
 #articulosprincipales article {
   /* posicion relativa para ser punto de referencia de las fechas */
   position: relative;
+  margin-top: 5%;
   margin-bottom: 1%;
   padding: 3% 8% 2%;
 }
