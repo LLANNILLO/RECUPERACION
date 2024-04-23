@@ -3,13 +3,17 @@
 
 session_start();
 
-$momento = new DateTime();
+$momento = date('Y-m-d H:i:s');
 
-//$_SESSION['visitas'] = ['momento_visita'][$momento];
+if (!isset($_SESSION['visitas'])) {
+        // Si no está definido, inicializar el array
+        $_SESSION['visitas'] = array();
+        echo ("Bienvenido, esta es tu primera visita $momento");
+} else {
 
-foreach($_SESSION['visitas'] as $momento){
-        echo "HOLA";
+        $_SESSION['visitas'][] = $momento;
 
+        foreach ($_SESSION['visitas'] as $visita_momento) {
+                echo "<p>Hora de conexion: $visita_momento</p><hr />";
+        }
 }
-
-?>
