@@ -1,0 +1,27 @@
+{
+    "name": "tienda/videojuegos",
+    "description": "Tarea evaluable (Práctica de unidades 04-05) sobre la creacion de una tienda",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tienda\\": "app/"
+        },
+        "files": [
+            "./helper.php"
+        ]
+
+    },
+    "authors": [
+        {
+            "name": "LLANNILLO",
+            "email": "david.llanilloantolin@iesmiguelherrero.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "scripts": {
+        "start":"public -S localhost:8000 -t public"
+    }
+}
