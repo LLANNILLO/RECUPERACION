@@ -16,6 +16,21 @@ var contenidoEntreApariciones = contenido.slice(
   ultimaAparicion
 );
 
+/* var contenidoAlterado = [];
+contenidoEntreApariciones.split("").forEach((caracter) => {
+  let posicion = contenidoEntreApariciones.indexOf(
+    caracter,
+    contenidoEntreApariciones.indexOf(caracter)
+  );
+  console.log(posicion);
+  if (posicion % 2 === 0) {
+    caracter = caracter.toUpperCase();
+  } else {
+    caracter = caracter.toLowerCase();
+  }
+  contenidoAlterado.push(caracter);
+});
+console.log(contenidoAlterado.join("")); */
 //solucion
 var contenidoAlterado = [];
 let posicion = 0;
