@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basicos Flexbox</title>
+    <script src="./JS/controles.js"></script>
+    <link rel="stylesheet" href="./estilos/estilos.css" />
+  </head>
+  <body>
+    <!-- Caja de controles de los elementos flex -->
+    <header>
+      <div>
+        <h1>Control de Flexbox</h1>
+      </div>
+
+      <div>
+        <!-- Selector de la direccion -->
+        <label for="flexDirection"> Flex Direction:</label>
+        <select name="flex_direction" id="flexDirection">
+          <option value="row">Row</option>
+          <option value="row-reverse">Row-reverse</option>
+          <option value="column">Column</option>
+          <option value="column-reverse">Column-reverse</option>
+        </select>
+
+        <!-- Selector del wrap-->
+        <label for="flexWrap"> Flex Wrap:</label>
+        <select name="flex_direction" id="flexWrap">
+          <option value="nowrap">No Wrap</option>
+          <option value="wrap">Wrap</option>
+          <option value="wrap-reverse">Wrap-reverse</option>
+        </select>
+
+        <!-- Espacion especial para la alineacion y distribucion -->
+        <fieldset>
+          <legend>Alineacion y Distribucion</legend>
+
+          <!-- Selector de la alineacion del eje principal -->
+          <label for="justifyContent">Justify Content:</label>
+          <select name="justify-content" id="justifyContent">
+            <option value="flex-start">Flex Start</option>
+            <option value="flex-end">Flex End</option>
+            <option value="center">Center</option>
+            <option value="space-between">Space Between</option>
+            <option value="space-around">Space Around</option>
+            <option value="space-evenly">Space Evenly</option>
+          </select>
+
+          <!-- Selector de la alineacion del eje tranversal -->
+          <label for="alignItems">Align Items:</label>
+          <select name="align-items" id="alignItems">
+            <option value="stretch">Stretch</option>
+            <option value="baseline">Baseline</option>
+            <option value="flex-start">Flex Start</option>
+            <option value="flex-end">Flex End</option>
+            <option value="center">Center</option>
+          </select>
+
+          <!-- elector de la alineacion del eje tranversal en el caso de multiple linea -->
+          <label for="alignContent">Align Content:</label>
+          <select name="align-content" id="alignContent">
+            <option value="stretch">Stretch</option>
+            <option value="flex-start">Flex Start</option>
+            <option value="flex-start">Flex End</option>
+            <option value="center">Center</option>
+            <option value="space-between">Space Between</option>
+            <option value="space-around">Space Around</option>
+            <option value="space-evenly">Space Evenly</option>
+          </select>
+        </fieldset>
+
+        <!-- Rango selector del tamaño de las cajas flex -->
+        <span>Tamaño del Elemento (%)</span>
+        <input type="range" id="tamanoCajas" min="6" max="100" value="10" />
+      </div>
+    </header>
+
+    <main>
+      <section id="flex_container">
+        <div>Elemento 1</div>
+        <div>Elemento 2</div>
+        <div>Elemento 3</div>
+        <div>Elemento 4</div>
+        <div>Elemento 5</div>
+      </section>
+    </main>
+  </body>
+</html>

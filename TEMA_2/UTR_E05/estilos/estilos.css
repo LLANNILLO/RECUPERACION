@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 800px;
+  background-color: azure;
+  padding: 2% 1%;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 2%;
+}
+fieldset {
+  margin: 1% 0;
+  padding: 2%;
+}
+
+main {
+  width: 800px;
+  padding: 2% 1%;
+  outline: 2px solid;
+  margin: 5% auto 0;
+}
+
+#flex_container {
+  display: flex;
+}
+#flex_container div {
+  margin: 2% 0;
+  width: 10%;
+  outline: 1px solid;
+  padding: 1% 2%;
+  background-color: rgb(163, 203, 240);
+  word-wrap: break-word;
+  word-break: break-all;
+}
