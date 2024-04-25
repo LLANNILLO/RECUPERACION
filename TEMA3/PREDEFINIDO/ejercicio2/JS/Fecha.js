@@ -100,7 +100,7 @@ class Fecha {
     ) {
       if (
         +anyo > 999 &&
-        +mes <= 31 &&
+        +mes <= 12 &&
         dia <= 31 &&
         +horas <= 24 &&
         minutos <= 60 &&
@@ -133,13 +133,11 @@ class Fecha {
   }
 }
 
-var fecha1 = "2024-04-24 03:24:12";
-var fecha2 = "197-01-01";
-var fechas = new Fecha(fecha1, fecha2);
+var fechas = new Fecha();
 
 console.log(`La diferencia entre las fechas es: ${fechas.difFechas()}`);
 console.log(`La fecha mayor es ${fechas.maxFechas()}`);
-fechas.ayerFecha();
+//fechas.ayerFecha();
 console.log(fechas);
 fechas.mañanaFecha();
 console.log(fechas);
