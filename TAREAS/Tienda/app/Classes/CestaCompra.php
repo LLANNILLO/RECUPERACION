@@ -2,7 +2,7 @@
 
 use Tienda\Interfaces\IntRepoProducto;
 
-class CetaCompra
+class CestaCompra
 {
 
     protected array $productos;

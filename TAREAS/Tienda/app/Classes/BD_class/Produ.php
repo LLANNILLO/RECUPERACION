@@ -28,6 +28,19 @@ class Produ
     {
         return $this->repositorioProducto->listar_por_id($id);
     }
+    
+    /* 
+    Realizar una vez confirmados los cambios en la BD
+    public function obtenerProductoPorFamilia(int $id): Producto
+    {
+        return $this->repositorioProducto->listar_por_familia($id);
+    }
+    
+    public function obtenerProductoPorDesarrollador(): array
+    {
+        return $this->repositorioProducto->listar_por_desarrollador(): array;
+    }
+     */
 
     public function borrarProducto(int $id): bool
     {
