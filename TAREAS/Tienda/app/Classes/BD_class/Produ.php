@@ -9,6 +9,10 @@ class Produ
 {
     private $repositorioProducto;
 
+
+    /*
+    Constructor del Produ. Principio Solid open/close
+    */
     public function __construct(IntRepoProducto $repositorioProducto)
     {
         $this->repositorioProducto = $repositorioProducto;

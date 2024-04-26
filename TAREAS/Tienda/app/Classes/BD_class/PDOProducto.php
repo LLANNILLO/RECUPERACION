@@ -10,7 +10,7 @@ use Tienda\Interfaces\IntRepoProducto;
 class PDOProducto implements IntRepoProducto
 {
 
-    //Revisar la descripcion de la funcion crear
+    //Revisar la creacion de productos (inserciones en la tabla imagen)
     public function crear(Producto $producto): bool
     {
         $conexion = ConexionBD::getConnection();
@@ -98,7 +98,7 @@ class PDOProducto implements IntRepoProducto
 
     /* 
 
-    Realizar la descripcion de las clases una vez modificada la BD
+    Realizar la implementacion de las clases una vez modificada la BD
     Descomentar las funciones en Produ
 
 
@@ -127,6 +127,7 @@ class PDOProducto implements IntRepoProducto
                 $resultado = $conexion->commit();
             }
         } catch (PDOException $excepcion) {
+            "Error al listar los productos: {$excepcion->getMessage()}";
             $resultado = $conexion->rollBack();
         }
 
