@@ -56,3 +56,25 @@ public function crear(Producto $producto): bool
         ConexionBD::closeConnection();
     }
 }
+
+Ejemplo de familias de productos:
+
+USE tienda_videojuegos;
+
+-- Insertar las categorías de videojuegos en la tabla
+INSERT INTO familias (nombre_familia)
+VALUES 
+('Accion'),
+('Aventura'),
+('Rol'),
+('Estrategia'),
+('Hack & Slash'),
+('Metroidvania'),
+('Roguelike'),
+('Simulacion'),
+('Deportes'),
+('Carreras'),
+('Puzzles'),
+('Aventuras Graficas'),
+('Mundo Abierto'),
+('Shooter');
