@@ -26,7 +26,7 @@ final class ConexionBD
         try {
             if (!self::$connection) {
                 self::$connection = new PDO(
-                    dsn: $_ENV['BD_DNS'],
+                    dsn: $_ENV['BD_DSN'],
                     username: $_ENV['BD_USERNAME'],
                     password: $_ENV['BD_PASSWORD']
                 );
@@ -44,6 +44,11 @@ final class ConexionBD
         return self::$connection;
     }
 
+    public static function closeConnection()
+    {
+        // Código para cerrar la conexión a la base de datos
+        self::$connection = null;
+    }
     private function __clone()
     {
     }

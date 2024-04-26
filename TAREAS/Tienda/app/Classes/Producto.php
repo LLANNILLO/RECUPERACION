@@ -36,6 +36,8 @@ class Producto
     {
         return $this->id_familia;
     }
+
+    // Cambiar el tipo de retorno si $id_imagen representa una referencia a la imagen
     public function getImagen(): int
     {
         return $this->id_imagen;
