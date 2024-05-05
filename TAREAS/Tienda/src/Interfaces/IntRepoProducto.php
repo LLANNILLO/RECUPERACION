@@ -4,9 +4,11 @@ namespace Tienda\Interfaces;
 
 use Tienda\Classes\Producto;
 
-interface IntRepoProducto{
-    public function crear(Producto $producto) : bool;
-    public function listar() : array;
-    public function listar_por_id(int $id_producto): Producto;
-    public function borrar(int $id_producto) : bool;
+interface IntRepoProducto
+{
+    public function create(Producto $producto): bool;
+    public function list_products(): array;
+    public function list_by_id(int $id_producto): Producto;
+    public function getFamilies(): array;
+    public function delete(int $id_producto): bool;
 }

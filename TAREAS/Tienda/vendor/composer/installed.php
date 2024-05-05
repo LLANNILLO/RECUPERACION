@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'tienda/videojuegos',
-        'pretty_version' => 'dev-DWES',
-        'version' => 'dev-DWES',
-        'reference' => '27388fe04b995528689bab4917295ac7392c8f43',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '474a9e312406bcfa562eab5c7c41f71cf367d1a6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -56,9 +56,9 @@
             'dev_requirement' => false,
         ),
         'tienda/videojuegos' => array(
-            'pretty_version' => 'dev-DWES',
-            'version' => 'dev-DWES',
-            'reference' => '27388fe04b995528689bab4917295ac7392c8f43',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '474a9e312406bcfa562eab5c7c41f71cf367d1a6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

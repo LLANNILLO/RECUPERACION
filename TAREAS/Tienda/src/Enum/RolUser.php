@@ -3,7 +3,8 @@
 
 namespace Tienda\Enum;
 
-enum RolUser{
+enum RolUser
+{
 
     case administrador;
     case usuario;
@@ -11,12 +12,20 @@ enum RolUser{
     public function obtenerRol(): string
     {
 
-        $turno = match ($this) {
+        $rolUsuario = match ($this) {
             self::administrador => 'administrador',
             self::usuario => 'usuario',
         };
 
-        return $turno;
+        return $rolUsuario;
     }
+    public static function setRol(string $rol)
+    {
+        $rolUsuario = match ($rol) {
+            'administrador' => self::administrador,
+            'usuario' => self::usuario,
+        };
 
+        return $rolUsuario;
+    }
 }

@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-title {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+section {
+  border: 1px solid rgb(180, 176, 176);
+  border-radius: 5px;
+  width: 400px;
+  margin-bottom: 12px;
+  padding: 1% 10% 10%;
+}
+
+#mensajes {
+  position: relative;
+  color: white;
+  border: 0px;
+  border-radius: 5px;
+  width: 400px;
+  padding: 5% 10%;
+  background-color: rgb(69, 166, 231);
+}
+
+#mensajes a {
+  color: white;
+  animation: brillo 2s infinite alternate; /* Aplica la animación */
+}
+
+@keyframes brillo {
+  0% {
+    text-shadow: 0px 0px 0px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    text-shadow: 0px 0px 5px rgb(255, 255, 255); /* Aumenta el brillo */
+  }
+}
+
+.cierre {
+  position: absolute;
+  cursor: pointer;
+  top: 6%;
+  right: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
+
+.cierre img {
+  width: 10px;
+  height: 10px;
+  background-color: rgb(69, 169, 213);
+  mask-image: url("./../image/X.png"); /* Utiliza la imagen como máscara */
+  mask-size: cover; /* Ajusta el tamaño de la máscara */
+  mask-repeat: no-repeat; /* No repitas la máscara */
+  mask-position: center; /* Centra la máscara */
+}
+
+#opposite {
+  padding: 5% 10%;
+}
+form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.reset-pw {
+  margin-bottom: 0.5em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 15px;
+  font-weight: 400;
+
+  border-radius: 4px;
+  word-spacing: 3px;
+}
+
+form input {
+  height: 35px;
+  border: 1px solid rgb(180, 176, 176);
+  border-radius: 3px;
+}
+
+form input:not([type="submit"]) {
+  padding-left: 5%;
+}
+form input[type="submit"] {
+  margin-top: 20px;
+  color: rgb(240, 240, 240);
+  height: 35px;
+  cursor: pointer;
+  background-color: rgb(69, 166, 231);
+  border: 0px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bolder;
+}
+form input[type="submit"]:hover {
+  background-color: rgb(69, 170, 235);
+  color: white;
+}
+a {
+  text-decoration: none;
+}

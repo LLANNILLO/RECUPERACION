@@ -7,10 +7,10 @@ namespace Tienda\Classes\BD_class;
 use PDO;
 use PDOException;
 
-$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 2)); /*     /../../variables_conexion.env    */
+$dotenv = \Dotenv\Dotenv::createImmutable(dirname(__DIR__, 3)); /*     /../../variables_conexion.env    */
 $dotenv->load();
 
-final class ConexionBD
+final class BaseDatos
 {
 
 
@@ -26,9 +26,9 @@ final class ConexionBD
         try {
             if (!self::$connection) {
                 self::$connection = new PDO(
-                    dsn: $_ENV['BD_DSN'],
-                    username: $_ENV['BD_USERNAME'],
-                    password: $_ENV['BD_PASSWORD']
+                    dsn: $_ENV['DB_DSN'],
+                    username: $_ENV['DB_USERNAME'],
+                    password: $_ENV['DB_PASSWORD']
                 );
             }
         } catch (PDOException $e) {
@@ -47,7 +47,7 @@ final class ConexionBD
     public static function closeConnection()
     {
         // Código para cerrar la conexión a la base de datos
-        self::$connection = null;
+        return self::$connection = null;
     }
     private function __clone()
     {

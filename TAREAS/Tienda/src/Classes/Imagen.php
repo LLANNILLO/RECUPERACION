@@ -2,20 +2,19 @@
 
 namespace Tienda\Classes;
 
-class Imagen{
+class Imagen
+{
 
-    protected string $url;
+    protected int $id;
 
 
-    public function __construct(string $url)
-    {   
-        $this->url = $url;
+    public function __construct(int $id)
+    {
+        $this->id = $id;
     }
 
-    public function getURL(){
-        return $this->url;
+    public function get_id_imagen()
+    {
+        return $this->id;
     }
-
-
 }
-

@@ -18,36 +18,28 @@ class Produ
         $this->solidProducto = $solidProducto;
     }
 
-    public function crear(Producto $producto): bool
+    public function create(Producto $producto): bool
     {
-        return $this->solidProducto->crear($producto);
+        return $this->solidProducto->create($producto);
     }
 
-    public function listar(): array
+    public function list_products(): array
     {
-        return $this->solidProducto->listar();
+        return $this->solidProducto->list_products();
     }
 
-    public function listar_por_id(int $id): Producto
+    public function list_by_id(int $id): Producto
     {
-        return $this->solidProducto->listar_por_id($id);
+        return $this->solidProducto->list_by_id($id);
     }
-    
-    /* 
-    Realizar una vez confirmados los cambios en la BD
-    public function obtenerProductoPorFamilia(int $id): Producto
-    {
-        return $this->solidProducto->listar_por_familia($id);
-    }
-    
-    public function obtenerProductoPorDesarrollador(): array
-    {
-        return $this->solidProducto->listar_por_desarrollador(): array;
-    }
-     */
 
-    public function borrar(int $id): bool
+    public function getFamilies(): array
     {
-        return $this->solidProducto->borrar($id);
+        return $this->solidProducto->getFamilies();
+    }
+
+    public function delete(int $id): bool
+    {
+        return $this->solidProducto->delete($id);
     }
 }

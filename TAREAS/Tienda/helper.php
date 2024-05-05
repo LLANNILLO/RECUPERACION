@@ -9,7 +9,7 @@
 function validar_requerido(string $requerido): bool
 {
 
-    $existe = empty($requerido);
+    $existe = !empty($requerido);
 
     return $existe;
 }
@@ -73,10 +73,10 @@ function limpiar_texto(string $texto_entrada): string
  * Funcion para validar la extension de la imagen
  * 
  */
-function validar_formato_imagen($nombre_archivo): bool
+function validar_formato_imagen($nombre_extension): bool
 {
-    $extension = pathinfo($nombre_archivo, PATHINFO_EXTENSION);
-    return strtolower($extension) == 'jpg';
+    $extension = $nombre_extension === 'jpeg';
+    return $extension;
 }
 
 /**

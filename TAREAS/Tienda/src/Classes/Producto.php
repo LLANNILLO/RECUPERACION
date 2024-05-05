@@ -5,22 +5,31 @@ namespace Tienda\Classes;
 class Producto
 {
 
+    protected int $id_producto;
     protected string $nombre_producto;
     protected string $descripcion;
-    protected int $id_imagen;
-    protected int $id_familia;
+    protected int $precio;
+    protected string $imagen;
+    protected string $familia;
 
 
-    public function __construct(string $nombre, string $descripcion, int $id_familia, int $id_imagen)
+    public function __construct(int $id_producto, string $nombre, string $descripcion, int $precio, string $imagen, string $familia)
     {
+        $this->id_producto = $id_producto;
         $this->nombre_producto = $nombre;
         $this->descripcion = $descripcion;
-        $this->id_familia = $id_familia;
-        $this->id_imagen = $id_imagen;
+        $this->precio = $precio;
+        $this->familia = $familia;
+        $this->imagen = $imagen;
     }
 
 
     /* Metodos get de la clase de producto */
+
+    public function getId(): int
+    {
+        return $this->id_producto;
+    }
 
     public function getNombreProducto(): string
     {
@@ -31,15 +40,19 @@ class Producto
     {
         return $this->descripcion;
     }
-
-    public function getFamilia(): int
+    public function getPrecio(): string
     {
-        return $this->id_familia;
+        return $this->precio;
     }
 
-    // Cambiar el tipo de retorno si $id_imagen representa una referencia a la imagen
-    public function getImagen(): int
+    public function getFamilia(): string
     {
-        return $this->id_imagen;
+        return $this->familia;
+    }
+
+
+    public function getImagen(): string
+    {
+        return $this->imagen;
     }
 }
