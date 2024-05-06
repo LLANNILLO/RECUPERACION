@@ -29,7 +29,7 @@
             $show .= "
             <div class=item>
                 <a href=./product.php?id_producto={$product->getId()}>
-                    <picture><img src=./..{$product->getImagen()}></picture>
+                    <picture><img src=./..{$product->getImagen()->getURL()}></picture>
                 </a>
                 <div class=information>
                     <div class=text>{$product->getNombreProducto()}</div>

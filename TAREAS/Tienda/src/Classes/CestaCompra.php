@@ -1,11 +1,14 @@
 <?php
 
-use Tienda\Interfaces\IntRepoProducto;
+namespace Tienda\Classes;
+
+use Tienda\Classes\BD_class\PDOProduct;
+use Tienda\Classes\BD_class\Produ;
 
 class CestaCompra
 {
 
-    protected array $productos;
+    private array $productos;
 
     public function __construct()
     {
@@ -13,11 +16,13 @@ class CestaCompra
     }
 
 
-    //Realizar funcion cuando tengamos desarrolladas las clases para listar_por_id
+    
     public function nuevo_articulo(int $id)
     {
-        /* $producto = ;
-        array_push($this->getProductos(), $id); */
+        $produ = new Produ(new PDOProduct);
+        $producto = $produ->list_by_id($id);
+
+        array_push($productos,$producto);
     }
 
     public function getProductos(): array
@@ -25,9 +30,19 @@ class CestaCompra
         return $this->productos;
     }
 
-    //Realizar funcion cuando se haya finalizado la creacion de la funcion nuevo_articulo
+    
     public function getCoste()
     {
+
+        $coste = 0;
+
+        foreach ($this->getProductos() as $producto) {
+            
+            $coste += $producto->getPrecio();
+
+        }
+
+        return $coste;
     }
 
     public function esta_vacia(): bool

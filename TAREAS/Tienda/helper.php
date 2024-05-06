@@ -75,7 +75,7 @@ function limpiar_texto(string $texto_entrada): string
  */
 function validar_formato_imagen($nombre_extension): bool
 {
-    $extension = $nombre_extension === 'jpeg';
+    $extension = $nombre_extension === 'image/jpeg';
     return $extension;
 }
 

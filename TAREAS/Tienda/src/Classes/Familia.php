@@ -4,10 +4,10 @@ namespace Tienda\Classes;
 
 class Familia
 {
-    protected int $id_familia;
-    protected string $nombre_familia;
+    private int $id_familia;
+    private string $nombre_familia;
 
-    public function __construct(int $id_familia, string $nombre_familia)
+    public function __construct(string $nombre_familia,int $id_familia = 0)
     {
         $this->id_familia = $id_familia;
         $this->nombre_familia = $nombre_familia;

@@ -4,16 +4,16 @@ namespace Tienda\Classes;
 
 class Producto
 {
+/* MAL CONSTRUIDAS LAS VARIABLES */
+    private int $id_producto;
+    private string $nombre_producto;
+    private string $descripcion;
+    private int $precio;
+    private Familia $familia;
+    private Imagen $imagen;
 
-    protected int $id_producto;
-    protected string $nombre_producto;
-    protected string $descripcion;
-    protected int $precio;
-    protected string $imagen;
-    protected string $familia;
 
-
-    public function __construct(int $id_producto, string $nombre, string $descripcion, int $precio, string $imagen, string $familia)
+    public function __construct(string $nombre, string $descripcion, int $precio, Imagen $imagen, Familia $familia,int $id_producto = 0)
     {
         $this->id_producto = $id_producto;
         $this->nombre_producto = $nombre;
@@ -45,13 +45,14 @@ class Producto
         return $this->precio;
     }
 
-    public function getFamilia(): string
+    /*Retorno de familia*/
+    public function getFamilia(): Familia
     {
         return $this->familia;
     }
 
-
-    public function getImagen(): string
+    /*Retorno de imagen*/
+    public function getImagen(): Imagen
     {
         return $this->imagen;
     }

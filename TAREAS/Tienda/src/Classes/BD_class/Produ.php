@@ -33,11 +33,6 @@ class Produ
         return $this->solidProducto->list_by_id($id);
     }
 
-    public function getFamilies(): array
-    {
-        return $this->solidProducto->getFamilies();
-    }
-
     public function delete(int $id): bool
     {
         return $this->solidProducto->delete($id);

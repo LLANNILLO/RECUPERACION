@@ -14,21 +14,25 @@ $PDOProduct = new PDOProduct;
 $Produ = new Produ($PDOProduct);
 
 
+$cesta = null;
+
+if (isset($_SESSION['cesta'])) {
+
+    $cesta = $_SESSION['cesta'];
+}
+
 function show_cart_content()
 {
+    global $cesta;
+    $resultado = '';
 
-    if (isset($_SESSION['cesta'])) {
-
-        $cesta = $_SESSION['cesta'];
-        $resultado = '';
+    if ($cesta) {
         foreach ($cesta as $product) {
-
-
             $resultado .= "
             <div class=added-item>
             <a href=./product.php?id_producto={$product->getId()}>
                 <picture>
-                    <img src=./..{$product->getImagen()}>
+                    <img src=./..{$product->getImagen()->getURL()}>
                 </picture>
             </a>
             <div class=info>
@@ -38,20 +42,17 @@ function show_cart_content()
         </div>
             ";
         }
-
-        return $resultado;
     }
+    return $resultado;
 }
+
 function value_cart_content(): int
 {
+    global $cesta;
     $resultado = 0;
-    if (isset($_SESSION['cesta'])) {
+    if ($cesta) {
 
-        $cesta = $_SESSION['cesta'];
-        foreach ($cesta as $product) {
-
-            $resultado += $product->getPrecio();
-        }
+        $resultado = $cesta->getCoste();
     }
     return $resultado;
 }

@@ -64,11 +64,11 @@
                     // Nombre del archivo
                     $nombreArchivo = $_FILES["image"]["name"];
                     //extension archivo
-                    $extensionArchivo = substr($_FILES["image"]["type"], 6);
+                    $extensionArchivo = $_FILES["image"]["type"];
                     // Ruta temporal del archivo
                     $rutaTemporal = $_FILES["image"]["tmp_name"];
 
-                    $imagen_nombre = substr($directorioDestino, 4) . $nombreArchivo;
+                    $imagen_nombre = '/image/products/' . $nombreArchivo;
 
                     if (validar_formato_imagen($extensionArchivo)) {
                         if (move_uploaded_file($rutaTemporal, $directorioDestino . $nombreArchivo)) {

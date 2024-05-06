@@ -15,65 +15,55 @@ class PDOProduct implements IntRepoProducto
     //Revisar la creacion de productos (inserciones en la tabla imagen)
     public function create(Producto $producto): bool
     {
-        $resultado = "false";
-        $conexion = BaseDatos::getConnection();
+        $resultado = false;
+        $imagen = $this->createImage($producto->getImagen()->getURL());
 
-        try {
-
-            $imagen = $this->createImage($producto->getImagen());
-
-            if ($imagen instanceof Imagen) {
-
-                $consulta = $conexion->prepare('INSERT INTO productos (nombre_producto,descripcion,precio,imagen,familia) VALUES(:nombre,:descripcion,:precio,:imagen,:familia)');
-
+        if (!empty($imagen)) {
+            $conexion = BaseDatos::getConnection();
+            try {
+                $consulta = $conexion->prepare('INSERT INTO productos(nombre_producto,descripcion,precio,imagen,familia) VALUES(:nombre,:descripcion,:precio,:imagen,:familia)');
                 $valores = [
                     ':nombre' => $producto->getNombreProducto(),
                     ':descripcion' => $producto->getDescripcion(),
                     ':precio' => $producto->getPrecio(),
-                    ':imagen' => $imagen->get_id_imagen(),
-                    ':familia' => $producto->getFamilia(),
+                    ':imagen' => $imagen,
+                    ':familia' => $producto->getFamilia()->getIdFamilia(),
                 ];
 
-                if ($consulta->execute($valores)) {
+                $registro = $consulta->execute($valores);
+
+                if ($registro) {
+                    $conexion->commit();
                     $resultado = true;
                 }
+            } catch (PDOException) {
+                $conexion->rollBack();
             }
-        } catch (PDOException $exception) {
-            'Error: ' . $exception->getMessage();
-        }
 
-        $conexion = BaseDatos::closeConnection();
+            $conexion = BaseDatos::closeConnection();
+        }
 
         return $resultado;
     }
 
-    private function createImage(string $nombre)
+    private function createImage(string $url): string
     {
-
+        $imagen = '';
         $conexion = BaseDatos::getConnection();
-
+        $conexion->beginTransaction();
         try {
 
             $consulta = $conexion->prepare('INSERT INTO imagenes(url) VALUES(?)');
 
-            $consulta->bindParam(1, $nombre);
+            $consulta->bindParam(1, $url);
 
             if ($consulta->execute()) {
-                $consulta = $conexion->prepare('SELECT id_imagen FROM imagenes where url = ?');
-                $consulta->bindParam(1, $nombre);
-                $consulta->execute();
-
-                $registro = $consulta->fetch(PDO::FETCH_OBJ);
-
-                if ($registro) {
-                    $imagen = new Imagen(
-                        $registro->id_imagen
-                    );
-                    return $imagen;
-                }
+                $imagen = $conexion->lastInsertId();
+                $conexion->commit();
+                return $imagen;
             }
-        } catch (PDOException $exception) {
-            'Error: ' . $exception->getMessage();
+        } catch (PDOException) {
+            $conexion->rollBack();
         }
         $conexion = BaseDatos::closeConnection();
     }
@@ -88,20 +78,33 @@ class PDOProduct implements IntRepoProducto
         $conexion = BaseDatos::getConnection();
         try {
 
-            $consulta = $conexion->query('SELECT id_producto,nombre_producto,descripcion,precio, url AS imagen, nombre_familia AS familia
+            $consulta = $conexion->query('SELECT productos.id_producto, productos.nombre_producto,productos.descripcion,productos.precio,productos.imagen,productos.familia, imagenes.id_imagen,imagenes.url,familias.id_familia,familias.nombre_familia
             FROM productos
-            INNER JOIN imagenes ON imagen = id_imagen
-            INNER JOIN familias ON familia = id_familia');
+            INNER JOIN imagenes ON productos.imagen = imagenes.id_imagen
+            INNER JOIN familias ON productos.familia = familias.id_familia');
 
             while ($registro = $consulta->fetch(PDO::FETCH_OBJ)) {
-                $id = $registro->id_producto;
-                $nombre = $registro->nombre_producto;
+
+                //creacion objeto imagen
+
+                $url_imagen = $registro->url;
+                $id_imagen = $registro->id_imagen;
+
+                $imagen = new Imagen($url_imagen, $id_imagen);
+                //creacion objeto familia
+
+                $nombre_familia = $registro->nombre_familia;
+                $id_familia = $registro->id_familia;
+
+                $familia = new Familia($nombre_familia, $id_familia);
+
+                //creacion del objeto Producto
+                $id_producto = $registro->id_producto;
+                $nombre_producto = $registro->nombre_producto;
                 $descripcion = $registro->descripcion;
                 $precio = $registro->precio;
-                $imagen = $registro->imagen;
-                $familia = $registro->familia;
 
-                $producto = new Producto($id, $nombre, $descripcion, $precio, $imagen, $familia);
+                $producto = new Producto($nombre_producto, $descripcion, $precio, $imagen, $familia, $id_producto);
 
                 array_push($productos, $producto);
             }
@@ -118,10 +121,10 @@ class PDOProduct implements IntRepoProducto
         $conexion = BaseDatos::getConnection();
 
         try {
-            $consulta = $conexion->prepare('SELECT id_producto, nombre_producto, descripcion, precio, url AS imagen, nombre_familia AS familia
-                                        FROM productos
-                                        INNER JOIN imagenes ON imagen = id_imagen
-                                        INNER JOIN familias ON familia = id_familia
+            $consulta = $conexion->prepare('SELECT productos.id_producto, productos.nombre_producto,productos.descripcion,productos.precio,productos.imagen,productos.familia, imagenes.id_imagen,imagenes.url,familias.id_familia,familias.nombre_familia
+            FROM productos
+            INNER JOIN imagenes ON productos.imagen = imagenes.id_imagen
+            INNER JOIN familias ON productos.familia = familias.id_familia
                                         WHERE id_producto = :id');
 
             $consulta->bindParam(':id', $id_producto);
@@ -130,14 +133,28 @@ class PDOProduct implements IntRepoProducto
             $registro = $consulta->fetch(PDO::FETCH_OBJ);
 
             if ($registro) {
-                $producto = new Producto(
-                    $registro->id_producto,
-                    $registro->nombre_producto,
-                    $registro->descripcion,
-                    $registro->precio,
-                    $registro->imagen,
-                    $registro->familia
-                );
+
+                //creacion objeto imagen
+
+                $url_imagen = $registro->url;
+                $id_imagen = $registro->id_imagen;
+
+                $imagen = new Imagen($url_imagen, $id_imagen);
+                //creacion objeto familia
+
+                $nombre_familia = $registro->nombre_familia;
+                $id_familia = $registro->id_familia;
+
+                $familia = new Familia($nombre_familia, $id_familia);
+
+                //creacion del objeto Producto
+                $id_producto = $registro->id_producto;
+                $nombre_producto = $registro->nombre_producto;
+                $descripcion = $registro->descripcion;
+                $precio = $registro->precio;
+
+                $producto = new Producto($nombre_producto, $descripcion, $precio, $imagen, $familia, $id_producto);
+
                 return $producto;
             }
         } catch (PDOException $exception) {
@@ -150,49 +167,43 @@ class PDOProduct implements IntRepoProducto
     public function delete(int $id_producto): bool
     {
         $resultado = false;
+
+        $producto = $this->list_by_id($id_producto);
         $conexion = BaseDatos::getConnection();
 
+        $conexion->beginTransaction();
         try {
-            $conexion->beginTransaction();
 
-            $consulta = $conexion->prepare('DELETE FROM productos where id_producto = :id_producto');
+            $consulta1 = 'DELETE FROM productos WHERE id_producto = :id_producto';
+            $consulta2 = 'DELETE FROM imagenes WHERE id_imagen = :id_imagen';
 
-            $consulta->bindParam(':id_producto', $id_producto);
 
-            if ($consulta->execute()) {
-                $resultado = $conexion->commit();
+            //eliminar el producto con el id del producto
+            $eliminado = $conexion->prepare($consulta1);
+
+            $eliminado->execute([':id_producto' => $producto->getId()]);
+
+            $eliminarProducto = $eliminado->rowCount();
+
+            //eliminar imagen a traves del id dentro del obj. Imagen en obj. Producto
+            $eliminado = $conexion->prepare($consulta2);
+
+            $eliminado->execute([':id_imagen' => $producto->getImagen()->getIdImagen()]);
+
+            $eliminarImagen = $eliminado->rowCount();
+
+            if ($eliminarProducto > 0 && $eliminarImagen > 0) {
+                $conexion->commit();
+                $rutaArchivo = dirname(__DIR__, 3) . '/public' . $producto->getImagen()->getIdImagen();
+
+                unlink($rutaArchivo);
+                $resultado = true;
             }
-        } catch (PDOException $excepcion) {
-            "Error al listar los productos: {$excepcion->getMessage()}";
-            $resultado = $conexion->rollBack();
+
+        } catch (PDOException) {
+            $conexion->rollBack();
         }
         $conexion = BaseDatos::closeConnection();
         return $resultado;
-    }
-
-    public function getFamilies(): array
-    {
-
-        $familias = array();
-
-        $conexion = BaseDatos::getConnection();
-        try {
-
-            $consulta = $conexion->query('SELECT id_familia,nombre_familia FROM familias');
-
-            while ($registro = $consulta->fetch(PDO::FETCH_OBJ)) {
-                $id = $registro->id_familia;
-                $nombre = $registro->nombre_familia;
-
-                $familia = new Familia($id, $nombre);
-
-                array_push($familias, $familia);
-            }
-        } catch (PDOException $exception) {
-            echo 'Error' . $exception->getMessage();
-        }
-
-        $conexion = BaseDatos::closeConnection();
-        return $familias;
-    }
+    }    
 }

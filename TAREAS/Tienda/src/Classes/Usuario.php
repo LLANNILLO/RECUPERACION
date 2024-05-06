@@ -3,19 +3,17 @@
 
 namespace Tienda\Classes;
 
-use PDO;
-use PDOException;
-use Tienda\Classes\BD_class\ConexionBD;
+
 use Tienda\Enum\RolUser;
 
 
 class Usuario
 {
 
-    protected string $alias;
-    protected string $nombre;
-    protected string $contrasena;
-    protected RolUser $rol;
+    private string $alias;
+    private string $nombre;
+    private string $contrasena;
+    private RolUser $rol;
 
 
     public function __construct(string $alias, string $nombre, string $contrasena, string $rol)
