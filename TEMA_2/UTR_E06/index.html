@@ -1,91 +1,126 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
-    <title>Noticias del IES Miguel Herrero Pereda</title>
-    <meta charset="utf-8" />
-    <meta name="description" content="Este es un documento HTML5" />
-    <meta name="keywords" content="HTML, CSS, JavaScript" />
-    <link rel="stylesheet" href="./estilos/estilo.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./Estilos/estilo.css" />
+    <script src="./JS/menuDisplay.js"></script>
   </head>
   <body>
-    <header id="cabeceralogo">
-      <div>
-        <h1>Blog del I.E.S. Miguel Herrero Pereda</h1>
+    <!-- Cabecera con el logo de la app -->
+    <header>
+      <div class="titulo">
+        <p>Menús</p>
+        <nav>
+          <a href="#">Opcion 1</a>
+          <a href="#">Opcion 2</a>
+          <a href="#">Opcion 3</a>
+          <a href="#">Opcion 4</a>
+          <a href="#">Opcion 5</a>
+        </nav>
       </div>
     </header>
-    <nav id="menuprincipal">
-      <div>
-        <ul id="listamenu">
-          <li><a href="index.html">Principal</a></li>
-          <li>
-            <a href="fotos.html">Fotos</a>
-            <ul>
-              <li><a href="excursiones.html">Excursiones</a></li>
-              <li><a href="eventos.html">Eventos</a></li>
-            </ul>
-          </li>
-          <li><a href="videos.html">Videos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </div>
-    </nav>
-    <main>
-      <div>
-        <!-- identificador de la seccion principal -->
-        <section id="articulosprincipales">
-          <article>
-            <h1>Título Primer Artículo</h1>
-            <time datetime="2016-12-23">
-              <div class="numerodia">23</div>
-              <div class="nombredia">Viernes</div>
-            </time>
-            <p>Este es el texto de mi primer artículo</p>
-            <figure>
-              <img width="400px" src="./imagen/miimagen.jpg" />
-            </figure>
-          </article>
 
-          <article>
-            <h1>Título Segundo Artículo</h1>
-            <time datetime="2016-12-7">
-              <div class="numerodia">7</div>
-              <div class="nombredia">Miércoles</div>
-            </time>
-            <p>Este es el texto de mi segundo artículo</p>
-            <figure>
-              <img width="400px" src="./imagen/miimagen.jpg" />
-            </figure>
-          </article>
-        </section>
-        <aside id="infoadicional">
-          <h1>Información Personal</h1>
-          <p>Cita del artículo uno</p>
-          <p>Cita del artículo dos</p>
-        </aside>
-        <div class="recuperar"></div>
-      </div>
-      <!-- caja para arreglar el problema con las cajas flotantes -->
-      <div class="limpiar"></div>
+    <!-- Contenido principal de la web divido en articulos -->
+
+    <main>
+      <section>
+        <!-- Articulo 1 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+        <!-- Articulo 2 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+        <!-- Articulo 3 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+        <!-- Articulo 4 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+        <!-- Articulo 5 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+        <!-- Articulo 6 -->
+        <article>
+          <header><h2>Articulo 1</h2></header>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sint
+            quasi quia laboriosam harum et corporis sit nemo quos obcaecati.
+            Eligendi accusantium maiores alias debitis beatae, vel totam
+            blanditiis reiciendis?
+          </p>
+        </article>
+      </section>
+      <aside>
+        <header><h3>Enlaces</h3></header>
+
+        <div>
+          <ul>
+            <li>Mensajes</li>
+            <li>Perfil</li>
+            <li>Exportar</li>
+            <li>Importar</li>
+          </ul>
+        </div>
+      </aside>
     </main>
-    <footer id="pielogo">
-      <div>
-        <section class="seccionpie">
-          <h1>Sitio Web</h1>
-          <p><a href="index.html">Principal</a></p>
-          <p><a href="fotos.html">Fotos</a></p>
-          <p><a href="videos.html">Videos</a></p>
-        </section>
-        <section class="seccionpie">
-          <h1>Ayuda</h1>
-          <p><a href="contacto.html">Contacto</a></p>
-        </section>
-        <section class="seccionpie">
-          <address>Julio Hauzeur, Torrelavega</address>
-          <small>&copy; Derechos Reservados 2023</small>
-        </section>
-        <!-- caja para arreglar el problema con las cajas flotantes -->
-        <div class="limpiar"></div>
-      </div>
+
+    <!-- Pie de página de la web: Info.Curso y Dat.Alumno -->
+    <footer>
+      <section>
+        <header><h2>Informacion del Curso</h2></header>
+        <div>
+          <p>Curso de Desarrollo de Aplicaciones Web 2 (DAW2)</p>
+          <p>
+            Instituto de Educacion Secundaria Obligatoria (IES) Miguel Herrero
+          </p>
+        </div>
+      </section>
+      <section>
+        <header><h2>Datos del Alumno</h2></header>
+        <div>
+          <p>Nombre del Alumno: <strong>David Llanillo Antolín</strong></p>
+          <p>Email: <span>david.llanilloantolin@iesmiguelherrero.com</span></p>
+          <p>Telefono: <strong>+34 611 40 66 52</strong></p>
+        </div>
+      </section>
     </footer>
   </body>
 </html>

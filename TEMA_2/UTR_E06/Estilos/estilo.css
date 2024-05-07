@@ -1,4 +1,14 @@
-/* selector universal */
+/* 
+La web tiene diferentes media queries para trabajar
+con 3 respoluciones diferentes
+ */
+
+/* Resolucion por defecto */
+
+/* Resolucion intermedia (800px) */
+
+/* Resolucion pequeña (500px) */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,234 +17,38 @@
 
 html {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --fondo-cabecera-footer: #0f76a0;
-  --fondo-color: #9fc8d9;
-  --fondo-aside: #e7f1f5;
-  --color-resalto: #094660;
-  --color-li: #6facc6;
-  --color-pie-anchor: #666666;
-  --color-nav-anchor: #333333;
+  /* Colores web */
+  --green-50: #e7ffe4;
+  --green-100: #c9ffc4;
+  --green-200: #98ff90;
+  --green-300: #56ff50;
+  --green-400: #00ff00;
+  --green-500: #00e606;
+  --green-600: #00b809;
+  --green-700: #008b07;
+  --green-800: #076d0d;
+  --green-900: #0b5c11;
+  --green-950: #003406;
 }
 
-img {
-  border: 1px solid;
-  padding: 4px;
+/* Cabecera de la web */
+
+header {
+  display: flex;
+  background-color: var(--green-900);
 }
 
-/*
-   CONSEEJO: Los contenedores principales han de tener el mismo width
-   para concidir verticalmente
-    */
-/* identificador de la cabecera: #cabeceralogo */
-
-/* estilo del header*/
-#cabeceralogo {
-  width: 100%;
-  height: 150px;
-  padding: 2%;
-  background-color: var(--fondo-cabecera-footer);
+.titulo {
 }
 
-/* estilo del div y del h1 */
-#cabeceralogo div {
-  width: 960px;
-  margin: auto;
-}
-
-#cabeceralogo h1 {
-  font-size: 54px;
-  font-weight: bolder;
-  font-family: Arial, sans-serif;
-  color: white;
-}
-
-/* identificador de la barra de navegacion: #menuprincipal */
-
-#menuprincipal {
-  width: 100%;
-  height: 50px;
-  padding: 0 2%;
-  background-color: var(--fondo-color);
-  outline: 1px solid var(--color-resalto);
-}
-#listamenu {
-  width: 960px;
-  margin: 0 auto;
-}
-
-#listamenu li a {
-  font-family: Arial;
-  font-weight: bolder;
+.titulo p {
   font-size: 1em;
-  color: var(--color-nav-anchor);
-  text-decoration: none;
+  font-weight: 700;
 }
 
-#listamenu li {
-  display: inline-block;
-  position: relative;
-  height: 50px;
-  padding: 15px 10px;
+.titulo p::before {
+  content: url("./../imagen/logolibro.png");
 }
-#listamenu li:hover {
-  background-color: var(--color-li);
-}
+/* Main */
 
-#listamenu li > ul {
-  display: none;
-}
-
-#listamenu li:hover > ul {
-  display: block;
-  position: absolute;
-  top: 50px;
-  left: 0px;
-  background-color: var(--fondo-color);
-  border-radius: 0px 0px 8px 8px;
-  box-shadow: 0 10px 5px 5px rgb(100 100 100 / 0.7);
-}
-
-li > ul li {
-  width: 120px;
-  height: 35px;
-  padding: 15px 10px;
-}
-
-/* Agregado para no perder las esquinas redondeadas del menu con el hover del li */
-li > ul li:last-child {
-  border-radius: 0px 0px 8px 8px;
-}
-/* selector de la seccion principal */
-
-main {
-  width: 100%;
-  padding: 2%;
-  /* configuracion de la imagen del fondo */
-  background-image: url(./../imagen/fondo.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 40% 30%;
-  background-attachment: fixed;
-}
-
-main div {
-  margin: 0 auto;
-  width: 960px;
-}
-
-/* identificador de la seccion principales:#articulosprincipales */
-
-#articulosprincipales {
-  float: left;
-  width: 620px;
-  background-color: white;
-  border-radius: 10px;
-  padding-top: 4%;
-}
-
-#articulosprincipales article {
-  /* posicion relativa para ser punto de referencia de las fechas */
-  position: relative;
-  margin-top: 5%;
-  margin-bottom: 1%;
-  padding: 3% 8% 2%;
-}
-
-/* selector del aside dentro del main principal */
-#infoadicional {
-  /* flotando a la derecha de la seccion */
-  float: right;
-  width: 280px;
-  padding: 2%;
-  border-radius: 10px;
-  background-color: var(--fondo-aside);
-}
-
-/* div para consolidar las dimensiones de los articulos */
-.limpiar {
-  clear: both;
-}
-
-/* estilo de las fechas */
-#articulosprincipales time {
-  /* mostrar las fechas al lado de cada articulo */
-  display: block;
-  position: absolute;
-  top: 3%;
-  left: -12%;
-  width: 90px;
-  padding: 3% 0.5%;
-  background-color: var(--color-resalto);
-  box-shadow: 3px 3px 5px rgb(100 100 100 /0.7);
-  border-radius: 5px;
-}
-
-/* estilo de la clase del numero del dia (FECHAS) */
-.numerodia {
-  font-size: 36px;
-  /* centrar elementos en el time */
-  width: fit-content;
-  font-weight: bold;
-  font-family: Verdana, sans-serif;
-  color: white;
-}
-
-/* estilo de la clase del nombre del dia (FECHAS) */
-.nombredia {
-  width: fit-content;
-  font-size: 12px;
-  font-family: Verdana, sans-serif;
-  color: white;
-}
-
-/* estilo de titulos en los articulos */
-
-article h1 {
-  margin-bottom: 2%;
-  font-family: Georgia, sans-serif;
-  font-size: 30px;
-}
-
-article p {
-  font-size: 18px;
-  font-family: Georgia, sans-serif;
-}
-
-/* identificador del pie de pagina:#pielogo */
-
-#pielogo {
-  width: 100%;
-  padding: 2%;
-  background-color: var(--fondo-cabecera-footer);
-}
-
-#pielogo div {
-  margin: 0 auto;
-  width: 960px;
-  background-color: var(--fondo-color);
-  border-radius: 10px;
-}
-
-#pielogo section {
-  float: left;
-  width: 27.33%;
-  padding: 3%;
-}
-
-#pielogo h1 {
-  font-family: Arial, sans-serif;
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-#pielogo p {
-  margin-top: 2.5%;
-}
-
-#pielogo a {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  color: var(--color-pie-anchor);
-  text-decoration: none;
-}
+/* Footer */
