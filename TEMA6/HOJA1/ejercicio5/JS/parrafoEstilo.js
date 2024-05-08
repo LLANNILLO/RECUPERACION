@@ -5,5 +5,5 @@ window.addEventListener("load", () => {
     parrafo.classList.remove("holiwi");
     parrafo.textContent = "no-holiwi";
     parrafo.classList.add("no-holiwi");
-  }, 5000);
+  }, 1000);
 });
