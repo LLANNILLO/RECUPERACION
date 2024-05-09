@@ -58,12 +58,9 @@ html {
 
 /* Titulo: Menús */
 .tituloPrincipal {
-  font-size: 20px;
-  font-weight: 700;
 }
 
-.tituloPrincipal p::before {
-  /* content: url("./../imagen/logolibro.png"); */
+.tituloPrincipal::before {
 }
 
 /* Clase para el nav con las opciones de navegacion */
@@ -113,11 +110,17 @@ html {
 /*  */
 .articulosSeccion {
   width: 20%;
-
+  cursor: pointer;
   border-radius: 6px;
   padding: 2px 8px 6px;
   background-color: var(--gray-article);
   outline: 1px solid var(--gray-outline);
+}
+
+section aside {
+  background-color: var(--green-50);
+  height: fit-content;
+  padding: 10px;
 }
 
 /* Footer */
