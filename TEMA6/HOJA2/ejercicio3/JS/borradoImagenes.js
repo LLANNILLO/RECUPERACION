@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
 
   //   Eliminar lentamente
   function eliminadoLento() {
-    var eliminar = setInterval(() => {
+    let eliminar = setInterval(() => {
       if (seccionesImagenes.querySelectorAll("img").length > 0) {
         seccionesImagenes.removeChild(seccionesImagenes.firstElementChild);
       } else {
