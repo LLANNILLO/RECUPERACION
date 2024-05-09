@@ -29,26 +29,100 @@ html {
   --green-800: #076d0d;
   --green-900: #0b5c11;
   --green-950: #003406;
+  --gray-article: #f3f3f3;
+  --gray-outline: #dad8d8;
 }
 
-/* Cabecera de la web */
+/* Cabecera de la web
+    id: cabecera_principal
+*/
 
-header {
+#cabeceraPrincipal {
+  width: 100%;
+  height: 5vh;
   display: flex;
-  background-color: var(--green-900);
+  justify-content: center;
+
+  background-color: var(--green-700);
 }
 
-.titulo {
+#cabeceraPrincipal div {
+  width: 60%;
+  display: flex;
+  padding: 0px 8px 5px;
+  border-radius: 0 0 4px 4px;
+  justify-content: space-between;
+  align-items: flex-end;
+  background-color: var(--green-500);
 }
 
-.titulo p {
-  font-size: 1em;
+/* Titulo: Menús */
+.tituloPrincipal {
+  font-size: 20px;
   font-weight: 700;
 }
 
-.titulo p::before {
-  content: url("./../imagen/logolibro.png");
+.tituloPrincipal p::before {
+  /* content: url("./../imagen/logolibro.png"); */
 }
+
+/* Clase para el nav con las opciones de navegacion */
+
+.menuNavegacion {
+  width: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.opcionBusqueda {
+  padding: 2px 2px;
+  color: black;
+  text-decoration: none;
+}
+
+.opcionBusqueda:hover {
+  background-color: var(--green-400);
+  outline: 1px solid var(--green-600);
+  color: var(--green-600);
+  border-radius: 5px;
+}
+
 /* Main */
 
+#contenido {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*  */
+#contenido section {
+  margin-top: 10px;
+  display: flex;
+  width: 60%;
+}
+
+/*  */
+#contenido section > div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/*  */
+.articulosSeccion {
+  width: 20%;
+
+  border-radius: 6px;
+  padding: 2px 8px 6px;
+  background-color: var(--gray-article);
+  outline: 1px solid var(--gray-outline);
+}
+
 /* Footer */
+#piePagina {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
