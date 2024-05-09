@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parrafo y agregar lista</title>
+    <script src="./JS/variacion.js"></script>
+    <style>
+      div {
+        display: flex;
+        justify-content: center;
+      }
+      div > div {
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+      }
+      span {
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <div>
+          <p>Soy el primer parrafo</p>
+        </div>
+        <span>
+          <input type="button" value="Cambiar texto" id="cambiarTexto" />
+          <input type="button" value="Crear lista" id="crearLista" />
+          <input type="button" value="Borrar Todo" id="borrarTodo" />
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

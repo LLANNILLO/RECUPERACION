@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Borrar Imagenes</title>
+    <script src="./JS/borradoImagenes.js"></script>
+    <style>
+      section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      section > div {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      section img {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div>
+        <img src="./images/firefox.png" />
+        <img src="./images/bea.png" />
+        <img src="./images/java.png" />
+        <img src="./images/opera.png" />
+        <img src="./images/eclipse.png" />
+      </div>
+      <span>
+        <input
+          type="button"
+          value="Eliminar Lentamente"
+          id="eliminarLentamente"
+        />
+        <input type="button" value="Eliminar Todo" id="eliminarTodo" />
+      </span>
+    </section>
+  </body>
+</html>
