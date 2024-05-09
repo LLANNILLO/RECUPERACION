@@ -3,16 +3,14 @@ window.addEventListener("load", () => {
   const eliminarLentamenteBtn = document.getElementById("eliminarLentamente");
   const eliminarTodoBtn = document.getElementById("eliminarTodo");
 
+  const textoReemplazo = "<p>Se han eliminado todas las imagenes</p>";
   //   Eliminar lentamente
   function eliminadoLento() {
     let eliminar = setInterval(() => {
       if (seccionesImagenes.querySelectorAll("img").length > 0) {
         seccionesImagenes.removeChild(seccionesImagenes.firstElementChild);
       } else {
-        let texto = document.createTextNode(
-          "Se han eliminado todas las imagenes"
-        );
-        seccionesImagenes.append(texto);
+        seccionesImagenes.innerHTML = textoReemplazo;
         clearInterval(eliminar);
       }
     }, 200);
@@ -21,7 +19,7 @@ window.addEventListener("load", () => {
   //    Eliminar Todo
 
   function eliminarTodo() {
-    seccionesImagenes.innerHTML = "<p>Se han eliminado todas las imagenes</p>";
+    seccionesImagenes.innerHTML = textoReemplazo;
   }
 
   eliminarLentamenteBtn.addEventListener("click", eliminadoLento);
