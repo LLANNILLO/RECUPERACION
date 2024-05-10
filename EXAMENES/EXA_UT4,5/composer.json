@@ -21,6 +21,6 @@
         "vlucas/phpdotenv": "^5.6"
     },
     "scripts":{
-        "start":"php public -s localhost:8000 -t public"
+        "start":"php -S localhost:8000 -t public"
     }
 }

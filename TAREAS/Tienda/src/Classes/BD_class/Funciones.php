@@ -34,6 +34,8 @@ class Funciones{
         
         return $familias;
     }
+
+    public function getFamiliaId() : 
 }
 
 
