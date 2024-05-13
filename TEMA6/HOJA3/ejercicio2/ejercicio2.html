@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navegacion</title>
+    <script src="./JS/navegacion.js"></script>
+    <style>
+      nav > div {
+        margin: 30px;
+      }
+      a {
+        padding: 12px;
+        color: black;
+        text-decoration: none;
+      }
+      .enlace {
+        background-color: firebrick;
+        border-radius: 10px;
+      }
+
+      .nuevoEnlace {
+        background-color: darkorange;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div>
+          <a href="#">Enlace 1</a>
+        </div>
+        <div>
+          <a href="#" class="enlace">Enlace 2</a>
+        </div>
+        <div>
+          <a href="#" class="enlace">Enlace 3</a>
+        </div>
+        <div>
+          <a href="#" class="enlace">Enlace 4</a>
+        </div>
+        <div>
+          <a href="#">Enlace 5</a>
+        </div>
+      </nav>
+      <input type="button" value="Alteracion de enlaces" id="alterarEnlaces" />
+    </header>
+  </body>
+</html>
