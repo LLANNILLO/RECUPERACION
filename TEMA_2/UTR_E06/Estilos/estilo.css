@@ -1,23 +1,10 @@
-/* 
-La web tiene diferentes media queries para trabajar
-con 3 respoluciones diferentes
- */
-
-/* Resolucion por defecto */
-
-/* Resolucion intermedia (800px) */
-
-/* Resolucion pequeña (500px) */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* Colores web */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Colores web */
   --green-50: #e7ffe4;
   --green-100: #c9ffc4;
   --green-200: #98ff90;
@@ -33,21 +20,29 @@ html {
   --gray-outline: #dad8d8;
 }
 
-/* Cabecera de la web
-    id: cabecera_principal
-*/
+/* La web tiene diferentes media queries para trabajar con 3 respoluciones diferentes */
+/* Resolucion por defecto */
+
+/* Cabecera de la web id: cabecera_principal */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+  min-height: 100vh;
+  gap: 20px;
+}
 
 #cabeceraPrincipal {
   width: 100%;
   height: 5vh;
   display: flex;
   justify-content: center;
-
   background-color: var(--green-700);
 }
-
 #cabeceraPrincipal div {
-  width: 60%;
+  width: 70%;
   display: flex;
   padding: 0px 8px 5px;
   border-radius: 0 0 4px 4px;
@@ -57,27 +52,32 @@ html {
 }
 
 /* Titulo: Menús */
+
 .tituloPrincipal {
+  font-size: 20px;
+  font-weight: bolder;
+  display: inline-flex;
+  align-items: center;
 }
 
+.tituloPrincipal img {
+  max-height: 1em;
+  margin-right: 0.5em;
+}
 .tituloPrincipal::before {
-}
-
-/* Clase para el nav con las opciones de navegacion */
-
+} /* Clase para el nav con las opciones de navegacion
+*/
 .menuNavegacion {
   width: 400px;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
 }
-
 .opcionBusqueda {
   padding: 2px 2px;
   color: black;
   text-decoration: none;
 }
-
 .opcionBusqueda:hover {
   background-color: var(--green-400);
   outline: 1px solid var(--green-600);
@@ -91,24 +91,23 @@ html {
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-grow: 1;
 }
 
-/*  */
 #contenido section {
   margin-top: 10px;
   display: flex;
-  width: 60%;
+  width: 70%;
 }
 
-/*  */
 #contenido section > div {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-/*  */
 .articulosSeccion {
+  min-width: 250px;
   width: 20%;
   cursor: pointer;
   border-radius: 6px;
@@ -117,15 +116,109 @@ html {
   outline: 1px solid var(--gray-outline);
 }
 
-section aside {
+.enlaces {
+  order: 1;
+  flex: 1;
   background-color: var(--green-50);
   height: fit-content;
   padding: 10px;
 }
 
+.enlaces > div ul {
+  list-style: none;
+}
+
+.enlaces > div ul li {
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+ul li:hover {
+  text-decoration: underline var(--green-500);
+}
+
 /* Footer */
+
 #piePagina {
   display: flex;
+  gap: 10px;
   justify-content: center;
-  width: 100%;
+  flex-wrap: wrap;
+  width: 70%;
+  background-color: var(--green-700);
+  border-radius: 5px;
+}
+
+#piePagina section {
+  display: flex;
+  width: 45%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--green-500);
+  border-radius: 5px;
+  padding: 10px 20px;
+  padding-left: 5px;
+  margin: 20px;
+  word-break: break-all;
+}
+
+/* Resolucion intermedia (800px) */
+
+@media (max-width: 799px) {
+  #cabeceraPrincipal div {
+    width: 95%;
+  }
+
+  #contenido section {
+    width: 95%;
+    gap: 20px;
+  }
+
+  #contenido section > div {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  #contenido section > div article {
+    width: 100%;
+  }
+
+  #piePagina {
+    width: 95%;
+    left: 2.5%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    bottom: -20%;
+  }
+
+  #piePagina section {
+    width: 100%;
+  }
+}
+
+/* Resolucion pequeña (500px) */
+@media (max-width: 500px) {
+  #cabeceraPrincipal div {
+    width: 100%;
+  }
+
+  #contenido section {
+    width: 100%;
+    flex-direction: column;
+  }
+  .enlaces {
+    width: 20%;
+  }
+  #piePagina {
+    width: 100%;
+  }
+
+  #cabeceraPrincipal div::after {
+    content: "\2261";
+    cursor: pointer;
+  }
+  .menuNavegacion {
+    visibility: hidden;
+  }
 }
