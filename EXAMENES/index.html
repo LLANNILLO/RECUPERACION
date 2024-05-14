@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TorreSport</title>
+    <link rel="stylesheet" href="./estilos/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabecera fixed siempre al inicio de la web -->
+    <header class="cabecera">
+      <!-- Logo y titulo de la cabecera -->
+      <div class="title">
+        <img src="./imagenes/logo.png" />
+        <p>TorreSport</p>
+      </div>
+      <!-- Barra de navegacion con submenus -->
+      <nav id="menuNavegacion">
+        <ul>
+          <li>Local</li>
+          <li>Regional</li>
+          <li>
+            Cantera
+            <!--
+                Submenu de Cantera. 
+                No visible sin el hover
+             -->
+            <ul id="submenu">
+              <li>Ciclismo</li>
+              <li>Atletismo</li>
+              <li>Natación</li>
+            </ul>
+          </li>
+          <li>Foro</li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Contenido con las noticias y enlaces a las noticias más relevantes -->
+    <main>
+      <!-- aside con los enlaces a las noticias más virales -->
+      <aside>
+        <h3>Lo más viral</h3>
+        <ul>
+          <li><a href="#">Articulo 1</a></li>
+          <li><a href="#">Articulo 2</a></li>
+          <li><a href="#">Articulo 3</a></li>
+          <li><a href="#">Articulo 4</a></li>
+          <li><a href="#">Articulo 5</a></li>
+          <li><a href="#">Articulo 6</a></li>
+        </ul>
+      </aside>
+
+      <!-- seccion de noticias de la web -->
+      <section>
+        <!-- articulo 1 -->
+        <header>
+          <h2>Últimas Noticias</h2>
+        </header>
+        <article>
+          <picture>
+            <img src="./imagenes/corredores.png" />
+          </picture>
+          <header>
+            <a class="tituloNoticia" href="#"
+              >Los corredores más rapidos del mundo</a
+            >
+          </header>
+        </article>
+        <!-- articulo 2 -->
+        <article>
+          <picture>
+            <img src="./imagenes/herramientas.png" />
+          </picture>
+          <header>
+            <a class="tituloNoticia" href="#"
+              >No podrás hacer deporte sin estas 10 herramientas</a
+            >
+          </header>
+        </article>
+        <!-- articulo 3 -->
+        <article>
+          <picture>
+            <img src="./imagenes/natacion.png" />
+          </picture>
+          <header>
+            <a class="tituloNoticia" href="#"
+              >Nadar, el deporte más completo del mundo</a
+            >
+          </header>
+        </article>
+      </section>
+    </main>
+    <!-- Div para corregir la subida del footer -->
+    <div class="limpiar"></div>
+
+    <!-- footer con el formulario de los comentarios -->
+    <footer>
+      <header>
+        <h2>Dejanos tu sugrencia</h2>
+      </header>
+
+      <form action="" method="get">
+        <label for="email">Email</label>
+        <input type="email" id="email" />
+        <label for="comentario">Comentanos</label>
+        <textarea id="comentario" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="Enviar" />
+      </form>
+    </footer>
+  </body>
+</html>
