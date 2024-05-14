@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variar Texto</title>
+    <script src="./JS/variarTexto.js"></script>
+    <style>
+      section {
+        transition: font-size 2s, background-color 4s, font-family 5s;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <input type="button" value="Aumentar Letra" id="aumentarLetra" />
+      <input type="button" value="Reestablecer Letra" id="reestablecerLetra" />
+      <input type="button" value="Cambiar Fondo" id="cambiarFondo" />
+      <input type="button" value="Reestablecer Fondo" id="reestablecerFondo" />
+      <input type="button" value="Cambiar letra de..." id="cambiarFont" />
+      <select>
+        <option value="section1 section2">Todos</option>
+        <option value="section1">section 1</option>
+        <option value="section2">section 2</option>
+      </select>
+    </header>
+    <section id="section1">WOLAS</section>
+    <section id="section2">WOLAS</section>
+  </body>
+</html>

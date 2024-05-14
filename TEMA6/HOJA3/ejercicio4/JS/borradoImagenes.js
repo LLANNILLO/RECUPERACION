@@ -8,15 +8,21 @@ window.addEventListener("load", () => {
   const nombreElementoInptText = document.getElementById("nombreElemento");
   const textoReemplazo = "<p>Se han eliminado todas las imagenes</p>";
   //   Eliminar lentamente
+  var eliminar = null;
+
   function eliminadoLento() {
-    let eliminar = setInterval(() => {
-      if (imagenes.length > 0) {
-        seccionesImagenes.removeChild(seccionesImagenes.firstElementChild);
-      } else {
-        seccionesImagenes.innerHTML = textoReemplazo;
-        clearInterval(eliminar);
-      }
-    }, 2000);
+    if (eliminar === null) {
+      eliminar = setInterval(() => {
+        if (imagenes.length > 0) {
+          seccionesImagenes.removeChild(seccionesImagenes.firstElementChild);
+        } else {
+          seccionesImagenes.innerHTML = textoReemplazo;
+        }
+      }, 2000);
+    } else {
+      clearInterval(eliminar);
+      eliminar = null;
+    }
   }
 
   //    Eliminado por nombre
@@ -25,18 +31,31 @@ window.addEventListener("load", () => {
    * @param {string} nombre
    */
   function eliminadoPorNombre() {
+    let imagenes = seccionesImagenes.querySelectorAll("img");
+
     if (imagenes.length > 0) {
       let encontrado = false;
+
       imagenes.forEach((imagen) => {
         let src = imagen.src;
-        if (src.includes(nombreElementoInptText.value)) {
-          seccionesImagenes.removeChild(imagen);
-          encontrado = true;
+        if (!encontrado) {
+          if (src.includes(nombreElementoInptText.value)) {
+            console.log(src);
+            seccionesImagenes.removeChild(imagen);
+            encontrado = true;
+          }
         }
       });
 
       if (!encontrado) {
-        alert("no se encontró el archivo");
+        let articulo = document.createElement("article");
+        let texto = document.createTextNode(
+          "Esa imagen no esta en el catalogo"
+        );
+
+        articulo.append(texto);
+
+        seccionesImagenes.append(articulo);
       }
       nombreElementoInptText.value = "";
     }
