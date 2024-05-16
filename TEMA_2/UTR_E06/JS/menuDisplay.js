@@ -1,4 +1,4 @@
-window.addEventListener("resize", () => {
+window.addEventListener("load", () => {
   if (window.matchMedia("(max-width:500px)").matches) {
     const menu = document.querySelector("#cabeceraPrincipal div");
 
@@ -23,6 +23,7 @@ window.addEventListener("resize", () => {
 
 function visibleMenu() {
   const nav = document.querySelector(".menuNavegacion");
+  //Si no existe el times de primeras, le creamos
   if (!nav.querySelector("#times")) {
     var times = document.createElement("span");
     times.setAttribute("id", "times");
@@ -34,6 +35,6 @@ function visibleMenu() {
   }
 
   if (!nav.hasAttribute("style")) {
-    nav.style.display = "flex"; // Utiliza comillas alrededor de "block"
+    nav.style.display = "flex"; //agregar el display flex
   }
 }

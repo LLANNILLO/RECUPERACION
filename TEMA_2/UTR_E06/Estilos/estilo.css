@@ -18,32 +18,31 @@ html {
   --green-950: #003406;
   --gray-article: #f3f3f3;
   --gray-outline: #dad8d8;
+  position: relative;
 }
 
-/* La web tiene diferentes media queries para trabajar con 3 respoluciones diferentes */
+/* 
+La web tiene diferentes media queries 
+para trabajar con 3 respoluciones diferentes
+*/
 /* Resolucion por defecto */
 
-/* Cabecera de la web id: cabecera_principal */
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  min-height: 100vh;
-  gap: 20px;
+  height: 100vh;
 }
+
+/* Cabecera de la web id: cabecera_principal */
 
 #cabeceraPrincipal {
   width: 100%;
-  height: 5vh;
+  height: fit-content;
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
   background-color: var(--green-700);
 }
 #cabeceraPrincipal div {
-  width: 70%;
+  width: 80%;
   display: flex;
   padding: 0px 8px 5px;
   border-radius: 0 0 4px 4px;
@@ -65,15 +64,16 @@ body {
   max-height: 1em;
   margin-right: 0.5em;
 }
-.tituloPrincipal::before {
-} /* Clase para el nav con las opciones de navegacion
-*/
+
+/* Estilo de la nav */
 .menuNavegacion {
   width: 400px;
   display: flex;
+  margin-top: 20px;
   justify-content: space-around;
   align-items: flex-end;
 }
+/* Clase para cada li dentro de la nav */
 .opcionBusqueda {
   padding: 2px 2px;
   color: black;
@@ -91,24 +91,27 @@ body {
 #contenido {
   display: flex;
   justify-content: center;
-  width: 100%;
-  flex-grow: 1;
+  width: auto;
+  height: fit-content;
 }
 
 #contenido section {
   margin-top: 10px;
   display: flex;
-  width: 70%;
+  width: 80%;
+  gap: 0 20px;
 }
 
 #contenido section > div {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
+/* Estilo de cada articulo del contenido */
 .articulosSeccion {
   min-width: 250px;
+  min-height: 400px;
   width: 20%;
   cursor: pointer;
   border-radius: 6px;
@@ -117,6 +120,9 @@ body {
   outline: 1px solid var(--gray-outline);
 }
 
+/* Agregar animacion */
+
+/* Estilo de los enlaces dentro del contenido */
 .enlaces {
   order: 1;
   flex: 1;
@@ -125,16 +131,18 @@ body {
   padding: 10px;
 }
 
-.enlaces > div ul {
+/* Estilo de la lista en enlaces */
+.enlaces ul {
   list-style: none;
 }
 
-.enlaces > div ul li {
+/* Estilo de cada una de las opciones de dichos enlaces */
+.enlaces li {
   padding-bottom: 5px;
   cursor: pointer;
 }
 
-ul li:hover {
+.enlaces li:hover {
   text-decoration: underline var(--green-500);
 }
 
@@ -142,10 +150,14 @@ ul li:hover {
 
 #piePagina {
   display: flex;
+  position: sticky;
+  margin-top: 30px;
+  top: 100%;
+  left: 10%;
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  width: 70%;
+  width: 80%;
   background-color: var(--green-700);
   border-radius: 5px;
 }
@@ -156,12 +168,13 @@ ul li:hover {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
   background-color: var(--green-500);
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   padding-left: 5px;
   margin: 20px;
-  word-break: break-all;
+  word-wrap: break-word;
 }
 
 /* Resolucion intermedia (800px) */
@@ -180,7 +193,9 @@ ul li:hover {
     flex-direction: column;
     flex-wrap: nowrap;
   }
-  #contenido section > div article {
+
+  .articulosSeccion {
+    min-height: 200px;
     width: 100%;
   }
 
@@ -202,6 +217,7 @@ ul li:hover {
 @media (max-width: 500px) {
   #cabeceraPrincipal div {
     width: 100%;
+    border-radius: 0;
   }
 
   #contenido section {
@@ -221,8 +237,11 @@ ul li:hover {
 
   .menuNavegacion {
     background-color: var(--green-800);
+    /* box-shadow: -240px 0px 10px rgb(0 0 0 / 0.5); */
     display: none;
-    position: absolute;
+    margin: 0;
+    position: fixed;
+    z-index: 1;
     color: white;
     top: 0;
     right: 0;
@@ -230,7 +249,7 @@ ul li:hover {
     padding: 90px;
     height: 100%;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     border-radius: 8px 0 0 8px;
     justify-content: space-around;
     align-content: center;
@@ -244,17 +263,18 @@ ul li:hover {
   .menuNavegacion span {
     order: -1;
     cursor: pointer;
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     top: 5%;
     right: 5%;
     text-align: center;
     border: 1px solid;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 100%;
   }
 
-  .menuNavegacion a:hover {
+  #piePagina {
+    border-radius: 0;
   }
 }
