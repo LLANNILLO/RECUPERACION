@@ -14,33 +14,34 @@ $PDOProduct = new PDOProduct;
 $Produ = new Produ($PDOProduct);
 
 
-$cesta = null;
-
 if (isset($_SESSION['cesta'])) {
-
     $cesta = $_SESSION['cesta'];
+} else {
+    $cesta = null;
 }
 
 function show_cart_content()
 {
     global $cesta;
     $resultado = '';
-
     if ($cesta) {
-        foreach ($cesta as $product) {
-            $resultado .= "
-            <div class=added-item>
-            <a href=./product.php?id_producto={$product->getId()}>
-                <picture>
-                    <img src=./..{$product->getImagen()->getURL()}>
-                </picture>
-            </a>
-            <div class=info>
-                <span>{$product->getNombreProducto()}</span>
-                <span>{$product->getPrecio()}€</span>
+        if (!$cesta->esta_vacia()) {
+            $products = $cesta->getProductos();
+            foreach ($products as $product) {
+                $resultado .= "
+                <div class=added-item>
+                <a href=./product.php?id_producto={$product->getId()}>
+                    <picture>
+                        <img src=./..{$product->getImagen()->getURL()}>
+                    </picture>
+                </a>
+                <div class=info>
+                    <span>{$product->getNombreProducto()}</span>
+                    <span>{$product->getPrecio()}€</span>
+                </div>
             </div>
-        </div>
-            ";
+                ";
+            }
         }
     }
     return $resultado;
@@ -51,8 +52,9 @@ function value_cart_content(): int
     global $cesta;
     $resultado = 0;
     if ($cesta) {
-
-        $resultado = $cesta->getCoste();
+        if (!$cesta->esta_vacia()) {
+            $resultado = $cesta->getCoste();
+        }
     }
     return $resultado;
 }
@@ -125,7 +127,7 @@ $price_cart = value_cart_content();
         <h2>Cesta <span>(
                 <?php
                 if (isset($_SESSION['cesta'])) {
-                    echo count($_SESSION['cesta']);
+                    echo count($cesta->getProductos());
                 } else {
                     echo 0;
                 } ?> articulos)</span></h2>

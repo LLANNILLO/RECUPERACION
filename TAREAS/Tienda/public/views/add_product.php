@@ -19,21 +19,16 @@
 
     use Tienda\Classes\BD_class\PDOProduct;
     use Tienda\Classes\BD_class\Produ;
+    use Tienda\Classes\BD_class\Funciones;
     use Tienda\Classes\Producto;
+    use Tienda\Classes\Imagen;
 
     $PDOProduct = new PDOProduct;
     $Produ = new Produ($PDOProduct);
-    function getFamilias()
-    {
-
-        global $Produ;
-
-        $familias = $Produ->getFamilies();
-        return $familias;
-    }
 
 
-    $familias = getFamilias();
+
+    $familias = Funciones::getFamilies();
 
     function crear_producto()
     {
@@ -55,54 +50,57 @@
                     $precio,
                     $idFamilia,
                 ];
+                $existen_valores = true;
+                foreach ($valores as $valor) {
+                    if (!validar_requerido($valor)) {
+                        $existen_valores = false;
+                    }
+                }
+                if ($existen_valores) {
 
-                // Procesar la imagen
-                if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
-                    // Directorio donde se almacenarán las imágenes
 
-                    $directorioDestino = "./../image/products/";
-                    // Nombre del archivo
-                    $nombreArchivo = $_FILES["image"]["name"];
-                    //extension archivo
-                    $extensionArchivo = $_FILES["image"]["type"];
-                    // Ruta temporal del archivo
-                    $rutaTemporal = $_FILES["image"]["tmp_name"];
+                    // Procesar la imagen
+                    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+                        // Directorio donde se almacenarán las imágenes
 
-                    $imagen_nombre = '/image/products/' . $nombreArchivo;
+                        $directorioDestino = "./../image/products/";
+                        // Nombre del archivo
+                        $nombreArchivo = $_FILES["image"]["name"];
+                        //extension archivo
+                        $extensionArchivo = $_FILES["image"]["type"];
+                        // Ruta temporal del archivo
+                        $rutaTemporal = $_FILES["image"]["tmp_name"];
 
-                    if (validar_formato_imagen($extensionArchivo)) {
-                        if (move_uploaded_file($rutaTemporal, $directorioDestino . $nombreArchivo)) {
-                            array_push($valores, $imagen_nombre);
-                            $existen_valores = true;
+                        $imagen_nombre = '/image/products/' . $nombreArchivo;
+                        $ruta = $directorioDestino . $nombreArchivo;
+                        if (validar_formato_imagen($extensionArchivo)) {
+                            if (move_uploaded_file($rutaTemporal, $ruta)) {
+                                array_push($valores, $imagen_nombre);
 
-                            foreach ($valores as $valor) {
-                                if (!validar_requerido($valor)) {
-                                    $existen_valores = false;
-                                }
-                            }
-
-                            if ($existen_valores) {
-                                $producto = new Producto(0, $nombreProducto, $descripcion, intval($precio), $imagen_nombre, $idFamilia);
+                                $imagen = new Imagen($imagen_nombre);
+                                $familia = Funciones::getFamilyId($idFamilia);
+                                $producto = new Producto($nombreProducto, $descripcion, intval($precio), $imagen, $familia);
                                 if ($Produ->create($producto)) {
                                     redireccionar('./../views/index.php');
                                 } else {
                                     $mensaje = "No se consiguio crear el nuevo producto";
                                 }
-                            } else {
-                                $mensaje  = "Rellene todos los campos";
                             }
                         } else {
                             // Error al mover el archivo
-                            $mensaje =  "Hubo un error al cargar la imagen.";
+                            $mensaje =  "Solo se permiten archivos .jpeg";
                         }
                     } else {
-                        $mensaje = "Solo se permiten archivos .jpeg";
+                        $mensaje = "Hubo un error al cargar la imagen.";
                     }
+                } else {
+                    $mensaje  = "Rellene todos los campos";
                 }
             }
-            return $mensaje;
         }
+        return $mensaje;
     }
+
     ?>
 
     <main>

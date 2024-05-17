@@ -16,13 +16,13 @@ class CestaCompra
     }
 
 
-    
+
     public function nuevo_articulo(int $id)
     {
         $produ = new Produ(new PDOProduct);
         $producto = $produ->list_by_id($id);
 
-        array_push($productos,$producto);
+        array_push($this->productos, $producto);
     }
 
     public function getProductos(): array
@@ -30,16 +30,14 @@ class CestaCompra
         return $this->productos;
     }
 
-    
+
     public function getCoste()
     {
 
         $coste = 0;
 
         foreach ($this->getProductos() as $producto) {
-            
             $coste += $producto->getPrecio();
-
         }
 
         return $coste;

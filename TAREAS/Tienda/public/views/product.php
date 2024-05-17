@@ -20,7 +20,6 @@
 
     $product = $Produ->list_by_id($id_producto);
 
-    $url_imagen_view = $product->getImagen();
 
     $_SESSION['product'] = $product;
 
@@ -28,7 +27,7 @@
 
     <main>
 
-        <div class="highlight-week" style="background-image: url('./..<?php echo $url_imagen_view ?>'); filter:blur(3px);">
+        <div class="highlight-week" style="background-image: url('./..<?php echo $product->getImagen()->getURL() ?>'); filter:blur(3px);">
         </div>
 
         <section class="product-info">
@@ -36,7 +35,7 @@
             <div class="purchase-panel">
                 <div class="presentation">
                     <picture class="banner">
-                        <img src="./..<?php echo $url_imagen_view ?>" alt="">
+                        <img src="./..<?php echo $product->getImagen()->getURL() ?>">
                     </picture>
                 </div>
 

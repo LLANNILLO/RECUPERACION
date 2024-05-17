@@ -6,7 +6,8 @@ use PDO;
 use PDOException;
 use Tienda\Classes\Familia;
 
-class Funciones{
+class Funciones
+{
 
     public static function getFamilies(): array
     {
@@ -16,13 +17,13 @@ class Funciones{
         $conexion = BaseDatos::getConnection();
         try {
 
-            $consulta = $conexion->query('SELECT id_familia,url_familia FROM familias');
+            $consulta = $conexion->query('SELECT id_familia,nombre_familia FROM familias');
 
             while ($registro = $consulta->fetch(PDO::FETCH_OBJ)) {
                 $id = $registro->id_familia;
-                $url = $registro->url_familia;
+                $nombre = $registro->nombre_familia;
 
-                $familia = new Familia($url,$id);
+                $familia = new Familia($nombre, $id);
 
                 array_push($familias, $familia);
             }
@@ -31,13 +32,22 @@ class Funciones{
         }
 
         $conexion = BaseDatos::closeConnection();
-        
+
         return $familias;
     }
 
-    public function getFamiliaId() : 
+    public static function getFamilyId(int $id): Familia
+    {
+
+        $conexion = BaseDatos::getConnection();
+
+        $consulta = $conexion->query('SELECT id_familia,nombre_familia FROM familias WHERE id_familia = ' . $id);
+        if ($registro = $consulta->fetch(PDO::FETCH_OBJ)) {
+            $id = $registro->id_familia;
+            $nombre = $registro->nombre_familia;
+
+            $familia = new Familia($nombre, $id);
+            return $familia;
+        }
+    }
 }
-
-
-
-?>

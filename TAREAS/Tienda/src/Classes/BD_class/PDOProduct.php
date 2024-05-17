@@ -20,6 +20,7 @@ class PDOProduct implements IntRepoProducto
 
         if (!empty($imagen)) {
             $conexion = BaseDatos::getConnection();
+            $conexion->beginTransaction();
             try {
                 $consulta = $conexion->prepare('INSERT INTO productos(nombre_producto,descripcion,precio,imagen,familia) VALUES(:nombre,:descripcion,:precio,:imagen,:familia)');
                 $valores = [
@@ -121,11 +122,11 @@ class PDOProduct implements IntRepoProducto
         $conexion = BaseDatos::getConnection();
 
         try {
-            $consulta = $conexion->prepare('SELECT productos.id_producto, productos.nombre_producto,productos.descripcion,productos.precio,productos.imagen,productos.familia, imagenes.id_imagen,imagenes.url,familias.id_familia,familias.nombre_familia
+            $consulta = $conexion->prepare('SELECT id_producto, nombre_producto,descripcion,precio,imagen,familia, id_imagen,url,id_familia,nombre_familia
             FROM productos
-            INNER JOIN imagenes ON productos.imagen = imagenes.id_imagen
-            INNER JOIN familias ON productos.familia = familias.id_familia
-                                        WHERE id_producto = :id');
+            INNER JOIN imagenes ON imagen = id_imagen
+            INNER JOIN familias ON familia = id_familia
+            WHERE id_producto = :id');
 
             $consulta->bindParam(':id', $id_producto);
             $consulta->execute();
@@ -194,16 +195,15 @@ class PDOProduct implements IntRepoProducto
 
             if ($eliminarProducto > 0 && $eliminarImagen > 0) {
                 $conexion->commit();
-                $rutaArchivo = dirname(__DIR__, 3) . '/public' . $producto->getImagen()->getIdImagen();
+                $rutaArchivo = dirname(__DIR__, 3) . '/public' . $producto->getImagen()->getURL();
 
                 unlink($rutaArchivo);
                 $resultado = true;
             }
-
         } catch (PDOException) {
             $conexion->rollBack();
         }
         $conexion = BaseDatos::closeConnection();
         return $resultado;
-    }    
+    }
 }

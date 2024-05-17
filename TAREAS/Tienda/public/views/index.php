@@ -35,6 +35,10 @@
                     <div class=text>{$product->getNombreProducto()}</div>
                     <div class=price>{$product->getPrecio()}€</div>
                 </div>
+                <form action=./delete.product.php class=delete method=post>
+                    <input type=hidden name=id_product value={$product->getId()}>
+                    <input type=submit value=&times;>
+                </form>
             </div>
             ";
         }
