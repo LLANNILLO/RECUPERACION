@@ -11,6 +11,8 @@ class DesarrolladorSeeder extends Seeder
     /**
      * Run the database seeds.
      */
+
+     //https://stackoverflow.com/questions/65891520/laravel-factory-sequence
     public function run(): void
     {
         $desarrolladores = ['RockStar'];

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\VideojuegoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', InicioController::class)->name('inicio');
+
+Route::controller(VideojuegoController::class)->group(function () {
+    Route::get('videojuegos', 'index')->name('videojuegos.index');
+    Route::get('videojuegos/crear', 'index')->name('videojuegos.index');
+    Route::get('videojuegos/{videojuego}', 'show')->name('videojuegos.show');
+    Route::get('videojuegos/{videojuego}/editar', 'edit')->name('videojuegos.edit');
+    Route::post('videojuegos', 'store')->name('videojuegos.store');
+    Route::put('videojuegos/{videojuego}', 'update')->name('videojuegos.update');
 });
 
 Route::middleware([
