@@ -13,11 +13,11 @@ class FamiliaSeeder extends Seeder
      */
     public function run(): void
     {
-        $nationalities = ['German', 'French'];
+        $generos = ['Accion', 'Arcade', 'Aventura', 'Aventura Gráfica', 'Carreras', 'Deportes', 'Estrategia', 'Hack & Slash', 'Metroidvania', 'Puzzles', 'Roguelike', 'RPG', 'Rol', 'Sandbox','Shooter','Simulacion'];
 
         Familia::factory()
-            ->count(count($nationalities))
-            ->sequence(fn ($sequence) => ['nombre' => $nationalities[$sequence->index]])
+            ->count(count($generos))
+            ->sequence(fn ($sequence) => ['nombre' => $generos[$sequence->index]])
             ->create();
     }
 }
