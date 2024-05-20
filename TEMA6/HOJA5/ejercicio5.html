@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./estilos/estilo.css" />
+    <script src="./JS/calculadora.js"></script>
+    <script src="./JS/index.js" defer></script>
+  </head>
+  <body>
+    <main class="calculadora">
+      <div class="salida">
+        <div data-previo class="previo"></div>
+        <div data-actual class="actual"></div>
+      </div>
+      <input
+        data-borrar
+        class="span-3 boton-especial"
+        type="button"
+        value="C"
+      />
+      <input
+        data-operador
+        class="boton-calculo"
+        type="button"
+        value="&times;"
+      />
+      <input data-operador class="boton-calculo" type="button" value="^" />
+      <input data-operador class="boton-calculo" type="button" value="1/x" />
+      <input data-operador class="boton-calculo" type="button" value="x^2" />
+      <input data-operador class="boton-calculo" type="button" value="%" />
+      <input data-numero type="button" value="1" />
+      <input data-numero type="button" value="2" />
+      <input data-numero type="button" value="3" />
+      <input data-operador class="boton-calculo" type="button" value="+" />
+      <input data-numero type="button" value="4" />
+      <input data-numero type="button" value="5" />
+      <input data-numero type="button" value="6" />
+      <input data-operador class="boton-calculo" type="button" value="/" />
+      <input data-numero type="button" value="7" />
+      <input data-numero type="button" value="8" />
+      <input data-numero type="button" value="9" />
+      <input data-operador class="boton-calculo" type="button" value="-" />
+      <input data-numero type="button" value="." />
+      <input data-numero type="button" value="0" />
+      <input data-igual class="boton-especial igual" type="button" value="=" />
+    </main>
+  </body>
+</html>
