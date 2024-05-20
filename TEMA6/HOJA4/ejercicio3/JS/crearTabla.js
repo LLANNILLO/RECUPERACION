@@ -23,4 +23,16 @@ window.addEventListener("load", () => {
   }
 
   body.appendChild(tabla);
+  function contarFilas() {
+    filas = document.getElementsByTagName("tr").length;
+    return filas;
+  }
+
+  function contarColumnas() {
+    columnas = document.getElementsByTagName("td").length;
+    return columnas;
+  }
+
+  alert(`El numero de filas es: ${contarFilas()}`);
+  alert(`El numero de Columnas es: ${contarColumnas()}`);
 });
