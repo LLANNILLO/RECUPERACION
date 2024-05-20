@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Desarrollador;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class DesarrolladorFactory extends Factory
 {
+    protected $model = Desarrollador::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +19,9 @@ class DesarrolladorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->languageCode(),
+            'nombre' => $this->faker->company,
+            'ubicacion' => $this->faker->address,
+            'logo' => '' //Ruta relativa vacia
         ];
     }
 }

@@ -12,16 +12,19 @@ class DesarrolladorSeeder extends Seeder
      * Run the database seeds.
      */
 
-     //https://stackoverflow.com/questions/65891520/laravel-factory-sequence
+    //https://stackoverflow.com/questions/65891520/laravel-factory-sequence
     public function run(): void
     {
-        $desarrolladores = ['RockStar'];
+        $desarrolladores = [
+            ['nombre' => 'Naughty Dog', 'ubicacion' => 'Santa Monica, CA, USA'],
+            ['nombre' => 'Bungie', 'ubicacion' => 'Bellevue, WA, USA'],
+            ['nombre' => 'CD Projekt Red', 'ubicacion' => 'Warsaw, Poland'],
+            ['nombre' => 'FromSoftware', 'ubicacion' => 'Tokyo, Japan'],
+            // Agrega más desarrolladores aquí según sea necesario
+        ];
 
-        Desarrollador::factory()
-            ->count(count($desarrolladores))
-            ->sequence(fn ($sequence) => [
-                'nombre' => $desarrolladores[$sequence->index],
-            ])
-            ->create();
+        foreach ($desarrolladores as $desarrollador) {
+            Desarrollador::factory()->create($desarrollador);
+        }
     }
 }

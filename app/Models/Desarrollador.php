@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Desarrollador extends Model
 {
     use HasFactory;
+
+    protected $table = 'desarrolladores';
+
     public $timestamps = false;
 
-    public function videojuego(){
+    public function videojuego()
+    {
         return $this->belongsTo(Videojuego::class);
     }
 }

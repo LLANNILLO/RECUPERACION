@@ -13,7 +13,7 @@ class FamiliaSeeder extends Seeder
      */
     public function run(): void
     {
-        $generos = ['Accion', 'Arcade', 'Aventura', 'Aventura Gráfica', 'Carreras', 'Deportes', 'Estrategia', 'Hack & Slash', 'Metroidvania', 'Puzzles', 'Roguelike', 'RPG', 'Rol', 'Sandbox','Shooter','Simulacion'];
+        $generos = ['Accion', 'Arcade', 'Aventura', 'Aventura Gráfica', 'Carreras', 'Deportes', 'Estrategia', 'Hack & Slash', 'Metroidvania', 'Puzzles', 'Roguelike', 'RPG', 'Rol', 'Sandbox', 'Shooter', 'Simulacion'];
 
         Familia::factory()
             ->count(count($generos))
