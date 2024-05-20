@@ -19,9 +19,9 @@ class DesarrolladorFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => $this->faker->company,
-            'ubicacion' => $this->faker->address,
-            'logo' => '' //Ruta relativa vacia
+            'nombre' => $this->faker->languageCode(),
+            'ubicacion' => $this->faker->languageCode(),
+            'logo' => '' //Ruta relativa de momento vacia vacia
         ];
     }
 }

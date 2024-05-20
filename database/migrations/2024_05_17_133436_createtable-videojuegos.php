@@ -18,10 +18,18 @@ return new class extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('descripcion');
-            $table->integer('precio');
-            $table->foreignIdFor(Familia::class)->constrained();
-            $table->foreignId('imagenes_id')->constrained();
-            $table->foreignId('desarrolladores_id')->constrained();
+            $table->float('precio');
+
+            // Clave foranea con desarrollador
+            $table->unsignedBigInteger('desarrollador_id');
+            $table->foreign('desarrollador_id')->references('id')->on('desarrolladores');
+
+            // Clave foranea con imagenes
+            $table->unsignedBigInteger('imagen_id');
+            $table->foreign('imagen_id')->references('id')->on('imagenes');
+
+            /* $table->foreignId('imagen_id')->constrained();
+            $table->foreignId('desarrollador_id')->constrained(); */
         });
     }
 

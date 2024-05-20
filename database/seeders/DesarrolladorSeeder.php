@@ -18,8 +18,8 @@ class DesarrolladorSeeder extends Seeder
         $desarrolladores = [
             ['nombre' => 'Naughty Dog', 'ubicacion' => 'Santa Monica, CA, USA'],
             ['nombre' => 'Bungie', 'ubicacion' => 'Bellevue, WA, USA'],
-            ['nombre' => 'CD Projekt Red', 'ubicacion' => 'Warsaw, Poland'],
-            ['nombre' => 'FromSoftware', 'ubicacion' => 'Tokyo, Japan'],
+            ['nombre' => 'CD Projekt Red', 'ubicacion' => 'Varsovia, Polonia'],
+            ['nombre' => 'FromSoftware', 'ubicacion' => 'Tokyo, Japon'],
             // Agrega más desarrolladores aquí según sea necesario
         ];
 
