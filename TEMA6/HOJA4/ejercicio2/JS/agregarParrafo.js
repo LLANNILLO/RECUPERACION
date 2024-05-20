@@ -1,14 +1,13 @@
 window.addEventListener("load", () => {
   //obtener el input del boton para añadir un evento
   const insertarParrafoBtn = document.getElementById("insertarParrafo");
-  //Lista con las diferentes posiciones
-  var ol = document.getElementById("listaParrafos");
 
-  console.log();
   //obtener el input de la posicion
   var posicion = document.getElementById("posiciones");
 
   function agregarParrafo() {
+    //Lista con las diferentes posiciones
+    var ol = document.getElementById("listaParrafos");
     //colocar un limite a la posicion
     posicion.setAttribute("max", ol.childElementCount);
     let valorPosicion = posicion.value;

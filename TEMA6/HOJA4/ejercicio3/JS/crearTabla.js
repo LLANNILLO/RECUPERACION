@@ -1,10 +1,10 @@
-window.addEventListener("load", () => {
-  //Generador de numeros aleatorios
-  function numeroAleatorio() {
-    return Math.floor(Math.random() * 100) + 1;
-  }
+//Generador de numeros aleatorios
+function numeroAleatorio() {
+  return Math.floor(Math.random() * 100) + 1;
+}
 
-  var body = document.firstElementChild.firstElementChild.nextElementSibling;
+window.addEventListener("load", () => {
+  var body = document.body;
   var numeroDeFilas = parseInt(prompt("Cuantas filas vamos a tener"));
   var numeroDeColumnas = parseInt(
     prompt("Cuantas columnas por filas vamos a tener")
@@ -23,16 +23,23 @@ window.addEventListener("load", () => {
   }
 
   body.appendChild(tabla);
+
   function contarFilas() {
     filas = document.getElementsByTagName("tr").length;
     return filas;
   }
 
   function contarColumnas() {
+    columnas = document.querySelector("tr").childElementCount;
+    return columnas;
+  }
+
+  function contarCeldas() {
     columnas = document.getElementsByTagName("td").length;
     return columnas;
   }
 
   alert(`El numero de filas es: ${contarFilas()}`);
   alert(`El numero de Columnas es: ${contarColumnas()}`);
+  alert(`El numero de Celdas es: ${contarCeldas()}`);
 });
