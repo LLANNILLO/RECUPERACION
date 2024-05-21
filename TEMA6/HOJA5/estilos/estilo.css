@@ -9,54 +9,62 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, hsl(32, 45%, 45%), hsl(0, 54%, 52%));
+  background: rgb(59, 57, 57);
   display: flex;
   justify-content: center;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .calculadora {
   padding: 2vw;
-  width: 60vw;
+  width: 30vw;
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: minmax(120px, auto) repeat(6, 1fr);
-  gap: 10px 20px;
+  background-color: rgb(45, 100, 37);
+  border-radius: 50px;
+  gap: 20px 20px;
 }
 
 .calculadora > input {
   cursor: pointer;
   font-size: 2rem;
   border: none;
-  border-radius: 10px;
+  background: rgb(62, 126, 52);
+  box-shadow: 0 0 3px 5px rgb(57, 110, 48);
 }
 
+.boton {
+  border-radius: 100%;
+  width: 90px;
+  height: 90px;
+  color: white;
+}
 .calculadora > input:hover {
-  background-color: rgb(255 255 255 / 75%);
+  background-color: rgba(62, 126, 52, 0.75);
 }
 .calculadora > input:active {
-  background-color: rgb(255 255 255 / 90%);
+  background-color: rgba(62, 126, 52, 0.9);
 }
 
-.span-2 {
-  grid-column: span 2;
-}
 .span-3 {
   grid-column: span 3;
 }
+.span-2 {
+  grid-column: span 2;
+}
 
 .boton-especial {
-  color: rgb(5 4 4 / 0.9);
-  background: rgba(235, 114, 15, 0.9);
-}
-.igual {
-  grid-column: 3 / -1;
+  color: white;
+  border-radius: 100px;
 }
 
 .boton-calculo {
-  color: rgb(179 49 49 / 1);
+  color: white;
 }
 .salida {
   grid-column: 1 / -1;

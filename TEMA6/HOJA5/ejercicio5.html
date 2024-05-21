@@ -5,46 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
     <link rel="stylesheet" href="./estilos/estilo.css" />
-    <script src="./JS/calculadora.js"></script>
     <script src="./JS/index.js" defer></script>
   </head>
   <body>
     <main class="calculadora">
       <div class="salida">
-        <div data-previo class="previo"></div>
-        <div data-actual class="actual"></div>
+        <div class="previo"></div>
+        <div class="actual"></div>
       </div>
       <input
-        data-borrar
+        id="borrar"
         class="span-3 boton-especial"
         type="button"
         value="C"
       />
       <input
-        data-operador
-        class="boton-calculo"
+        name="operacionesSimples"
+        class="boton boton-calculo"
         type="button"
-        value="&times;"
+        value="*"
       />
-      <input data-operador class="boton-calculo" type="button" value="^" />
-      <input data-operador class="boton-calculo" type="button" value="1/x" />
-      <input data-operador class="boton-calculo" type="button" value="x^2" />
-      <input data-operador class="boton-calculo" type="button" value="%" />
-      <input data-numero type="button" value="1" />
-      <input data-numero type="button" value="2" />
-      <input data-numero type="button" value="3" />
-      <input data-operador class="boton-calculo" type="button" value="+" />
-      <input data-numero type="button" value="4" />
-      <input data-numero type="button" value="5" />
-      <input data-numero type="button" value="6" />
-      <input data-operador class="boton-calculo" type="button" value="/" />
-      <input data-numero type="button" value="7" />
-      <input data-numero type="button" value="8" />
-      <input data-numero type="button" value="9" />
-      <input data-operador class="boton-calculo" type="button" value="-" />
-      <input data-numero type="button" value="." />
-      <input data-numero type="button" value="0" />
-      <input data-igual class="boton-especial igual" type="button" value="=" />
+      <input
+        name="operacionesSimples"
+        class="boton boton-calculo"
+        type="button"
+        value="**"
+      />
+      <input
+        id="especial"
+        class="boton boton-calculo"
+        type="button"
+        value="1/x"
+      />
+      <input
+        id="potencia2"
+        class="boton boton-calculo"
+        type="button"
+        value="**2"
+      />
+      <input
+        name="operacionesSimples"
+        class="boton boton-calculo"
+        type="button"
+        value="%"
+      />
+      <input name="numerico" class="boton" type="button" value="1" />
+      <input name="numerico" class="boton" type="button" value="2" />
+      <input name="numerico" class="boton" type="button" value="3" />
+      <input
+        name="operacionesSimples"
+        class="boton boton-calculo"
+        type="button"
+        value="+"
+      />
+      <input name="numerico" class="boton" type="button" value="4" />
+      <input name="numerico" class="boton" type="button" value="5" />
+      <input name="numerico" class="boton" type="button" value="6" />
+      <input
+        name="operacionesSimples"
+        class="boton boton-calculo"
+        type="button"
+        value="/"
+      />
+      <input name="numerico" class="boton" type="button" value="7" />
+      <input name="numerico" class="boton" type="button" value="8" />
+      <input name="numerico" class="boton" type="button" value="9" />
+      <input
+        name="operacionesSimples"
+        class="boton boton-calculo"
+        type="button"
+        value="-"
+      />
+      <input id="punto" class="boton" type="button" value="." />
+      <input name="numerico" class="boton" type="button" value="0" />
+      <input
+        id="calcular"
+        class="span-2 boton-especial igual"
+        type="button"
+        value="="
+      />
     </main>
   </body>
 </html>
