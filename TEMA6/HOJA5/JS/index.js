@@ -67,9 +67,19 @@ window.addEventListener("load", () => {
   const botonResultado = document.getElementById("calcular");
 
   botonResultado.addEventListener("click", () => {
-    let resultado = operar(
-      `${valorPrevio.textContent}${valorActual.textContent}`
-    );
+    let resultado;
+    if (valorPrevio.textContent.includes("^")) {
+      resultado = operar(
+        `${valorPrevio.textContent.slice(
+          0,
+          valorPrevio.textContent.length - 1
+        )}**${valorActual.textContent}`
+      );
+    } else {
+      resultado = operar(
+        `${valorPrevio.textContent}${valorActual.textContent}`
+      );
+    }
     valorPrevio.textContent += valorActual.textContent + "=";
     valorActual.textContent = resultado;
   });
@@ -86,6 +96,15 @@ window.addEventListener("load", () => {
   calculoPotenciaDos.addEventListener("click", () => {
     let resultado = operar(`${valorActual.textContent}**2`);
     valorActual.textContent = resultado;
+  });
+
+  const calculoPontecia = document.getElementById("potencia");
+
+  calculoPontecia.addEventListener("click", () => {
+    if (!valorPrevio.textContent) {
+      valorPrevio.textContent = valorActual.textContent + "^";
+      valorActual.textContent = "";
+    }
   });
 
   const punto = document.getElementById("punto");
