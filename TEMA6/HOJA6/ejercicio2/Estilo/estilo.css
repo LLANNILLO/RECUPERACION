@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header input[type="button"] {
+  border: 0;
+  width: fit-content;
+  padding: 20px 50px;
+  border-radius: 12px;
+  color: white;
+  font-size: x-large;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(30, 106, 213);
+}
+
+main {
+  display: grid;
+  margin: 50px 0;
+}
+.contenedor-burbujas {
+  justify-self: center;
+  position: relative;
+  border: 10px solid;
+  width: 600px;
+  height: 600px;
+}
+
+.contenedor-burbujas span {
+  position: absolute;
+  border-radius: 100%;
+}
