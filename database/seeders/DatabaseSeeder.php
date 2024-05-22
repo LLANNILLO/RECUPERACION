@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             ImagenSeeder::class,
             //Ultimo seeder con las claves foraneas
             VideojuegoSeeder::class,
+            VideojuegoFamiliaSeeder::class,
         ]);
 
 
