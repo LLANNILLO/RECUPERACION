@@ -9,11 +9,14 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
+    //añadimos los roles de usuario con este trait
+    use HasRoles;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;

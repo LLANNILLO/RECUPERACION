@@ -22,6 +22,11 @@ class DatabaseSeeder extends Seeder
             //Ultimo seeder con las claves foraneas
             VideojuegoSeeder::class,
             VideojuegoFamiliaSeeder::class,
+            /*
+              creacion de un usuario administrador con
+              la capacidad de alterar los videojuegos y las familias
+            */
+            RoleAdminUserSeeder::class,
         ]);
 
 
