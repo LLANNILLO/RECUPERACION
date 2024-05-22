@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', InicioController::class)->name('inicio');
 
 Route::resource('videojuegos', VideojuegoController::class);
-Route::resource('familias', FamiliaController::class)->middleware('auth');
+Route::resource('familias', FamiliaController::class);
 
 Route::middleware([
     'auth:sanctum',
