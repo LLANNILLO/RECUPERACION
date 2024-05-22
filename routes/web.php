@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FamiliaController;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\VideojuegoController;
 use Illuminate\Support\Facades\Route;
@@ -17,14 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', InicioController::class)->name('inicio');
 
-Route::controller(VideojuegoController::class)->group(function () {
-    Route::get('videojuegos', 'index')->name('videojuegos.index');
-    Route::get('videojuegos/crear', 'index')->name('videojuegos.index');
-    Route::get('videojuegos/{videojuego}', 'show')->name('videojuegos.show');
-    Route::get('videojuegos/{videojuego}/editar', 'edit')->name('videojuegos.edit');
-    Route::post('videojuegos', 'store')->name('videojuegos.store');
-    Route::put('videojuegos/{videojuego}', 'update')->name('videojuegos.update');
-});
+Route::resource('videojuegos', VideojuegoController::class);
+Route::resource('familias', FamiliaController::class)->middleware('auth');
 
 Route::middleware([
     'auth:sanctum',

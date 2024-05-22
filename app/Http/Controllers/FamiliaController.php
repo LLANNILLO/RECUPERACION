@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Familia;
 use Illuminate\Http\Request;
 
-class VideojuegoController extends Controller
+class FamiliaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('videojuegos.index');
+        //
     }
 
     /**
@@ -33,7 +34,7 @@ class VideojuegoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Familia $familia)
     {
         //
     }
@@ -41,7 +42,7 @@ class VideojuegoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Familia $familia)
     {
         //
     }
@@ -49,7 +50,7 @@ class VideojuegoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Familia $familia)
     {
         //
     }
@@ -57,7 +58,7 @@ class VideojuegoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Familia $familia)
     {
         //
     }

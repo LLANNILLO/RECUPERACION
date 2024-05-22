@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('videojuego_familia',function(Blueprint $table){
             $table->id();
-            $table->foreignIdFor(Familia::class)->constrained();
-            $table->foreignIdFor(Videojuego::class)->constrained();
+            $table->foreignIdFor(Familia::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignIdFor(Videojuego::class)->constrained()->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
