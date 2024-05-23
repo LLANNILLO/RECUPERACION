@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creacion de select y lista</title>
+    <script src="./JS/listaSelect.js"></script>
+    <link rel="stylesheet" href="./Estilo/estilo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Creacion de select y lista</h1>
+      <nav>
+        <input type="button" value="agregar valor" id="agregar" />
+        <input type="button" value="crear select" id="crearSelect" />
+        <input type="button" value="crear lista" id="crearLista" />
+      </nav>
+    </header>
+
+    <main>
+      <section id="select"></section>
+      <!-- Personalizacion de la lista -->
+      <div>
+        <div>
+          <h3>botones para agregar</h3>
+          <input type="button" value="Insertar Al final" id="insertarFinal" />
+          <span>
+            <input
+              type="button"
+              value="Insertar después de..."
+              id="insertarDespues"
+            />
+            <input type="text" id="valorDespues" />
+          </span>
+        </div>
+        <div>
+          <h3>botones para eliminar</h3>
+          <input
+            type="button"
+            value="Eliminar de la lista"
+            id="eliminarDeLista"
+          />
+          <span>
+            <input type="number" id="numListas" min="1" max="0" />
+            <input type="button" value="Eliminar lista" id="eliminarLista" />
+          </span>
+        </div>
+        <h2>Seccion de listas</h2>
+        <section id="ul"></section>
+      </div>
+    </main>
+  </body>
+</html>

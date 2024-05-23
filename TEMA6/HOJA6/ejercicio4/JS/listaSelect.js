@@ -2,8 +2,14 @@ window.addEventListener("load", () => {
   const agregarValorBtn = document.getElementById("agregar");
   const crearSelectBtn = document.getElementById("crearSelect");
   const crearListaBtn = document.getElementById("crearLista");
-  const eliminarDeListaBtn = document.getElementById("eliminarDeLista");
+  const section = document.getElementById("ul");
 
+  // constante para obtener el boton "Eliminar de la lista"
+  const eliminarDeListaBtn = document.getElementById("eliminarDeLista");
+  // constante para obtener el boton "Eliminar lista";
+  const eliminarListaBtn = document.getElementById("eliminarLista");
+  // constante para obtener la lista a eliminar
+  const number = document.getElementById("numListas");
   /* 
     Creacion de un array en donde se guardan todos los valores introducidos
     en el prompt a traves de la funcion agregarValor()
@@ -62,6 +68,9 @@ window.addEventListener("load", () => {
 
   crearListaBtn.addEventListener("click", () => {
     creacion("ul");
+    let cantidadListas = document.getElementsByTagName("ul").length;
+
+    number.setAttribute("max", `${cantidadListas}`);
   });
 
   /**
@@ -105,7 +114,7 @@ window.addEventListener("load", () => {
          obtener la seccion padre, por si se queda vacia la lista, 
          poderla eliminar
          */
-        const section = document.getElementById("ul");
+
         listas.forEach((lista) => {
           lista.removeChild(lista.children[posicion - 1]);
           if (lista.childElementCount < 1) {
@@ -120,4 +129,15 @@ window.addEventListener("load", () => {
     }
   }
   eliminarDeListaBtn.addEventListener("click", eliminarDeLaLista);
+
+  function eliminarLista() {
+    let valorLista = number.value;
+    let listaEliminar = section.children;
+    if (valorLista > listaEliminar.length) {
+      alert("No existe la lista a eliminar");
+    } else {
+      section.removeChild(listaEliminar[valorLista - 1]);
+    }
+  }
+  eliminarListaBtn.addEventListener("click", eliminarLista);
 });
