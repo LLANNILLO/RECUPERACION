@@ -6,9 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
+    @vite('resources/css/app.css')
+    <style>
+        .bg-videojuegos-img {
+            background-image: url({{ asset('imagenes/admin/videojuegos-fondo.jpg') }});
+        }
+
+        .bg-familias-img {
+            background-image: url({{ asset('imagenes/admin/generos-fondo.jpg') }});
+        }
+    </style>
 </head>
 
-<body>
+<body class="box-border">
     @yield('contenido')
 </body>
 
