@@ -1,5 +1,4 @@
 var temaGeografia = new Tema(Temas.Geografia[0], Temas.Geografia[1]);
-console.log(temaGeografia);
 
 document.addEventListener("DOMContentLoaded", () => {
   var frase = document.querySelector("[data-frase]");
@@ -7,12 +6,24 @@ document.addEventListener("DOMContentLoaded", () => {
   frase.innerHTML = temaGeografia.transmutarFrase();
   palabras.innerHTML = "<ul>" + temaGeografia.transmutarPalabras() + "</ul>";
 
-  var list = document.querySelectorAll("li");
+  var list = document.querySelector("ul");
 
-  list.forEach((liElement) => {
+  list.childNodes.forEach((liElement) => {
     liElement.addEventListener("click", () => {
       var spanElement = document.querySelector("span");
       temaGeografia.rellenarHueco(spanElement, liElement.innerText);
+      list.removeChild(liElement);
     });
+  });
+
+  const corregirBtn = document.getElementById("corregir");
+
+  corregirBtn.addEventListener("click", () => {
+    var frase = document.querySelector(".frase");
+    if (!frase.innerHTML.includes("<span>...</span>")) {
+      temaGeografia.corregirFrase(frase.innerHTML);
+    } else {
+      alert("Todavia no has introudcido todos los valores");
+    }
   });
 });

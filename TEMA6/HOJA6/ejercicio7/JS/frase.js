@@ -2,7 +2,7 @@ let Temas = {
   Geografia: [
     [
       "El monte más alto del mundo es el <span>Everest</span> y mide más de <span>8000</span> metros",
-      "Los paises mas grandes del mundo son <span>Rusia</span> <span>China</span> y <span>Estados Unidos</span>",
+      "Los paises mas grandes del mundo son <span>Rusia</span> <span>China</span> y <span>Estados</span> Unidos",
       "El <span>río</span> que se llama igual que un personaje de <span>DreamWorks</span> es el rio <span>Po</span>",
     ],
     [

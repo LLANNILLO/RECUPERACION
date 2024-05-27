@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
     <link rel="stylesheet" href="../Estilo/estilo.css" />
+    <script src="../JS/frase.js"></script>
+    <script src="../JS/Tema.js"></script>
+    <script src="../JS/lengua.js"></script>
   </head>
   <body>
     <header>
@@ -15,22 +18,13 @@
       </nav>
     </header>
     <main>
+      <section class="seccion-frases">
+        <div class="frase" data-frase></div>
+        <div class="palabras" data-palabras></div>
+      </section>
       <section>
-        <article>
-          <img src="" alt="" />
-          <h2></h2>
-          <p></p>
-        </article>
-        <article>
-          <img src="" alt="" />
-          <h2></h2>
-          <p></p>
-        </article>
-        <article>
-          <img src="" alt="" />
-          <h2></h2>
-          <p></p>
-        </article>
+        <input class="boton-accion" id="corregir" type="button" value="Corregir">
+        <input class="boton-accion oculto" id="repetir" type="button" value="Repetir">
       </section>
     </main>
     <footer>

@@ -1,27 +1,41 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 html {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  box-sizing: border-box;
 }
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  --color-red-50: #fef2f3;
+  --color-red-100: #fde6e7;
+  --color-red-200: #fbd0d5;
+  --color-red-300: #f7aab2;
+  --color-red-400: #f27a8a;
+  --color-red-500: #ea546c;
+  --color-red-600: #d5294d;
+  --color-red-700: #b31d3f;
+  --color-red-800: #961b3c;
+  --color-red-900: #811a39;
+  --color-red-950: #48091a;
+  color: var(--color-red-50);
 }
 
 header {
-  background: firebrick;
-  padding: 1.5em 0em;
+  background: linear-gradient(#f27a8a, #d5294d);
+  padding: 1.5em;
   font-weight: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
+  min-height: 150px;
+  max-height: 150px;
 }
 
 /* opciones de los menus de los temas
@@ -44,18 +58,16 @@ header {
   margin: 12px;
   padding: 12px;
   font-size: larger;
-  color: black;
 }
 
-header {
-  min-height: 150px;
-  max-height: 150px;
+header h1 {
+  margin-top: 0.5em;
 }
 header nav {
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  margin: 2.1em;
+  margin: 1em;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -64,22 +76,26 @@ header nav {
 #containerNav {
   display: flex;
   padding: 1em;
-  border: 5px solid rgb(207, 93, 93);
+  box-shadow: inset 0px -1px 2px 1px var(--color-red-400);
+  border-radius: 100px;
+  background-color: white;
+  position: relative;
 }
 
-.navAnchor {
-  border-right: 1px solid rgb(207, 93, 93);
+.nav {
+  transition: 0.4s transform;
 }
-
+.nav:hover {
+  transform: scale(1.02);
+}
 a {
   text-decoration: none;
   margin: 0.5em 2em;
   padding: 0px 2em;
-  color: rgb(243, 241, 245);
+  color: var(--color-red-950);
 }
 
 nav a:hover {
-  color: rgb(22, 22, 22);
 }
 
 /*estilo del main inicio*/
@@ -87,20 +103,42 @@ nav a:hover {
 main {
   margin-top: auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-main section {
+main section:first-child {
   display: grid;
+  margin-left: 2.2em;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
-
   gap: 20px;
 }
 
+main section:last-child {
+  align-self: flex-start;
+  margin-left: 5em;
+}
+
+.boton-accion {
+  border: 0px;
+  background-color: var(--color-red-600);
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-size: 25px;
+  font-weight: 500;
+  width: fit-content;
+  color: var(--color-red-50);
+  margin-bottom: 5vh;
+  cursor: pointer;
+}
+.oculto {
+  visibility: hidden;
+}
+
 section a {
-  color: black;
+  color: var(--color-red-950);
 }
 article {
   margin: 2em;
@@ -108,24 +146,40 @@ article {
 
 article div {
   display: flex;
+  height: 500px;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
-article img {
+.contenedor-imagen {
+  width: 300px;
   height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #fff; /* Opcional: color de fondo */
+}
+.contenedor-imagen img {
   border-radius: 100%;
+  min-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ajusta el contenido sin distorsionarlo */
 }
 
 .frase {
-  margin: 0.5em;
+  margin: 1em;
   padding: 0.6em;
-  font-size: 80px;
+  font-size: 30px;
   word-wrap: break-word;
+  color: var(--color-red-900);
+  grid-column: span 2;
 }
 
 .palabras {
   grid-column: 3/-1;
-  font-size: 50px;
+  font-size: 30px;
+  color: var(--color-red-900);
 }
 .palabras ul {
   list-style: none;
@@ -142,15 +196,17 @@ article img {
 .palabras ul > li:hover {
   background: rgb(190 78 78 / 0.3);
 }
-span {
-  background-color: rgb(190 78 78 / 0.3);
-  padding: 2px;
+#opcionEscogida {
+  padding: 0.1rem 1rem;
+  font-size: 40px;
   border-radius: 20px;
+  background: var(--color-red-800);
+  color: var(--color-red-100);
 }
 
-body footer {
+footer {
   margin-top: auto;
-  background: firebrick;
+  background: var(--color-red-700);
   padding: 1.5em 0em;
   font-weight: 100;
   display: flex;
