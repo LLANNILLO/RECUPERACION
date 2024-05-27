@@ -69,8 +69,6 @@ class Tema {
    */
   compararFrases = (correccion, frase) => {
     let correcta = true;
-    console.log(correccion);
-    console.log(frase);
     correccion.forEach((palabraCorrecta) => {
       if (correcta) {
         correcta = frase.includes(palabraCorrecta);
@@ -93,6 +91,7 @@ class Tema {
         alert("Te has confundido");
         botonRepetir.style.visibility = "visible";
         botonRepetir.addEventListener("click", () => {
+          console.log(fraseResultado);
           this.repetir(fraseResultado);
         });
       } else {
@@ -120,14 +119,15 @@ class Tema {
     // Extraer texto de fraseResultado
     const frase = this.extraerTextoEntreSpan(fraseResultado);
     const fraseDOM = document.querySelector(".frase");
+
     if (!fraseDOM.innerHTML.includes("<span>...</span>")) {
       let palabrasCorrectas = [];
       for (let i = 0; i < correccion.length; i++) {
         if (correccion[i] === frase[i]) {
           // Mantener la opción en la nueva frase si coincide
-          palabrasCorrectas.push(`${correccion[i]}`);
+          palabrasCorrectas.push(correccion[i]);
         } else {
-          palabrasCorrectas.push("<span>...</span>");
+          palabrasCorrectas.push(`<span>${correccion[i]}</span>`);
         }
       }
 
@@ -153,13 +153,12 @@ class Tema {
 
       this.fraseAleatoria = fraseNueva;
       // Mostrar la frase actualizada en la consola
+      console.log(this.fraseAleatoria);
       fraseDOM.innerHTML = this.transmutarFrase();
       var palabras = document.querySelector("[data-palabras]");
       palabras.innerHTML = "<ul>" + this.transmutarPalabras() + "</ul>";
 
       this.colocarPalabras();
-    } else {
-      alert("Todavia no has introducido todos los valores");
     }
   }
 
