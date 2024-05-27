@@ -14,7 +14,7 @@ class Tema {
   }
 
   generarFrase(frases, palabras) {
-    let aleatorio = Math.floor(Math.random() * (3 - 1 + 1));
+    let aleatorio = Math.floor(Math.random() * (frases.length - 1 + 1));
     this.fraseAleatoria = frases[aleatorio];
     this.palabrasAleatorias = palabras;
   }
@@ -61,21 +61,22 @@ class Tema {
   };
 
   // Función para comparar las frases
+  /**
+   *
+   * @param {Array} correccion
+   * @param {Array} frase
+   * @returns
+   */
   compararFrases = (correccion, frase) => {
-    // Extraer texto de fraseAleatoria
     let correcta = true;
-
-    for (let i = 0; i < correccion.length; i++) {
-      if (correccion[i] !== frase[i]) {
-        console.log(
-          `Diferencia encontrada en la posición ${i}: correccion="${correccion[i]}", frase="${frase[i]}"`
-        );
-        correcta = false;
+    console.log(correccion);
+    console.log(frase);
+    correccion.forEach((palabraCorrecta) => {
+      if (correcta) {
+        correcta = frase.includes(palabraCorrecta);
       }
-    }
+    });
 
-    if (!correcta) {
-    }
     return correcta;
   };
 
@@ -86,56 +87,91 @@ class Tema {
     // Extraer texto de fraseResultado
     const frase = this.extraerTextoEntreSpan(fraseResultado);
 
-    if (!this.compararFrases(correccion, frase)) {
-      alert("Te has confundido");
+    if (!fraseResultado.includes("<span>...</span>")) {
       const botonRepetir = document.getElementById("repetir");
-      botonRepetir.style.visibility = "visible";
-      botonRepetir.addEventListener("click", () => {
-        this.repetir(correccion, frase);
-      });
+      if (!this.compararFrases(correccion, frase)) {
+        alert("Te has confundido");
+        botonRepetir.style.visibility = "visible";
+        botonRepetir.addEventListener("click", () => {
+          this.repetir(fraseResultado);
+        });
+      } else {
+        alert("La frase es correcta");
+        const seccionBotones = document.querySelector(
+          "main section:last-child"
+        );
+
+        var fraseCorregida = document.querySelector("[data-frase]");
+        fraseCorregida.innerText = this.fraseAleatoria.replace(
+          /<\/?span[^>]*>/g,
+          ""
+        );
+        botonRepetir.style.visibility = "hidden";
+        seccionBotones.style.visibility = "hidden";
+      }
     } else {
-      alert("La frase es correcta");
-      const seccionBotones = document.querySelector("main section:last-child");
-      seccionBotones.style.visibility = "hidden";
-      var fraseCorregida = document.querySelector("[data-frase]");
-      fraseCorregida.innerText = this.fraseAleatoria.replace(
-        /<\/?span[^>]*>/g,
-        ""
-      );
+      alert("Todavia no has introducido todos los valores");
     }
   };
 
-  repetir(correccion, frase) {
-    let palabrasCorrectas = [];
-    for (let i = 0; i < correccion.length; i++) {
-      if (correccion[i] === frase[i]) {
-        // Mantener la opción en la nueva frase si coincide
-        palabrasCorrectas.push(`${correccion[i]}`);
-      }
-    }
-
-    let fraseParaRepetir = this.fraseAleatoria.split(" ");
-
-    let posicion = 0;
-    let fraseRepeticion = fraseParaRepetir.map((contenido) => {
-      if (contenido.includes("<span>")) {
-        if (palabrasCorrectas[posicion]) {
-          const palabraSinSpan = palabrasCorrectas[posicion];
-          posicion++;
-          return palabraSinSpan;
+  repetir(fraseResultado) {
+    // Llamar a la función para comparar las frases
+    const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
+    // Extraer texto de fraseResultado
+    const frase = this.extraerTextoEntreSpan(fraseResultado);
+    const fraseDOM = document.querySelector(".frase");
+    if (!fraseDOM.innerHTML.includes("<span>...</span>")) {
+      let palabrasCorrectas = [];
+      for (let i = 0; i < correccion.length; i++) {
+        if (correccion[i] === frase[i]) {
+          // Mantener la opción en la nueva frase si coincide
+          palabrasCorrectas.push(`${correccion[i]}`);
         } else {
-          return contenido;
+          palabrasCorrectas.push("<span>...</span>");
         }
-      } else {
-        return contenido; // Mantener la palabra si no contiene span
       }
+
+      let fraseParaRepetir = this.fraseAleatoria.split(" ");
+
+      let posicion = 0;
+      let fraseRepeticion = fraseParaRepetir.map((contenido) => {
+        if (contenido.includes("<span>")) {
+          if (palabrasCorrectas[posicion]) {
+            const palabraSinSpan = palabrasCorrectas[posicion];
+            posicion++;
+            return palabraSinSpan;
+          } else {
+            return contenido;
+          }
+        } else {
+          return contenido; // Mantener la palabra si no contiene span
+        }
+      });
+
+      // Actualizar la frase original con las modificaciones
+      let fraseNueva = fraseRepeticion.join(" ");
+
+      this.fraseAleatoria = fraseNueva;
+      // Mostrar la frase actualizada en la consola
+      fraseDOM.innerHTML = this.transmutarFrase();
+      var palabras = document.querySelector("[data-palabras]");
+      palabras.innerHTML = "<ul>" + this.transmutarPalabras() + "</ul>";
+
+      this.colocarPalabras();
+    } else {
+      alert("Todavia no has introducido todos los valores");
+    }
+  }
+
+  colocarPalabras() {
+    var list = document.querySelector("ul");
+
+    list.childNodes.forEach((liElement) => {
+      liElement.addEventListener("click", () => {
+        var spanElement = document.querySelector("span");
+        temaGeografia.rellenarHueco(spanElement, liElement.innerText);
+        list.removeChild(liElement);
+      });
     });
-
-    // Actualizar la frase original con las modificaciones
-    this.fraseAleatoria = fraseRepeticion.join(" ");
-
-    // Mostrar la frase actualizada en la consola
-    var frase = document.querySelector("[data-frase]");
-    frase.innerHTML = this.transmutarFrase();
   }
 }

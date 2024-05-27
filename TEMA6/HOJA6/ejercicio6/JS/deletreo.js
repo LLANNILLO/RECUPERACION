@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
     if (section.hasChildNodes) {
       section.innerHTML = "";
     }
-    let posicion = Math.floor(Math.random() * palabras.length) - 1;
+    let posicion = Math.floor(Math.random() * palabras.length - 1) + 1;
 
     let palabra = palabras[posicion];
 
