@@ -1,0 +1,31 @@
+{
+    "name": "tema_07/api_rest",
+    "description": "Crear una api rest para la gestion de productos",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "LLANNILLO",
+            "email": "david.llanilloantolin@iesmiguelherrero.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpstan/phpstan": "^1.11",
+        "friendsofphp/php-cs-fixer": "^3.57"
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.6",
+        "pecee/simple-router": "^5.4"
+    },
+    "scripts": {
+        "start":"php -S localhost:8001 -t=public "
+    }
+}
