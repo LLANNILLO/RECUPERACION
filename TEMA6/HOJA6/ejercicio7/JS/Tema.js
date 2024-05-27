@@ -14,25 +14,21 @@ class Tema {
   }
 
   generarFrase(frases, palabras) {
-    let aleatorio = Math.floor(Math.random() * (frases.length - 1 + 1));
+    let aleatorio = Math.floor(Math.random() * frases.length);
     this.fraseAleatoria = frases[aleatorio];
     this.palabrasAleatorias = palabras;
   }
 
   transmutarFrase() {
-    let palabrasFrase = Array();
-    this.fraseAleatoria.split(" ").forEach((palabra) => {
-      if (palabra.includes(span.spanElementStart)) {
-        palabrasFrase.push(span.spanElementStart + "..." + span.spanElementEnd);
-      } else {
-        palabrasFrase.push(palabra);
-      }
-    });
-    return palabrasFrase.join(" ");
+    // Reemplazar todas las palabras dentro de los spans con "..."
+    return this.fraseAleatoria.replace(
+      /<span>.*?<\/span>/g,
+      "<span>...</span>"
+    );
   }
 
   transmutarPalabras() {
-    let palabras = Array();
+    let palabras = [];
     this.palabrasAleatorias.forEach((palabra) => {
       palabras.push(list.listElementStart + palabra + list.listElementEnd);
     });
@@ -60,29 +56,18 @@ class Tema {
       : [];
   };
 
-  // Función para comparar las frases
-  /**
-   *
-   * @param {Array} correccion
-   * @param {Array} frase
-   * @returns
-   */
   compararFrases = (correccion, frase) => {
-    let correcta = true;
-    correccion.forEach((palabraCorrecta) => {
-      if (correcta) {
-        correcta = frase.includes(palabraCorrecta);
+    if (correccion.length !== frase.length) return false;
+    for (let i = 0; i < correccion.length; i++) {
+      if (correccion[i] !== frase[i]) {
+        return false;
       }
-    });
-
-    return correcta;
+    }
+    return true;
   };
 
-  // Función principal para corregir la frase y agregar un botón
   corregirFrase = (fraseResultado) => {
-    // Llamar a la función para comparar las frases
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
-    // Extraer texto de fraseResultado
     const frase = this.extraerTextoEntreSpan(fraseResultado);
 
     if (!fraseResultado.includes("<span>...</span>")) {
@@ -91,7 +76,6 @@ class Tema {
         alert("Te has confundido");
         botonRepetir.style.visibility = "visible";
         botonRepetir.addEventListener("click", () => {
-          console.log(fraseResultado);
           this.repetir(fraseResultado);
         });
       } else {
@@ -114,52 +98,34 @@ class Tema {
   };
 
   repetir(fraseResultado) {
-    // Llamar a la función para comparar las frases
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
-    // Extraer texto de fraseResultado
     const frase = this.extraerTextoEntreSpan(fraseResultado);
     const fraseDOM = document.querySelector(".frase");
 
-    if (!fraseDOM.innerHTML.includes("<span>...</span>")) {
-      let palabrasCorrectas = [];
-      for (let i = 0; i < correccion.length; i++) {
-        if (correccion[i] === frase[i]) {
-          // Mantener la opción en la nueva frase si coincide
-          palabrasCorrectas.push(correccion[i]);
-        } else {
-          palabrasCorrectas.push(`<span>${correccion[i]}</span>`);
-        }
+    let palabrasCorrectas = correccion.map((palabraCorrecta, index) => {
+      return palabraCorrecta === frase[index]
+        ? palabraCorrecta
+        : `<span>${palabraCorrecta}</span>`;
+    });
+
+    let fraseParaRepetir = this.fraseAleatoria.split(" ");
+    let posicion = 0;
+    let fraseRepeticion = fraseParaRepetir.map((contenido) => {
+      if (contenido.includes("<span>")) {
+        return palabrasCorrectas[posicion++];
+      } else {
+        return contenido;
       }
+    });
 
-      let fraseParaRepetir = this.fraseAleatoria.split(" ");
+    let fraseNueva = fraseRepeticion.join(" ");
+    this.fraseAleatoria = fraseNueva;
 
-      let posicion = 0;
-      let fraseRepeticion = fraseParaRepetir.map((contenido) => {
-        if (contenido.includes("<span>")) {
-          if (palabrasCorrectas[posicion]) {
-            const palabraSinSpan = palabrasCorrectas[posicion];
-            posicion++;
-            return palabraSinSpan;
-          } else {
-            return contenido;
-          }
-        } else {
-          return contenido; // Mantener la palabra si no contiene span
-        }
-      });
+    fraseDOM.innerHTML = this.transmutarFrase();
+    var palabras = document.querySelector("[data-palabras]");
+    palabras.innerHTML = "<ul>" + this.transmutarPalabras() + "</ul>";
 
-      // Actualizar la frase original con las modificaciones
-      let fraseNueva = fraseRepeticion.join(" ");
-
-      this.fraseAleatoria = fraseNueva;
-      // Mostrar la frase actualizada en la consola
-      console.log(this.fraseAleatoria);
-      fraseDOM.innerHTML = this.transmutarFrase();
-      var palabras = document.querySelector("[data-palabras]");
-      palabras.innerHTML = "<ul>" + this.transmutarPalabras() + "</ul>";
-
-      this.colocarPalabras();
-    }
+    this.colocarPalabras();
   }
 
   colocarPalabras() {
@@ -168,7 +134,7 @@ class Tema {
     list.childNodes.forEach((liElement) => {
       liElement.addEventListener("click", () => {
         var spanElement = document.querySelector("span");
-        temaGeografia.rellenarHueco(spanElement, liElement.innerText);
+        this.rellenarHueco(spanElement, liElement.innerText);
         list.removeChild(liElement);
       });
     });

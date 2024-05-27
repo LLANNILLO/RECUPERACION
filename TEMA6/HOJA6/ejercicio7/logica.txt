@@ -1,0 +1,18 @@
+/---Inicialización---\
+
+Se selecciona una frase aleatoria y se asocian las palabras proporcionadas.
+
+/---Transformación de la frase y las palabras---\
+
+La frase se transforma en una cadena con spans editables para completar.
+Las palabras se transforman en una lista de elementos li.
+
+/---Interacción del usuario---\
+
+El usuario puede seleccionar palabras de la lista para rellenar los spans en la frase.
+Si la frase es incorrecta, se permite repetir el ejercicio manteniendo las respuestas correctas y volviendo a convertir en spans los huecos incorrectos.
+
+/---Corrección y repetición---\
+
+La frase completada por el usuario se compara con la frase original.
+Si hay errores, se muestra un botón para repetir el ejercicio, permitiendo al usuario corregir los errores manteniendo las respuestas correctas.
