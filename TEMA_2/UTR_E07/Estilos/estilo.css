@@ -24,13 +24,11 @@ img {
 body {
   overflow-x: hidden;
 }
-/*
-   CONSEEJO: Los contenedores principales han de tener el mismo width
-   para concidir verticalmente
-    */
 /* identificador de la cabecera: #cabeceralogo */
 
-/* estilo del header*/
+/* estilo del header
+  cambio para hacerlo a traves de flex
+*/
 #cabeceralogo {
   height: 150px;
   background-color: var(--fondo-cabecera-footer);
@@ -123,6 +121,7 @@ main {
   justify-content: center;
 }
 
+/* agregados los cambios para hacerlo a traves de flex */
 main div {
   width: 50vw;
   margin: 0 auto;
@@ -206,7 +205,9 @@ article p {
 article figure img {
   width: 400px;
 }
-/* identificador del pie de pagina:#pielogo */
+/* identificador del pie de pagina:#pielogo
+  agregados los cambios para hacerlo a traves de flex
+*/
 
 #pielogo {
   padding: 2%;
@@ -248,6 +249,8 @@ article figure img {
 }
 
 /* media-queries */
+
+/* cambio menor para hacer el primer cambio con los anchos de cada seccion */
 @media (max-width: 1095px) {
   #cabeceralogo {
     height: 200px;
@@ -267,6 +270,7 @@ article figure img {
   }
 }
 
+/* segunda media-query */
 @media (max-width: 800px) {
   /* Estilo de la cabecera */
   #cabeceralogo div {
@@ -279,7 +283,9 @@ article figure img {
     margin-left: 2.5%;
   }
 
-  /* Estilo del main */
+  /* Estilo del main:
+    agregado  un nuevo display de columna para que el aside baje al fondo del main div
+  */
   main div {
     flex-direction: column;
     align-items: flex-end;
@@ -304,6 +310,9 @@ article figure img {
   }
 }
 
+/* tercera media-query
+    quita el display de los elementos time y aumenta todos los anchos al 100%
+*/
 @media (max-width: 600px) {
   #articulosprincipales {
     width: 100%;
@@ -321,6 +330,9 @@ article figure img {
   }
 }
 
+/* Cuarta media-query
+    agrega al main div un ancho del 100% y mantiene las esquinas tanto de la section como del aside quetodavia son visibles
+*/
 @media (max-width: 550px) {
   main {
     padding: 0;
