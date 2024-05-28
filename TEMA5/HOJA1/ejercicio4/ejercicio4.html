@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ganar el foco</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="./JS/focus.js"></script>
+    <style>
+      body {
+        font-family: inter;
+      }
+      .lado {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 30px;
+        border-radius: 6px;
+      }
+
+      .con-fondo {
+        background-color: rgb(54, 176, 242);
+      }
+      .con-fondo:hover {
+        background-color: rgb(0, 166, 255);
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        font-size: 16px;
+        font-weight: 500;
+        background: none;
+        border: 0;
+      }
+      .boton {
+        text-decoration: none;
+        color: red;
+      }
+      .con-color {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Formulario de focos</h1>
+    <form action="">
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Nombre"
+        required
+      />
+      <input
+        type="text"
+        name="apellidos"
+        placeholder="Apellidos"
+        id="apellidos"
+        required
+      />
+      <input
+        type="text"
+        name="email"
+        placeholder="introduce email"
+        id="email"
+      />
+
+      <div>
+        <div class="lado con-fondo">
+          <input type="submit" class="boton con-color" />
+        </div>
+        <div class="lado">
+          <input type="reset" class="boton" />
+        </div>
+      </div>
+    </form>
+    <div id="requerido"></div>
+  </body>
+</html>
