@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify</title>
+    <link rel="stylesheet" href="./Estilo/estilo.css" />
+    <script src="./JS/reproductor.js"></script>
+
+    <!-- link del servicio de FontAwesome para trabajar con iconos -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    />
+  </head>
+  <body>
+    <!-- Contenedor del reproductor de musica -->
+
+    <div class="contenedor">
+      <!-- menu superior con +funcionalidades del reproductor -->
+      <div class="menu-desplegable"></div>
+
+      <!-- contenido principal de la web -->
+      <main class="reproductor-musica">
+        <!-- contenedor de la biblioteca: con botones y biblioteca-->
+        <div id="col-biblioteca">
+          <div class="botones-biblioteca"></div>
+          <div class="biblioteca"></div>
+        </div>
+
+        <!-- contenedor de la cola  -->
+        <div id="col-reproduccion">
+          <!-- cabecera de la cola -->
+          <div class="cabecera-reproduccion"></div>
+
+          <!-- cuerpo principal de la cola -->
+          <div class="cuerpo-reproduccion">
+            <!-- añadir al final un Pseudo-elemento para el espacio en blanco de la reproduccion -->
+          </div>
+        </div>
+
+        <!-- contenedor de la info. del grupo de la cancion escuchada -->
+        <div id="col-infoGrupo">
+          <div class="informacion-relevante">
+            <!-- Mix del artista seleccionado-->
+            <div></div>
+
+            <!-- Informacion sobre el artista  seleccionado -->
+            <div></div>
+
+            <!-- Proximas giras del grupo seleccionado -->
+            <div></div>
+          </div>
+        </div>
+
+        <!-- contenedor de la cancion actual -->
+        <div id="col-cancionActual">
+          <!-- imagen de la cancion -->
+          <div></div>
+
+          <!-- Nombre del mix y del artista -->
+          <div>
+            <span></span>
+
+            <span></span>
+          </div>
+
+          <!-- más opciones -->
+          <div></div>
+        </div>
+
+        <!-- contenedor de los controles basicos -->
+        <div id="col-controladorCancion">
+          <!-- opciones relativas al orden y organizacion de las canciones -->
+          <div></div>
+          <!-- linea-tiempo de la cancion -->
+          <div></div>
+        </div>
+        <!-- contenedor de la barra de volumen  -->
+        <div id="col-opcionesVolumen">
+          <!-- auto-play -->
+          <div></div>
+
+          <!-- microfono -->
+          <div></div>
+
+          <!-- lista -->
+          <div></div>
+
+          <!-- estereo -->
+          <div></div>
+
+          <!-- volumen -->
+          <div></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

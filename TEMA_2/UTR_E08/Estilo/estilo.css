@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* contenedor principal */
+.contenedor {
+  min-height: 100vh;
+  display: flex;
+}
+
+/* menu desplegable del reproductor */
+
+.menu-desplegable {
+  min-height: 10vh;
+}
+
+/* reproductor de musica con el display grid y la distribucion en area */
+.reproductor-musica {
+  min-height: 90vh;
+  display: grid;
+  grid-template-areas:
+    "biblioteca reproduccion reproduccion infoGrupo"
+    "cancionActual controladorCancion controladorCancion opcionesVolumen";
+}
+
+/* columnas para cada una de las partes de la aplicacion */
+#col-biblioteca {
+  grid-area: biblioteca;
+}
+
+#col-reproduccion {
+  grid-area: reproduccion;
+}
+
+#col-infoGrupo {
+  grid-area: infoGrupo;
+}
+#col-cancionActual {
+  grid-area: cancionActual;
+}
+#col-controladorCancion {
+  grid-area: controladorCancion;
+}
+#col-opcionesVolumen {
+  grid-area: opcionesVolumen;
+}
