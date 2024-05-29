@@ -1,32 +1,38 @@
+// Definición de un objeto para los elementos <span>
 let span = {
   spanElementStart: "<span>",
   spanElementEnd: "</span>",
 };
 
+// Definición de un objeto para los elementos <li>
 let list = {
   listElementStart: "<li>",
   listElementEnd: "</li>",
 };
 
+// Definición de la clase Tema
 class Tema {
+  // Constructor de la clase que recibe frases y palabras
   constructor(frases, palabras) {
     this.generarFrase(frases, palabras);
   }
 
+  // Método para generar una frase aleatoria y almacenar las palabras aleatorias
   generarFrase(frases, palabras) {
     let aleatorio = Math.floor(Math.random() * frases.length);
     this.fraseAleatoria = frases[aleatorio];
     this.palabrasAleatorias = palabras;
   }
 
+  // Método para transmutar la frase, reemplazando el contenido dentro de los <span> con "..."
   transmutarFrase() {
-    // Reemplazar todas las palabras dentro de los spans con "..."
     return this.fraseAleatoria.replace(
       /<span>.*?<\/span>/g,
       "<span>...</span>"
     );
   }
 
+  // Método para generar una lista de palabras con etiquetas <li>
   transmutarPalabras() {
     let palabras = [];
     this.palabrasAleatorias.forEach((palabra) => {
@@ -35,6 +41,7 @@ class Tema {
     return palabras.join(" ");
   }
 
+  // Método para rellenar el hueco de un <span> con una palabra seleccionada de la lista
   rellenarHueco(spanElement, liElementSelected) {
     if (spanElement) {
       if (spanElement.hasAttribute("id")) {
@@ -48,6 +55,7 @@ class Tema {
     }
   }
 
+  // Método para extraer el texto dentro de los <span>
   extraerTextoEntreSpan = (str) => {
     const regex = /<span[^>]*>(.*?)<\/span>/g;
     const matches = str.match(regex);
@@ -56,6 +64,7 @@ class Tema {
       : [];
   };
 
+  // Método para comparar dos arrays de frases
   compararFrases = (correccion, frase) => {
     if (correccion.length !== frase.length) return false;
     for (let i = 0; i < correccion.length; i++) {
@@ -66,6 +75,7 @@ class Tema {
     return true;
   };
 
+  // Método para corregir la frase comparando la frase original con la resultado
   corregirFrase = (fraseResultado) => {
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
     const frase = this.extraerTextoEntreSpan(fraseResultado);
@@ -97,6 +107,7 @@ class Tema {
     }
   };
 
+  // Método para repetir la corrección de la frase
   repetir(fraseResultado) {
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
     const frase = this.extraerTextoEntreSpan(fraseResultado);
@@ -128,6 +139,7 @@ class Tema {
     this.colocarPalabras();
   }
 
+  // Método para colocar palabras en la lista y permitir que se seleccionen
   colocarPalabras() {
     var list = document.querySelector("ul");
 
