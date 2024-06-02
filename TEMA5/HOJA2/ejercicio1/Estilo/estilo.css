@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.without-contextmenu {
+  display: flex;
+  justify-content: center;
+  color: rgb(243, 242, 242);
+  background-color: rgb(49, 212, 212);
+  width: 80vw;
+  height: 20vh;
+}

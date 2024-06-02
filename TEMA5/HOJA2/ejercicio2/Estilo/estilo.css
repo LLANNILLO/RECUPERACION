@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.cajita {
+  width: 30px;
+  height: 30px;
+  background-color: brown;
+  position: relative;
+}
+
+.contenedor {
+  width: 100vw;
+  height: 100vh;
+}

@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  min-width: 100vw;
+  max-width: 100vh;
+  overflow: hidden;
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15vh;
+}
+
+.contenedor-frase {
+  display: flex;
+  gap: 0px 10px;
+}
+.frase {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  flex-wrap: wrap;
+  margin-top: 1px;
+  width: 20vw;
+  min-height: 10vh;
+  max-height: 10vh; /* Establecer una altura máxima para activar el scroll */
+  background-color: rgb(241, 241, 241);
+  outline: 1px solid;
+  border-radius: 3px;
+  overflow-y: auto; /* Añadir scroll vertical si el contenido sobrepasa la altura */
+}
+
+.eraser {
+  font-size: 3rem;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1px;
+  min-height: 10vh;
+  min-width: 5vw;
+  max-height: 10vh; /* Establecer una altura máxima para activar el scroll */
+  background-color: rgb(18, 174, 221);
+  outline: 1px solid;
+  border-radius: 3px;
+}
+
+.letras {
+  display: flex;
+  text-transform: uppercase;
+  gap: 10px 20px;
+  width: 30vw;
+  flex-wrap: wrap;
+}
+
+.letras div {
+  color: white;
+  background-color: rgb(84, 159, 221);
+  outline: 1px solid black;
+  padding: 20px;
+  transition: transform 0.4s, background-color 0.4s;
+  cursor: pointer;
+}
+
+.letras div:hover {
+  background-color: rgb(69, 169, 252);
+  transform: scale(1.1);
+}

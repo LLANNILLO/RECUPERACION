@@ -2,19 +2,10 @@ let Temas = {
   Geografia: [
     [
       "El monte más alto del mundo es el <span>Everest</span> y mide más de <span>8000</span> metros",
-      "Los paises mas grandes del mundo son <span>Rusia</span>, China y <span>Estados Unidos</span>",
+      "Los paises mas grandes del mundo son <span>Rusia</span>, China y <span>Estados</span> Unidos",
       "El <span>río</span> que se llama igual que un personaje de <span>DreamWorks</span> es el rio <span>Po</span>",
     ],
-    [
-      "Everest",
-      "8000",
-      "mundo",
-      "Rusia",
-      "Estados Unidos",
-      "río",
-      "DreamWorks",
-      "Po",
-    ],
+    ["Everest", "8000", "mundo", "Rusia", "Estados", "río", "DreamWorks", "Po"],
   ],
   Matematicas: [
     [
@@ -28,7 +19,7 @@ let Temas = {
     [
       "El escritor de El Ingenioso <span>hidalgo</span> Don Quixote de la Mancha, <span>Cervantes</span> fue encerrado en prision en <span>1597</span>",
       "Marco <span>Aurelio</span> escribio el libro de <span>Meditaciones</span>, con un prologo en el cual hacía mencion y <span>agradecia</span todo lo que sus personas más cercanas le habían aportado a su vida",
-      "Las novelas más famosas de <span>Julio Verne</span> son Viaje al centro de la tierra <span>20000 leguas de viaje subamrino</span> y <span>La vuelta al mundo en 80 días</span>",
+      "Las novelas más famosas de <span>Julio</span> Verne son Viaje al centro de la tierra <span>20000</span> leguas de viaje subamrino y La vuelta al mundo en <span>80</span> días",
     ],
     [
       "hidalgo",
@@ -37,9 +28,9 @@ let Temas = {
       "Aurelio",
       "Meditaciones",
       "agradecia",
-      "Julio Verne",
-      "20000 leguas de viaje subamrino",
-      "La vuelta al mundo en 80 días",
+      "Julio",
+      "20000",
+      "80",
     ],
   ],
 };
