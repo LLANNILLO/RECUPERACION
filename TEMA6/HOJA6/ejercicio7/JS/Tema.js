@@ -77,14 +77,20 @@ class Tema {
 
   // Método para corregir la frase comparando la frase original con la resultado
   corregirFrase = (fraseResultado) => {
+    // Extraer el texto dentro de los <span> de la frase original y la frase resultado
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
     const frase = this.extraerTextoEntreSpan(fraseResultado);
 
+    // Comprobar si la frase resultado aún contiene un <span> sin completar
     if (!fraseResultado.includes("<span>...</span>")) {
       const botonRepetir = document.getElementById("repetir");
+
+      // Comparar las frases extraídas
       if (!this.compararFrases(correccion, frase)) {
         alert("Te has confundido");
         botonRepetir.style.visibility = "visible";
+
+        // Añadir un evento al botón de repetir para intentar de nuevo
         botonRepetir.addEventListener("click", () => {
           this.repetir(fraseResultado);
         });
@@ -107,22 +113,32 @@ class Tema {
     }
   };
 
-  // Método para repetir la corrección de la frase
   repetir(fraseResultado) {
+    // extraer las respuestas dentro de la frase correcta
     const correccion = this.extraerTextoEntreSpan(this.fraseAleatoria);
+    // extraer las respuestas de la frase compuesta
     const frase = this.extraerTextoEntreSpan(fraseResultado);
+    //obtener el elemento del DOM
     const fraseDOM = document.querySelector(".frase");
 
+    // crear un array a traves de la funcion map
     let palabrasCorrectas = correccion.map((palabraCorrecta, index) => {
+      /*
+      si las palabras coinciden se mantiene la respuesta, 
+      en cualquier otro caso envolvemos la respuesta en un span para volver a los ...
+      */
       return palabraCorrecta === frase[index]
         ? palabraCorrecta
         : `<span>${palabraCorrecta}</span>`;
     });
 
-    let fraseParaRepetir = this.fraseAleatoria.split(" ");
+    // Usar una expresión regular para dividir la frase en palabras y elementos <span>
+    let regex = /<span>.*?<\/span>|[^<]+/g;
+    let fraseParaRepetir = this.fraseAleatoria.match(regex);
     let posicion = 0;
+    //componemos la nueva frase con las respuestas correctas y las erroneas
     let fraseRepeticion = fraseParaRepetir.map((contenido) => {
-      if (contenido.includes("<span>")) {
+      if (contenido.startsWith("<span>") && contenido.endsWith("</span>")) {
         return palabrasCorrectas[posicion++];
       } else {
         return contenido;
@@ -130,15 +146,18 @@ class Tema {
     });
 
     let fraseNueva = fraseRepeticion.join(" ");
+    //actualizamos la frase aleatoria
     this.fraseAleatoria = fraseNueva;
-
+    //invocamos a la funcion de transmutarFrase
     fraseDOM.innerHTML = this.transmutarFrase();
+
+    // colocamos las palabras
     var palabras = document.querySelector("[data-palabras]");
     palabras.innerHTML = "<ul>" + this.transmutarPalabras() + "</ul>";
 
+    //invocamos a la funcion para colocar las palabras con sus eventos correspondientes
     this.colocarPalabras();
   }
-
   // Método para colocar palabras en la lista y permitir que se seleccionen
   colocarPalabras() {
     var list = document.querySelector("ul");
