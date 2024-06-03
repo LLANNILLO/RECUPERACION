@@ -37,8 +37,8 @@
       <main class="reproductor-musica">
         <!-- contenedor de la biblioteca: con botones y biblioteca-->
         <div id="col-biblioteca">
-          <!-- Fila para el inicio y buscar -->
-          <div class="contenedores-reproductor biblioteca">
+          <!-- Cabecera de la biblioteca -->
+          <header class="contenedores-reproductor biblioteca">
             <!-- icono de inicio -->
             <div class="selector-botones-biblioteca icono-display color-icono">
               <div class="ajuste-svg">
@@ -61,58 +61,129 @@
               </div>
               <span class="margen-biblioteca-botones"> Buscar </span>
             </div>
-          </div>
+          </header>
+          <!-- Cuerpo de la biblioteca -->
           <div
             class="contenedores-reproductor biblioteca visualizado-biblioteca"
           >
-            <!-- Div para la biblioteca -->
+            <!-- Div para el boton de biblioteca y los filtros  -->
             <div class="opciones-biblioteca">
-              <div
-                class="selector-botones-biblioteca icono-display color-icono"
-              >
-                <div class="ajuste-svg">
-                  <svg viewBox="0 0 25 28" preserveAspectRatio="xMidYMid meet">
-                    <path
-                      d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
-                    ></path>
-                  </svg>
-                </div>
-                <span class="margen-biblioteca">Tu biblioteca</span>
-              </div>
-              <div>
-                <!-- icono de crear una lista-->
-                <div class="color-icono">
-                  <div class="ajuste-svg redondeado">
-                    <svg
-                      viewBox="-1.5 -6 20 30"
-                      preserveAspectRatio="xMidYMid meet"
-                    >
-                      <path
-                        class="redondeado"
-                        d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"
-                      ></path>
-                    </svg>
-                  </div>
-                </div>
-                <!-- icono de crear una mostrar mas-->
-                <div class="color-icono redondeado">
+              <!-- div para el boton de la biblioteca -->
+              <div class="boton-biblioteca">
+                <div
+                  class="selector-botones-biblioteca icono-display color-icono tooltips"
+                >
                   <div class="ajuste-svg">
                     <svg
-                      viewBox="-1.5 -6 20 30"
+                      viewBox="0 0 25 28"
                       preserveAspectRatio="xMidYMid meet"
                     >
                       <path
-                        d="M7.19 1A.749.749 0 0 1 8.47.47L16 7.99l-7.53 7.521a.75.75 0 0 1-1.234-.815.75.75 0 0 1 .174-.243l5.72-5.714H.75a.75.75 0 1 1 0-1.498h12.38L7.41 1.529a.749.749 0 0 1-.22-.53z"
+                        d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
                       ></path>
                     </svg>
+                    <span class="tooltip">Contraer Tu biblioteca</span>
+                  </div>
+                  <span class="margen-biblioteca">Tu biblioteca</span>
+                </div>
+                <div>
+                  <!-- icono de crear una lista-->
+                  <div class="color-icono">
+                    <div class="ajuste-svg redondeado tooltips">
+                      <svg
+                        viewBox="-1.5 -6 20 30"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          class="redondeado"
+                          d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"
+                        ></path>
+                      </svg>
+                      <span class="tooltip">Crear una lista o carpeta</span>
+                    </div>
+                  </div>
+                  <!-- icono de crear una mostrar mas-->
+                  <div class="color-icono">
+                    <div class="ajuste-svg redondeado tooltips">
+                      <svg
+                        viewBox="-1.5 -6 20 30"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          d="M7.19 1A.749.749 0 0 1 8.47.47L16 7.99l-7.53 7.521a.75.75 0 0 1-1.234-.815.75.75 0 0 1 .174-.243l5.72-5.714H.75a.75.75 0 1 1 0-1.498h12.38L7.41 1.529a.749.749 0 0 1-.22-.53z"
+                        ></path>
+                      </svg>
+                      <span class="tooltip">Mostrar más</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- div para el boton de la biblioteca -->
+              <div class="filtros-biblioteca">
+                <div class="filtro-biblioteca">
+                  <span>Listas</span>
+                </div>
+                <div class="filtro-biblioteca">
+                  <span>Podcast y Programas</span>
+                </div>
+              </div>
+              <!-- div para organizar o buscar en la biblioteca -->
+              <div class="organizar-biblioteca">
+                <div
+                  class="selector-botones-biblioteca icono-display color-icono"
+                >
+                  <div class="ajuste-svg redondeado tooltips">
+                    <svg
+                      viewBox="-2 -7 20 30"
+                      preserveAspectRatio="xMidYMid meet"
+                    >
+                      <path
+                        d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                      ></path>
+                    </svg>
+                    <span class="tooltip type-2">Buscar en tu biblioteca</span>
+                  </div>
+                </div>
+                <div class="selector-botones-biblioteca icono-display crece">
+                  <span>Recientes</span>
+                  <div class="selector-botones-biblioteca icono-display">
+                    <div class="ajuste-svg">
+                      <svg
+                        viewBox="0 2 28 13"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
+                        ></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- Div para hacer el filtro de las listas -->
-            <div></div>
+
             <!-- Div para visualizar todas las listas -->
-            <div></div>
+            <div class="listas-biblioteca">
+              <ul>
+                <li class="elemento-listas">
+                  <div class="lista-biblioteca">
+                    <div>
+                      <figure>
+                        <img
+                          class="imagen-lista"
+                          src="./imagenes/cancion/broterRunFast_heyGringo.jpg"
+                        />
+                      </figure>
+                    </div>
+                    <div class="info-lista">
+                      <div class="titulo-lista">Locura</div>
+                      <div class="canciones-lista">Lista • 1 &nbsp;cancion</div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
