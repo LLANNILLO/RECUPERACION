@@ -15,10 +15,12 @@ window.addEventListener("load", () => {
     let coordenadasDrag = drag.getBoundingClientRect();
     let coordenadasDrop = drop.getBoundingClientRect();
 
-    if (drag.childElementCount > 0) {
+    if (drag.contains(draggable)) {
       if (
-        coordenadasDrop.left < event.clientX < coordenadasDrop.right &&
-        coordenadasDrop.top < event.clientY < coordenadasDrop.bottom
+        event.clientX > coordenadasDrop.left &&
+        event.clientX < coordenadasDrop.right &&
+        event.clientY > coordenadasDrop.top &&
+        event.clientY < coordenadasDrop.bottom
       ) {
         drag.removeChild(draggable);
         drop.appendChild(draggable);
@@ -27,8 +29,10 @@ window.addEventListener("load", () => {
       }
     } else {
       if (
-        coordenadasDrag.left < event.clientX < coordenadasDrag.right &&
-        coordenadasDrag.top < event.clientY < coordenadasDrag.bottom
+        event.clientX > coordenadasDrag.left &&
+        event.clientX < coordenadasDrag.right &&
+        event.clientY > coordenadasDrag.top &&
+        event.clientY < coordenadasDrag.bottom
       ) {
         drop.removeChild(draggable);
         drag.appendChild(draggable);
