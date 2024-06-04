@@ -22,6 +22,4 @@ window.addEventListener("load", () => {
     coordenadas.style.left = x + 5 + "px";
     coordenadas.style.top = y + 10 + "px";
   }
-
-  function pulsarRaton(event) {}
 });

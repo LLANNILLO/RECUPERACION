@@ -1,65 +1,69 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
-header{
-    width: 100vw;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-header > div{
-    width: 50%;
-    text-align: center;
-    padding: 10px 0;
-    background-color: rgb(16, 138, 238);
-    border-radius: 8px;
-    color: white;
+header > div {
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: rgb(16, 138, 238);
+  border-radius: 8px;
+  color: white;
 }
 
-main{
-    height: 90vh;
+main {
+  height: 90vh;
 }
 
-.boxes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    gap: 0 12vw;
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 0 12vw;
 }
 
-.box{
-    width: 18vw;
-    height: 25vh;
-    border: 1px solid black;
+.box {
+  width: 18vw;
+  height: 25vh;
+  border: 1px solid black;
 }
 
-.drag{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.drag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.caja-arrastre{
-    width: 50px;
-    height: 50px;
-    border-radius: 5px;
-    background-color: rgb(0, 81, 255);
-    cursor: grab;
+.draggable-box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: rgb(0, 81, 255);
+  cursor: grab;
 }
 
-.drop{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.grabbing {
+  cursor: grabbing;
+}
+
+.drop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
