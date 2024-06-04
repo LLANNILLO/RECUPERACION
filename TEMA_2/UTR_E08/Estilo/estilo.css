@@ -50,6 +50,13 @@ svg {
   height: 30px;
 }
 
+.play-svg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--color-black-50);
+}
+
 .icono-display {
   display: flex;
   justify-content: center;
@@ -70,6 +77,15 @@ svg {
 .color-icono:hover {
   color: var(--color-black-50);
   fill: var(--color-black-50);
+}
+
+.color-play-icono {
+  color: var(--color-black-950);
+  fill: var(--color-black-950);
+}
+.color-diferente-icono {
+  color: var(--color-black-800);
+  fill: var(--color-black-800);
 }
 
 /* Agregar el escalado */
@@ -126,6 +142,11 @@ svg {
   left: 0%;
   top: -110%;
   transform: translateX(-11%);
+}
+
+/* Estilo personalizado de la scrollbar */
+
+.scrollbar {
 }
 
 /* margenes para  los botones de la cabecera de la biblioteca*/
@@ -335,12 +356,100 @@ Estilo de la columna de la biblioteca
 #col-infoGrupo {
   grid-area: informacion;
 }
+
+/* clase para centrar las columnas inferiores de los extremos */
+.centrador-inferior {
+  display: flex;
+  height: 100%;
+}
+
+/* Selector para el area de la cancion actual sonando */
 #col-cancionActual {
   grid-area: cancion;
 }
+
+/* contenedor de toda la info del area */
+.cancionSonando {
+  display: flex;
+  font-size: 0.8rem;
+  color: var(--color-black-50);
+  align-self: center;
+  align-items: center;
+  height: fit-content;
+  gap: 0 10px;
+  cursor: pointer;
+}
+
+.imagen-cancion-sonando {
+  width: 55px;
+  border-radius: var(--rounded);
+}
+
+.contenido-cancion-sonando {
+  display: flex;
+}
+
+.info-cancion-sonando {
+  display: flex;
+  flex-direction: column;
+  gap: 3px 0;
+}
+
+/* Texto alternativo para el artista */
+.artista-cancion-sonando {
+  font-size: 0.6rem;
+  color: var(--color-black-500);
+}
+
+/* Selector de los controladores de la cancion */
 #col-controladorCancion {
   grid-area: controlador;
 }
+
+#col-controladorCancion > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+/* botones dentro del control de la cancion */
+.opciones-control-cancion {
+  display: flex;
+  justify-content: center;
+  gap: 0 25px;
+}
+
+.sin-padding {
+  padding: 0;
+}
+
+/* barra de progreso de la cancion */
+
+.progreso-control-cancion {
+  display: flex;
+  justify-content: center;
+}
+.progreso-control-cancion > div {
+  width: 80%;
+}
+
+.tiempo-control-cancion {
+  width: 100%;
+}
+
+/* progress::-webkit-progress-bar {
+  background-color: var(--color-black-800);
+}
+progress::-webkit-progress-value {
+  background-color: var(--color-black-50);
+} */
+
+/* Selector para el area de las opciones del volumen y la cola de la lista */
 #col-opcionesVolumen {
   grid-area: volumen;
+}
+
+.opcionesSonando {
+  display: flex;
 }

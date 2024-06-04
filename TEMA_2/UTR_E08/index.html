@@ -214,43 +214,227 @@
 
         <!-- contenedor de la cancion actual -->
         <div id="col-cancionActual">
-          <!-- imagen de la cancion -->
-          <div></div>
+          <div class="centrador-inferior">
+            <div class="cancionSonando">
+              <!-- imagen de la cancion -->
+              <div>
+                <figure>
+                  <img
+                    class="imagen-cancion-sonando"
+                    src="./imagenes/cancion/broterRunFast_heyGringo.jpg"
+                  />
+                </figure>
+              </div>
+              <!-- Nombre del mix, del artista y + opciones -->
+              <div class="contenido-cancion-sonando">
+                <div class="info-cancion-sonando">
+                  <!-- mix -->
+                  <div>
+                    <span>Brother run fast</span>
+                  </div>
 
-          <!-- Nombre del mix y del artista -->
-          <div>
-            <span></span>
-
-            <span></span>
+                  <!-- artista -->
+                  <div>
+                    <span class="artista-cancion-sonando">Kaleo</span>
+                  </div>
+                </div>
+                <!-- +agregar -->
+                <div class="icono-display color-icono">
+                  <div class="ajuste-svg redondeado tooltips">
+                    <svg
+                      viewBox="-2 -7 20 30"
+                      preserveAspectRatio="xMidYMid meet"
+                    >
+                      <!-- URGENTE!!! cambiar el path de este svg a su homonimo de Spotify -->
+                      <path
+                        d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                      ></path>
+                    </svg>
+                    <span class="tooltip">Agregar</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <!-- más opciones -->
-          <div></div>
         </div>
 
         <!-- contenedor de los controles basicos -->
         <div id="col-controladorCancion">
-          <!-- opciones relativas al orden y organizacion de las canciones -->
-          <div></div>
-          <!-- linea-tiempo de la cancion -->
-          <div></div>
+          <div>
+            <!-- opciones relativas al orden y organizacion de las canciones -->
+
+            <div class="opciones-control-cancion">
+              <!-- boton para el orden aleatorio de la lista -->
+              <div
+                class="icono-display sin-padding color-icono color-diferente-icono"
+              >
+                <div class="ajuste-svg tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M13.151.922a.75.75 0 1 0-1.06 1.06L13.109 3H11.16a3.75 3.75 0 0 0-2.873 1.34l-6.173 7.356A2.25 2.25 0 0 1 .39 12.5H0V14h.391a3.75 3.75 0 0 0 2.873-1.34l6.173-7.356a2.25 2.25 0 0 1 1.724-.804h1.947l-1.017 1.018a.75.75 0 0 0 1.06 1.06L15.98 3.75 13.15.922zM.391 3.5H0V2h.391c1.109 0 2.16.49 2.873 1.34L4.89 5.277l-.979 1.167-1.796-2.14A2.25 2.25 0 0 0 .39 3.5z"
+                    ></path>
+                    <path
+                      d="m7.5 10.723.98-1.167.957 1.14a2.25 2.25 0 0 0 1.724.804h1.947l-1.017-1.018a.75.75 0 1 1 1.06-1.06l2.829 2.828-2.829 2.828a.75.75 0 1 1-1.06-1.06L13.109 13H11.16a3.75 3.75 0 0 1-2.873-1.34l-.787-.938z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+              <!-- boton para regresar al mix anterior -->
+              <div class="icono-display sin-padding color-icono">
+                <div class="ajuste-svg tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+              <!-- boton para pausar/reiniciar la reproduccion del mix -->
+              <div class="icono-display sin-padding color-play-icono">
+                <div class="play-svg tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+              <!-- boton para adelantar al mix siguiente -->
+              <div class="icono-display sin-padding color-icono">
+                <div class="ajuste-svg tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+              <!-- boton para establecer bucle -->
+              <div
+                class="icono-display sin-padding color-icono color-diferente-icono"
+              >
+                <div class="ajuste-svg tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- linea-tiempo de la cancion -->
+            <div class="progreso-control-cancion">
+              <div>
+                <progress
+                  class="tiempo-control-cancion"
+                  max="100"
+                  value="0"
+                ></progress>
+              </div>
+            </div>
+          </div>
         </div>
         <!-- contenedor de la barra de volumen  -->
         <div id="col-opcionesVolumen">
-          <!-- auto-play -->
-          <div></div>
+          <div class="centrador-inferior">
+            <div class="opcionesSonando">
+              <!-- auto-play -->
+              <div class="icono-display color-icono">
+                <div class="ajuste-svg redondeado tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
 
-          <!-- microfono -->
-          <div></div>
+              <!-- microfono -->
+              <div class="icono-display color-icono">
+                <div class="ajuste-svg redondeado tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
 
-          <!-- lista -->
-          <div></div>
+              <!-- lista -->
+              <div class="icono-display color-icono">
+                <div class="ajuste-svg redondeado tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
 
-          <!-- estereo -->
-          <div></div>
+              <!-- estereo -->
+              <div class="icono-display color-icono">
+                <div class="ajuste-svg redondeado tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
 
-          <!-- volumen -->
-          <div></div>
+              <!-- volumen -->
+              <div class="icono-display color-icono">
+                <div class="ajuste-svg redondeado tooltips">
+                  <svg
+                    viewBox="-2 -7 20 30"
+                    preserveAspectRatio="xMidYMid meet"
+                  >
+                    <path
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                  <span class="tooltip">Agregar</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>
