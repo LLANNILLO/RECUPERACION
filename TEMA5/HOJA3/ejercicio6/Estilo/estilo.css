@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  height: 8dvh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+header > div {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  color: white;
+  background-color: #be1717;
+  padding-bottom: 2vh;
+  border-radius: 0 0 12px 12px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contenedor {
+  width: 100%;
+  height: 92dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.juego {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 8dvh;
+  gap: 5dvh;
+}
+
+.seccion-ahorcado {
+  width: 10dvw;
+  height: 10dvh;
+}
+
+.seccion-ahorcado > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.base {
+  visibility: hidden;
+  position: absolute;
+  width: 30%;
+  border: 1px solid;
+  bottom: 0;
+  left: 17%;
+}
+
+.poste-1 {
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  border: 1px solid;
+  bottom: 0;
+  left: 17%;
+}
+
+.poste-2 {
+  visibility: hidden;
+  position: absolute;
+  width: 50%;
+  border: 1px solid;
+  top: 0;
+  left: 17%;
+}
+.cuerda {
+  visibility: hidden;
+  position: absolute;
+  height: 10%;
+  border: 1px solid;
+  top: 0;
+  right: 32%;
+}
+
+.cabeza {
+  visibility: hidden;
+  position: absolute;
+  width: 10%;
+  height: 18%;
+  border-radius: 100%;
+  border: 1px solid;
+  top: 10%;
+  right: 27.5%;
+}
+
+.cuerpo {
+  visibility: hidden;
+  position: absolute;
+  height: 20%;
+  border: 1px solid;
+  top: 28%;
+  right: 32%;
+}
+.pierna-1 {
+  visibility: hidden;
+  position: absolute;
+  height: 18%;
+  border: 1px solid;
+  border-radius: 1px;
+  top: 46%;
+  rotate: 30deg;
+  right: 34.1%;
+}
+.pierna-2 {
+  visibility: hidden;
+  position: absolute;
+  height: 18%;
+  border: 1px solid;
+  border-radius: 1px;
+  top: 46%;
+  rotate: -30deg;
+  right: 29.5%;
+}
+.brazo-1 {
+  visibility: hidden;
+  position: absolute;
+  width: 5%;
+  border-radius: 100%;
+  border: 1px solid;
+  top: 40%;
+  right: 32%;
+}
+.brazo-2 {
+  visibility: hidden;
+  position: absolute;
+  width: 5%;
+  border-radius: 100%;
+  border: 1px solid;
+  top: 40%;
+  right: 27%;
+}
+.palabra-encontrar {
+  width: fit-content;
+  height: 10dvh;
+}
+
+.palabra-encontrar > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.letra-contenedor {
+  max-width: 500px;
+  min-width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.letra {
+  font-size: 2rem;
+  color: #e12121;
+}
+
+.soporte {
+  width: 50%;
+  border: 1px solid;
+}

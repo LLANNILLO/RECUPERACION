@@ -6,6 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ahorcado</title>
     <script src="./JS/ahorcado.js"></script>
+    <link rel="stylesheet" href="./Estilo/estilo.css" />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <!-- cabecera con el titulo -->
+      <header>
+        <div>Ahorcado</div>
+      </header>
+
+      <!-- juego del ahorcado -->
+      <div class="contenedor">
+        <div class="juego">
+          <div class="seleccion-tema">
+            <span>Selecciona un tema:</span>
+            <select id="temas-elegir">
+              <option value="vacio">---</option>
+            </select>
+          </div>
+          <div class="seccion-ahorcado">
+            <div>
+              <div class="base"></div>
+              <div class="poste-1"></div>
+              <div class="poste-2"></div>
+              <div class="cuerda"></div>
+              <div class="cabeza"></div>
+              <div class="cuerpo"></div>
+              <div class="pierna-1"></div>
+              <div class="pierna-2"></div>
+              <div class="brazo-1"></div>
+              <div class="brazo-2"></div>
+            </div>
+          </div>
+          <div class="palabra-encontrar">
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
