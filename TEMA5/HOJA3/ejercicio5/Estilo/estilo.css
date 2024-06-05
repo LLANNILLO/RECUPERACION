@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+header > div {
+  width: 50%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: rgb(230, 50, 149);
+  border-radius: 8px;
+  color: white;
+}
+
+main {
+  height: 90vh;
+}
+
+.dibujo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  gap: 8vh 12vw;
+}
+.paleta-colores {
+  margin-top: 2vw;
+  width: fit-content;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.titulillo {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contenedor-dibujo {
+  display: grid;
+
+  grid-template-columns: repeat(var(--casillas), 1fr);
+  grid-template-rows: repeat(var(--casillas), 1fr);
+}
+
+.rejilla {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#rejillas {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.celdas {
+  padding: 10px;
+  position: relative;
+}
+
+.celdas:hover {
+  border-radius: 10px;
+  background-color: rgb(230, 50, 149);
+  color: rgb(238, 236, 236);
+}
+
+.casilla {
+  border: 0.5px solid;
+  width: 100%;
+  height: 100%;
+}
+
+.sin-bordes {
+  border: 0;
+}
