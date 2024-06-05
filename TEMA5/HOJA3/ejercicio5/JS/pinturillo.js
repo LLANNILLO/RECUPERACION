@@ -30,28 +30,26 @@ window.addEventListener("load", () => {
   function numeroDeCasillas(contenedor) {
     do {
       var repetir = true;
-      let promptNumeroCasillas = prompt(
-        "Numero de filas y columnas que deseas crear"
+      let promptNumeroCasillas = parseInt(
+        prompt("Numero de casillas que deseas crear")
       );
 
       if (isNaN(promptNumeroCasillas) || !promptNumeroCasillas) {
         alert("Numero de casillas no validos");
       } else {
-        for (
-          let count = 0;
-          count < promptNumeroCasillas * promptNumeroCasillas;
-          count++
-        ) {
+        const columnas = Math.ceil(Math.sqrt(promptNumeroCasillas));
+        const filas = Math.ceil(promptNumeroCasillas / columnas);
+
+        // Establecer variables CSS para filas y columnas
+        contenedor.style.setProperty("--filas", filas);
+        contenedor.style.setProperty("--columnas", columnas);
+
+        for (let count = 0; count < promptNumeroCasillas; count++) {
           let casilla = document.createElement("div");
           casilla.classList.add("casilla");
           contenedor.appendChild(casilla);
         }
 
-        contenedor.setAttribute(
-          "style",
-          contenedor.getAttribute("style") +
-            ` --casillas:${promptNumeroCasillas};`
-        );
         repetir = false;
       }
     } while (repetir);

@@ -54,8 +54,8 @@ main {
 .contenedor-dibujo {
   display: grid;
 
-  grid-template-columns: repeat(var(--casillas), 1fr);
-  grid-template-rows: repeat(var(--casillas), 1fr);
+  grid-template-columns: repeat(var(--columnas), 1fr);
+  grid-template-rows: repeat(var(--filas), 1fr);
 }
 
 .rejilla {
