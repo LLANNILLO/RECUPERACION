@@ -69,10 +69,9 @@ var categorias = new Map([
 function palabraAleatoria(limite) {
   return Math.floor(Math.random() * limite) + 1;
 }
+
 window.addEventListener("load", () => {
   const temasElegir = document.getElementById("temas-elegir");
-  temasElegir;
-
   var vidas = 10;
   var palabraDescubrir;
   var jugando = false;
@@ -80,11 +79,11 @@ window.addEventListener("load", () => {
 
   const vidasRestantes = document.querySelector(".vidas");
   vidasRestantes.textContent = vidas;
+
   valoresSelect.forEach((clave) => {
     let option = document.createElement("option");
     option.value = clave;
     option.text = clave;
-
     temasElegir.appendChild(option);
   });
 
@@ -95,15 +94,11 @@ window.addEventListener("load", () => {
       palabraEncontrar.innerHTML = "";
     }
     let palabras = categorias.get(tema);
-
     let posicion = palabraAleatoria(palabras.length) - 1;
-
     let palabra = palabras[posicion];
-
     palabraDescubrir = palabra;
 
     let letras = palabra.split("");
-
     letras.forEach(() => {
       let letraContenedor = document.createElement("div");
       let letra = document.createElement("div");
@@ -132,8 +127,11 @@ window.addEventListener("load", () => {
 
   document.addEventListener("keydown", (event) => {
     if (jugando) {
-      colocarPalabra(event.key);
-      vidasRestantes.textContent = vidas;
+      // Verificar si la tecla presionada es una letra o un número
+      if (/^[a-zA-Z0-9]$/.test(event.key)) {
+        colocarPalabra(event.key.toLowerCase());
+        vidasRestantes.textContent = vidas;
+      }
     }
   });
 
@@ -146,13 +144,13 @@ window.addEventListener("load", () => {
       let letras = palabraDescubrir.split("");
 
       let posiciones = [];
-
       for (let i = 0; i < letras.length; i++) {
         if (letras[i] === tecla) {
           posiciones.push(i);
           coincidencia = true;
         }
       }
+
       if (coincidencia) {
         posiciones.forEach((posicion) => {
           let letraDiv = letraContenedor[posicion].querySelector(".letra");
