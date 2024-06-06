@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  /* texto oscuro */
+  --color-rosa-brillante-50: #fff1f3;
+  --color-rosa-brillante-100: #ffe4e9;
+  --color-rosa-brillante-200: #fecdd8;
+  --color-rosa-brillante-300: #fda4b8;
+  /* texto claro */
+  --color-rosa-brillante-400: #fb83a1;
+  --color-rosa-brillante-500: #f34071;
+  --color-rosa-brillante-600: #e01e5c;
+  --color-rosa-brillante-700: #bd134e;
+  --color-rosa-brillante-800: #9e1348;
+  --color-rosa-brillante-900: #881343;
+  --color-rosa-brillante-950: #4c0520;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* display en grid para la tienda */
+.contenedor-tienda {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas: "icono navegador" "barra-navegacion contenido";
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 25% 75%;
+}
+
+.icono {
+  grid-area: icono;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.colocar-icono {
+  width: 60%;
+}
+
+.icono span {
+  font-size: 3rem;
+  color: var(--color-rosa-brillante-50);
+}
+
+.navegador {
+  grid-area: navegador;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estilo-caja-navegador {
+  display: flex;
+  background-color: var(--color-rosa-brillante-50);
+  padding: 0.5%;
+  border-radius: 5px 0 0 5px;
+}
+
+.navegador span {
+  font-size: 1.4rem;
+  color: var(--color-rosa-brillante-900);
+}
+
+.color-barra-superior {
+  background-color: var(--color-rosa-brillante-500);
+}
+
+.barra-navegacion {
+  grid-area: barra-navegacion;
+}
+
+.color-barra-navegacion {
+  background-color: var(--color-rosa-brillante-400);
+}
+
+.contenido {
+  grid-area: contenido;
+}
