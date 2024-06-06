@@ -78,6 +78,8 @@ window.addEventListener("load", () => {
   var jugando = false;
   var valoresSelect = Array.from(categorias.keys());
 
+  const vidasRestantes = document.querySelector(".vidas");
+  vidasRestantes.textContent = vidas;
   valoresSelect.forEach((clave) => {
     let option = document.createElement("option");
     option.value = clave;
@@ -131,26 +133,46 @@ window.addEventListener("load", () => {
   document.addEventListener("keydown", (event) => {
     if (jugando) {
       colocarPalabra(event.key);
+      vidasRestantes.textContent = vidas;
     }
   });
 
   function colocarPalabra(tecla) {
-    const letraContenedor = Array.from(
-      document.querySelectorAll(".letra-contenedor")
-    );
+    if (vidas > 0) {
+      const letraContenedor = Array.from(
+        document.querySelectorAll(".letra-contenedor")
+      );
+      let coincidencia = false;
+      let letras = palabraDescubrir.split("");
 
-    let letras = palabraDescubrir.split("");
+      let posiciones = [];
 
-    let posiciones = [];
-
-    for (let i = 0; i < letras.length; i++) {
-      if (letras[i] === tecla) {
-        posiciones.push(i);
+      for (let i = 0; i < letras.length; i++) {
+        if (letras[i] === tecla) {
+          posiciones.push(i);
+          coincidencia = true;
+        }
       }
+      if (coincidencia) {
+        posiciones.forEach((posicion) => {
+          let letraDiv = letraContenedor[posicion].querySelector(".letra");
+          letraDiv.textContent = tecla;
+        });
+      } else {
+        vidas--;
+        const primeraVida = document.getElementById("vidas").firstElementChild;
+        vidasRestantesMostrar(primeraVida);
+      }
+    } else {
+      alert("has perdido, pringado");
     }
-    posiciones.forEach((posicion) => {
-      let letraDiv = letraContenedor[posicion].querySelector(".letra");
-      letraDiv.textContent = tecla;
-    });
+  }
+
+  function vidasRestantesMostrar(elementoVida) {
+    if (elementoVida.classList.contains("restada")) {
+      vidasRestantesMostrar(elementoVida.nextElementSibling);
+    } else {
+      elementoVida.classList.add("restada");
+    }
   }
 });

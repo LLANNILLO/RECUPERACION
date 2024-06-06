@@ -182,9 +182,14 @@ header > div {
 .letra {
   font-size: 2rem;
   color: #e12121;
+  min-height: 36.36px;
 }
 
 .soporte {
   width: 50%;
   border: 1px solid;
+}
+
+.restada {
+  visibility: visible;
 }
