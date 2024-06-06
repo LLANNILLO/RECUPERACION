@@ -1,0 +1,165 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+
+  --negro: rgb(32, 32, 32);
+  --gris: rgb(238, 237, 237);
+  --gris-oscuro: rgb(202, 201, 201);
+}
+
+/* Estilo de todos los enlaces del proyecto */
+a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo principal del contenido de la aplicacion */
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* cabecera del proyecto */
+header {
+  display: flex;
+  height: 12vh;
+  justify-content: space-between;
+  background-color: var(--negro);
+  font-size: 1.4rem;
+}
+
+.logo-proyecto {
+  display: flex;
+  margin-left: 2vw;
+  align-items: center;
+  color: white;
+}
+
+.logo {
+  padding-right: 10px;
+  max-height: 50px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-right: 2vw;
+}
+.barra-navegacion {
+  display: flex;
+  width: 100%;
+}
+
+.barra-navegacion li {
+  list-style-type: none;
+  font-size: 1rem;
+  padding: 0 12px;
+}
+
+/* seccion de articulos */
+
+section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px 20px;
+  margin: 20px 20px;
+}
+
+article {
+  border: 1px solid var(--gris-oscuro);
+  background-color: var(--gris);
+  display: flex;
+  flex-direction: column;
+  gap: 35px 0;
+}
+
+/* centrar la imagen */
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* tamaño de las imagenes */
+.imagen-articulo {
+  width: 60%;
+  display: block;
+  margin-top: 10px;
+  max-width: 200px;
+}
+/* articulo que abarca las dos columnas inferiores */
+.desbordando {
+  grid-column: 1/-1;
+}
+
+/* Estilo de los textos, titulos y descripciones */
+
+.texto {
+  height: 7vh;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.titulo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* pie del proyecto */
+.pie-proyecto {
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--negro);
+}
+
+.enlaces-redes {
+  width: 400px;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* media-query para los dispositivos con menos de 600px de ancho */
+@media (width <=600px) {
+  main {
+    overflow-x: hidden;
+  }
+  header {
+    font-size: 1rem;
+    height: 20vh;
+  }
+
+  .barra-navegacion {
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-around;
+  }
+
+  .barra-navegacion li {
+    padding: 2px 0;
+  }
+
+  section {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-articulo {
+    max-width: 150px;
+    max-height: 150px;
+  }
+}
