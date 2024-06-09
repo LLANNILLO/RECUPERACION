@@ -68,17 +68,6 @@ class Tienda {
     let especie = animal.getEspecie();
 
     this.animalesVendidos.get(especie).push(animal);
-    /* if (especie === "Ciervae") {
-      this.animalesVendidos.get("Ciervae").push(animal);
-    } else if (especie === "Cocodylidae") {
-      this.animalesVendidos.get("Cocodylidae").push(animal);
-    } else if (especie === "Panthera Leo") {
-      this.animalesVendidos.get("Panthera Leo").push(animal);
-    } else if (especie === "Bos taurus") {
-      this.animalesVendidos.get("Bos taurus").push(animal);
-    } else {
-      this.animalesVendidos.get("Phoenicopterus").push(animal);
-    } */
   }
 
   mostrarAnimalesVendidos() {

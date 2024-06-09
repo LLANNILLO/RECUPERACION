@@ -198,9 +198,23 @@ window.addEventListener("load", () => {
   }
 
   const comprado = document.querySelector(".comprado");
+  const ventasAnimales = Array.from(
+    document.querySelectorAll(".cantidad-venta-animal")
+  );
+  console.log(tienda.mostrarAnimalesVendidos());
+
+  function animalesVendidosInfo() {
+    let posicion = 1;
+    for (let cantidad of tienda.mostrarAnimalesVendidos().values()) {
+      ventasAnimales[posicion].innerHTML = cantidad.length;
+      posicion++;
+    }
+  }
+
+  animalesVendidosInfo();
   function venderAnimal(nombre) {
     if (tienda.venderAnimal(nombre)) {
-      actualizarInfo(nombre);
+      actualizarInfoAnimal(nombre);
       comprado.classList.add("visible-comprado-mensaje");
 
       let mensajeComprado = setTimeout(() => {
@@ -210,10 +224,12 @@ window.addEventListener("load", () => {
           comprado.classList.remove("visible-comprado-mensaje");
         }
       }, 5000);
+
+      animalesVendidosInfo();
     }
   }
 
-  function actualizarInfo(nombre) {
+  function actualizarInfoAnimal(nombre) {
     const animalDiv = document.querySelector(`[data-name=${nombre}]`);
     const parentNode = animalDiv.parentElement;
 
@@ -224,12 +240,18 @@ window.addEventListener("load", () => {
 
   crearElementosAnimal(tienda.getJaulas());
 
-  //   Eventos para los botones de comprar y mostrar Mas info
+  //   Evento para mostrar las ventas
 
   const mostrarVentas = document.getElementById("mostrarVentas");
+  const dialogDiv = document.querySelector(".ventas-animales");
+  const cierre = document.querySelector(".cierre-ventas-animales");
 
   mostrarVentas.addEventListener("click", () => {
-    console.log(tienda.mostrarAnimalesVendidos());
+    dialogDiv.style.display = "flex";
+  });
+
+  cierre.addEventListener("click", () => {
+    dialogDiv.removeAttribute("style");
   });
 
   // Evento para cambiar al hacer scrollbar
@@ -253,7 +275,7 @@ window.addEventListener("load", () => {
     }
   });
 
-  // Evento al hacer clic en la barra de busqueda
+  // Evento al hacer clic en la barra de busqueda para cambiar el display
   const input = document.querySelector(".buscador input");
   const label = document.querySelector(".buscador label");
 
