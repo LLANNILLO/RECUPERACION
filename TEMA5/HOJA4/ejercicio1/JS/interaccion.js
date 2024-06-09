@@ -46,7 +46,6 @@ const animal5 = new Mascota(
 
 const tienda = new Tienda(15, [animal1, animal2, animal3, animal4, animal5]);
 
-console.log(tienda);
 window.addEventListener("load", () => {
   // Función para crear un elemento con una clase
   function crearElementoConClase(tag, className) {
@@ -108,59 +107,105 @@ window.addEventListener("load", () => {
   }
 
   // Función principal para crear el elemento del animal
-  function crearElementoAnimal(imagen, nombre, especie) {
-    const contenedorPrincipal = document.createElement("div");
-    contenedorPrincipal.setAttribute("data-name", nombre);
-    const animalContenedor = crearElementoConClase("div", "animal-contenedor");
-    const animalDiv = crearElementoConClase("div", "animal");
+  function crearElementoAnimal(vacia, imagen, nombre = null, especie = null) {
+    if (vacia) {
+      const contenedorPrincipal = document.createElement("div");
+      contenedorPrincipal.setAttribute("data-name", nombre);
+      const animalContenedor = crearElementoConClase(
+        "div",
+        "animal-contenedor"
+      );
+      const animalDiv = crearElementoConClase("div", "animal");
 
-    const figura = crearContenedorImagen(imagen);
-    const nombreAnimal = crearTextoDiv("texto-animal", nombre);
-    const especieAnimal = crearTextoDiv("texto-animal", `Especie: ${especie}`);
-    const botonesAnimal = crearContenedorBotones(nombre);
+      const figura = crearContenedorImagen(imagen);
+      const nombreAnimal = crearTextoDiv("texto-animal", nombre);
 
-    animalDiv.appendChild(figura);
-    animalDiv.appendChild(nombreAnimal);
-    animalDiv.appendChild(especieAnimal);
-    animalDiv.appendChild(botonesAnimal);
+      animalDiv.appendChild(figura);
+      animalDiv.appendChild(nombreAnimal);
 
-    animalContenedor.appendChild(animalDiv);
-    contenedorPrincipal.appendChild(animalContenedor);
+      animalContenedor.appendChild(animalDiv);
+      contenedorPrincipal.appendChild(animalContenedor);
 
-    return contenedorPrincipal;
+      return contenedorPrincipal;
+    } else {
+      const contenedorPrincipal = document.createElement("div");
+      contenedorPrincipal.setAttribute("data-name", nombre);
+      const animalContenedor = crearElementoConClase(
+        "div",
+        "animal-contenedor"
+      );
+      const animalDiv = crearElementoConClase("div", "animal");
+
+      const figura = crearContenedorImagen(imagen);
+      const nombreAnimal = crearTextoDiv("texto-animal", nombre);
+      const especieAnimal = crearTextoDiv(
+        "texto-animal",
+        `Especie: ${especie}`
+      );
+      const botonesAnimal = crearContenedorBotones(nombre);
+
+      animalDiv.appendChild(figura);
+      animalDiv.appendChild(nombreAnimal);
+      animalDiv.appendChild(especieAnimal);
+      animalDiv.appendChild(botonesAnimal);
+
+      animalContenedor.appendChild(animalDiv);
+      contenedorPrincipal.appendChild(animalContenedor);
+
+      return contenedorPrincipal;
+    }
   }
 
-  const contenido = document.querySelector(".estilo-caja-contenido");
+  const estiloCajaContenido = document.querySelector(".estilo-caja-contenido");
 
   function crearElementosAnimal(jaulas) {
     jaulas.forEach((jaula) => {
       if (jaula.getEstado() === "ocupada") {
         let animal = jaula.getAnimal();
         let elementoHTML = crearElementoAnimal(
+          false,
           animal.getImagen(),
           animal.getNombre(),
           animal.getEspecie()
         );
 
-        contenido.appendChild(elementoHTML);
+        estiloCajaContenido.appendChild(elementoHTML);
       } else {
         let elementoHTML = crearElementoAnimal(
+          true,
           "imagenes/jaula.jpg",
-          "Vacia",
-          "Ninguna"
+          "Vacia"
         );
-        contenido.appendChild(elementoHTML);
+        estiloCajaContenido.appendChild(elementoHTML);
       }
     });
   }
 
+  const comprado = document.querySelector(".comprado");
   function venderAnimal(nombre) {
     if (tienda.venderAnimal(nombre)) {
-      actualizarInfo();
+      actualizarInfo(nombre);
+      comprado.classList.add("visible-comprado-mensaje");
+
+      let mensajeComprado = setTimeout(() => {
+        if (!comprado.classList.contains("visible-comprado-mensaje")) {
+          clearTimeout(mensajeComprado);
+        } else {
+          comprado.classList.remove("visible-comprado-mensaje");
+        }
+      }, 5000);
     }
   }
 
-  function actualizarInfo(elemento) {}
+  function actualizarInfo(nombre) {
+    const animalDiv = document.querySelector(`[data-name=${nombre}]`);
+    const parentNode = animalDiv.parentElement;
+    console.log(parentNode);
+
+    let nodo = crearElementoAnimal(true, "imagenes/jaula.jpg", "Vacia");
+    parentNode.insertBefore(nodo, animalDiv);
+    parentNode.removeChild(animalDiv);
+  }
 
   crearElementosAnimal(tienda.getJaulas());
 
@@ -170,5 +215,26 @@ window.addEventListener("load", () => {
 
   mostrarVentas.addEventListener("click", () => {
     console.log(tienda.mostrarAnimalesVendidos());
+  });
+
+  // Evento para cambiar la scrollbar
+  const contenido = document.querySelector(".contenido");
+
+  contenido.addEventListener("scroll", () => {
+    const scrollTop = contenido.scrollTop;
+    const scrollHeight = contenido.scrollHeight;
+    const clientHeight = contenido.clientHeight;
+
+    if (scrollTop === 0) {
+      contenido.classList.remove("middle", "bottom");
+    } else if (scrollTop + clientHeight >= scrollHeight) {
+      // Scrollbar al final
+      contenido.classList.add("bottom");
+      contenido.classList.remove("middle");
+    } else {
+      // Scrollbar en el medio
+      contenido.classList.add("middle");
+      contenido.classList.remove("bottom");
+    }
   });
 });
