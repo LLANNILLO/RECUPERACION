@@ -159,7 +159,8 @@ input[type="button"] {
   z-index: 1;
 }
 
-.activado {
+.buscador .activado {
+  position: absolute;
   font-size: 0.7rem;
   top: 0;
   left: 3%;
@@ -177,7 +178,17 @@ input[type="button"] {
   height: 100%;
   outline: none;
 }
-.bordeado {
+
+.buscador input:focus + label,
+.buscador input:not(:placeholder-shown) + label {
+  top: 0;
+  left: 3%;
+  font-size: 0.7rem;
+  background-color: var(--color-rosa-brillante-50);
+  padding: 0 0.2rem;
+}
+.buscador:focus,
+.buscador:focus-within input {
   border: 1px solid;
 }
 

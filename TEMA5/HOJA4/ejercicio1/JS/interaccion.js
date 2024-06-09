@@ -200,7 +200,6 @@ window.addEventListener("load", () => {
   function actualizarInfo(nombre) {
     const animalDiv = document.querySelector(`[data-name=${nombre}]`);
     const parentNode = animalDiv.parentElement;
-    console.log(parentNode);
 
     let nodo = crearElementoAnimal(true, "imagenes/jaula.jpg", "Vacia");
     parentNode.insertBefore(nodo, animalDiv);
@@ -217,7 +216,7 @@ window.addEventListener("load", () => {
     console.log(tienda.mostrarAnimalesVendidos());
   });
 
-  // Evento para cambiar la scrollbar
+  // Evento para cambiar al hacer scrollbar
   const contenido = document.querySelector(".contenido");
 
   contenido.addEventListener("scroll", () => {
@@ -236,5 +235,16 @@ window.addEventListener("load", () => {
       contenido.classList.add("middle");
       contenido.classList.remove("bottom");
     }
+  });
+
+  // Evento al hacer clic en la barra de busqueda
+  const input = document.querySelector(".buscador input");
+  const label = document.querySelector(".buscador label");
+
+  input.addEventListener("focus", () => {
+    label.classList.add("activado");
+  });
+  input.addEventListener("blur", () => {
+    label.classList.remove("activado");
   });
 });
