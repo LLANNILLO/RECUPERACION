@@ -1,11 +1,12 @@
+// Creación de instancias de animales con la clase Mascota
 const animal1 = new Mascota(
-  "Shakespeare",
-  "Ciervae",
-  "mamifero",
-  "Es un ciervo muy amable",
-  "herbivoro",
-  5,
-  "imagenes/ciervo.jpg"
+  "Shakespeare", // Nombre del animal
+  "Ciervae", // Especie del animal
+  "mamifero", // Tipo del animal
+  "Es un ciervo muy amable", // Descripción del animal
+  "herbivoro", // Dieta del animal
+  5, // Edad del animal
+  "imagenes/ciervo.jpg" // Ruta de la imagen del animal
 );
 const animal2 = new Mascota(
   "Toro",
@@ -53,6 +54,7 @@ const animal6 = new Mascota(
   "imagenes/ciervo.jpg"
 );
 
+// Creación de una instancia de la clase Tienda con capacidad para 15 jaulas y los animales previamente creados
 const tienda = new Tienda(15, [
   animal1,
   animal2,
@@ -62,8 +64,9 @@ const tienda = new Tienda(15, [
   animal6,
 ]);
 
+// Evento que se ejecuta cuando la página se ha cargado completamente
 window.addEventListener("load", () => {
-  // Función para crear un elemento con una clase
+  // Función para crear un elemento HTML con una clase específica
   function crearElementoConClase(tag, className) {
     const elemento = document.createElement(tag);
     if (className) {
@@ -72,7 +75,7 @@ window.addEventListener("load", () => {
     return elemento;
   }
 
-  // Función para crear un contenedor con imagen
+  // Función para crear un contenedor de imagen
   function crearContenedorImagen(src) {
     const figura = document.createElement("figure");
     const imagen = crearElementoConClase("img", "imagen");
@@ -88,7 +91,7 @@ window.addEventListener("load", () => {
     return div;
   }
 
-  // Función para crear un botón
+  // Función para crear un botón con un evento opcional
   function crearBoton(className, type, value, event) {
     const boton = crearElementoConClase("input", className);
     boton.type = type;
@@ -99,7 +102,7 @@ window.addEventListener("load", () => {
     return boton;
   }
 
-  // Función para crear el contenedor de botones
+  // Función para crear el contenedor de botones para cada animal
   function crearContenedorBotones(animalNombre) {
     const botonesAnimal = crearElementoConClase("div", "botones-animal");
 
@@ -122,58 +125,39 @@ window.addEventListener("load", () => {
     return botonesAnimal;
   }
 
-  // Función principal para crear el elemento del animal
+  // Función principal para crear el elemento que representa a un animal
   function crearElementoAnimal(vacia, imagen, nombre = null, especie = null) {
-    if (vacia) {
-      const contenedorPrincipal = document.createElement("div");
-      contenedorPrincipal.setAttribute("data-name", nombre);
-      const animalContenedor = crearElementoConClase(
-        "div",
-        "animal-contenedor"
-      );
-      const animalDiv = crearElementoConClase("div", "animal");
+    const contenedorPrincipal = document.createElement("div");
+    contenedorPrincipal.setAttribute("data-name", nombre);
+    const animalContenedor = crearElementoConClase("div", "animal-contenedor");
+    const animalDiv = crearElementoConClase("div", "animal");
 
-      const figura = crearContenedorImagen(imagen);
-      const nombreAnimal = crearTextoDiv("texto-animal", nombre);
+    const figura = crearContenedorImagen(imagen);
+    const nombreAnimal = crearTextoDiv("texto-animal", nombre);
 
-      animalDiv.appendChild(figura);
-      animalDiv.appendChild(nombreAnimal);
+    animalDiv.appendChild(figura);
+    animalDiv.appendChild(nombreAnimal);
 
-      animalContenedor.appendChild(animalDiv);
-      contenedorPrincipal.appendChild(animalContenedor);
-
-      return contenedorPrincipal;
-    } else {
-      const contenedorPrincipal = document.createElement("div");
-      contenedorPrincipal.setAttribute("data-name", nombre);
-      const animalContenedor = crearElementoConClase(
-        "div",
-        "animal-contenedor"
-      );
-      const animalDiv = crearElementoConClase("div", "animal");
-
-      const figura = crearContenedorImagen(imagen);
-      const nombreAnimal = crearTextoDiv("texto-animal", nombre);
+    if (!vacia) {
       const especieAnimal = crearTextoDiv(
         "texto-animal",
         `Especie: ${especie}`
       );
       const botonesAnimal = crearContenedorBotones(nombre);
-
-      animalDiv.appendChild(figura);
-      animalDiv.appendChild(nombreAnimal);
       animalDiv.appendChild(especieAnimal);
       animalDiv.appendChild(botonesAnimal);
-
-      animalContenedor.appendChild(animalDiv);
-      contenedorPrincipal.appendChild(animalContenedor);
-
-      return contenedorPrincipal;
     }
+
+    animalContenedor.appendChild(animalDiv);
+    contenedorPrincipal.appendChild(animalContenedor);
+
+    return contenedorPrincipal;
   }
 
+  // Selección del contenedor principal donde se mostrarán los animales
   const estiloCajaContenido = document.querySelector(".estilo-caja-contenido");
 
+  // Función para crear elementos de animales en el contenedor principal
   function crearElementosAnimal(jaulas) {
     jaulas.forEach((jaula) => {
       if (jaula.getEstado() === "ocupada") {
@@ -197,12 +181,14 @@ window.addEventListener("load", () => {
     });
   }
 
+  // Selección del elemento para mostrar el mensaje de compra
   const comprado = document.querySelector(".comprado");
   const ventasAnimales = Array.from(
     document.querySelectorAll(".cantidad-venta-animal")
   );
   console.log(tienda.mostrarAnimalesVendidos());
 
+  // Función para actualizar la información de animales vendidos
   function animalesVendidosInfo() {
     let posicion = 1;
     for (let cantidad of tienda.mostrarAnimalesVendidos().values()) {
@@ -212,6 +198,8 @@ window.addEventListener("load", () => {
   }
 
   animalesVendidosInfo();
+
+  // Función para vender un animal y actualizar la interfaz
   function venderAnimal(nombre) {
     if (tienda.venderAnimal(nombre)) {
       actualizarInfoAnimal(nombre);
@@ -223,12 +211,13 @@ window.addEventListener("load", () => {
         } else {
           comprado.classList.remove("visible-comprado-mensaje");
         }
-      }, 5000);
+      }, 2000);
 
       animalesVendidosInfo();
     }
   }
 
+  // Función para actualizar la información del animal vendido
   function actualizarInfoAnimal(nombre) {
     const animalDiv = document.querySelector(`[data-name=${nombre}]`);
     const parentNode = animalDiv.parentElement;
@@ -240,8 +229,7 @@ window.addEventListener("load", () => {
 
   crearElementosAnimal(tienda.getJaulas());
 
-  //   Evento para mostrar las ventas
-
+  // Evento para mostrar el diálogo de ventas
   const mostrarVentas = document.getElementById("mostrarVentas");
   const dialogDiv = document.querySelector(".ventas-animales");
   const cierre = document.querySelector(".cierre-ventas-animales");
@@ -254,7 +242,7 @@ window.addEventListener("load", () => {
     dialogDiv.removeAttribute("style");
   });
 
-  // Evento para cambiar al hacer scrollbar
+  // Evento para cambiar las clases del contenedor según el scroll
   const contenido = document.querySelector(".contenido");
 
   contenido.addEventListener("scroll", () => {
@@ -275,7 +263,7 @@ window.addEventListener("load", () => {
     }
   });
 
-  // Evento al hacer clic en la barra de busqueda para cambiar el display
+  // Evento para agregar y quitar clases al hacer foco en el input de búsqueda
   const input = document.querySelector(".buscador input");
   const label = document.querySelector(".buscador label");
 
