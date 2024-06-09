@@ -7,7 +7,13 @@ class Tienda {
     // mapa con todas las jaulas que se van a crear en la tienda
     this.jaulas = new Map();
     // array con los animales vendidos, iniciado vaciado
-    this.animalesVendidos = [];
+    this.animalesVendidos = new Map([
+      ["Ciervae", []],
+      ["Bos taurus", []],
+      ["Cocodylidae", []],
+      ["Panthera Leo", []],
+      ["Phoenicopterus", []],
+    ]);
 
     // emplear la funcion de generacion de Jaulas
     this.generarJaulas();
@@ -46,14 +52,33 @@ class Tienda {
     });
 
     if (jaula) {
-      this.animalesVendidos.push(jaula.getAnimal());
-      console.log(`${jaula.getAnimal().getNombre()} vendido`);
+      let animal = jaula.getAnimal();
+
+      this.agregarAnimalVendidoAEspecie(animal);
       jaula.setEstado("vacia");
       jaula.setAnimal(undefined);
       cierto = true;
     }
 
     return cierto;
+  }
+
+  // Funcion para agregar un animal al array de ventas
+  agregarAnimalVendidoAEspecie(animal) {
+    let especie = animal.getEspecie();
+
+    this.animalesVendidos.get(especie).push(animal);
+    /* if (especie === "Ciervae") {
+      this.animalesVendidos.get("Ciervae").push(animal);
+    } else if (especie === "Cocodylidae") {
+      this.animalesVendidos.get("Cocodylidae").push(animal);
+    } else if (especie === "Panthera Leo") {
+      this.animalesVendidos.get("Panthera Leo").push(animal);
+    } else if (especie === "Bos taurus") {
+      this.animalesVendidos.get("Bos taurus").push(animal);
+    } else {
+      this.animalesVendidos.get("Phoenicopterus").push(animal);
+    } */
   }
 
   mostrarAnimalesVendidos() {

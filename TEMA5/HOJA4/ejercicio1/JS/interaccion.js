@@ -43,8 +43,24 @@ const animal5 = new Mascota(
   5,
   "imagenes/flamenco.jpg"
 );
+const animal6 = new Mascota(
+  "Cuernudo",
+  "Ciervae",
+  "mamifero",
+  "Este tio tiene mas cuernos que el novio de la Tussy",
+  "herbivoro",
+  5,
+  "imagenes/ciervo.jpg"
+);
 
-const tienda = new Tienda(15, [animal1, animal2, animal3, animal4, animal5]);
+const tienda = new Tienda(15, [
+  animal1,
+  animal2,
+  animal3,
+  animal4,
+  animal5,
+  animal6,
+]);
 
 window.addEventListener("load", () => {
   // Función para crear un elemento con una clase
