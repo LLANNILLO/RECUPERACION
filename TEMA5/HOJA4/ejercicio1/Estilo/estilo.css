@@ -4,22 +4,32 @@
   box-sizing: border-box;
 }
 
+/* estilo de la scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0 0 10px 10px;
+  background-color: var(--color-rosa-brillante-600);
+}
+
 body {
   font-family: Arial, sans-serif;
 
   /* texto oscuro */
-  --color-rosa-brillante-50: #fff1f3;
-  --color-rosa-brillante-100: #ffe4e9;
-  --color-rosa-brillante-200: #fecdd8;
-  --color-rosa-brillante-300: #fda4b8;
+  --color-rosa-brillante-50: #f3f1ff;
+  --color-rosa-brillante-100: #ebe5ff;
+  --color-rosa-brillante-200: #d9ceff;
+  --color-rosa-brillante-300: #bea6ff;
   /* texto claro */
-  --color-rosa-brillante-400: #fb83a1;
-  --color-rosa-brillante-500: #f34071;
-  --color-rosa-brillante-600: #e01e5c;
-  --color-rosa-brillante-700: #bd134e;
-  --color-rosa-brillante-800: #9e1348;
-  --color-rosa-brillante-900: #881343;
-  --color-rosa-brillante-950: #4c0520;
+  --color-rosa-brillante-400: #9f75ff;
+  --color-rosa-brillante-500: #843dff;
+  --color-rosa-brillante-600: #7916ff;
+  --color-rosa-brillante-700: #6b04fd;
+  --color-rosa-brillante-800: #5a03d5;
+  --color-rosa-brillante-900: #4b05ad;
+  --color-rosa-brillante-950: #2c0076;
 }
 
 main {
@@ -27,14 +37,25 @@ main {
   height: 100vh;
 }
 
+input[type="button"] {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
 /* display en grid para la tienda */
+
 .contenedor-tienda {
   width: 100%;
   height: 100%;
   display: grid;
   grid-template-areas: "icono navegador" "barra-navegacion contenido";
   grid-template-rows: 10% 90%;
-  grid-template-columns: 25% 75%;
+  grid-template-columns: 10% 90%;
+}
+
+.color-barra-superior {
+  background-color: var(--color-rosa-brillante-600);
 }
 
 .icono {
@@ -62,28 +83,238 @@ main {
 
 .estilo-caja-navegador {
   display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  width: 800px;
+  height: 50%;
+  background-color: var(--color-rosa-brillante-950);
+}
+
+.contenedor-busqueda {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.lupa {
+  height: 100%;
+  width: 5%;
+  display: flex;
   background-color: var(--color-rosa-brillante-50);
-  padding: 0.5%;
   border-radius: 5px 0 0 5px;
+  justify-content: center;
+  align-items: center;
 }
 
-.navegador span {
+.lupa span {
   font-size: 1.4rem;
-  color: var(--color-rosa-brillante-900);
+  color: var(--color-rosa-brillante-700);
 }
 
-.color-barra-superior {
-  background-color: var(--color-rosa-brillante-500);
+.buscador {
+  height: 100%;
+  width: 95%;
+  padding: 0.5% 2%;
+  display: flex;
+  background-color: var(--color-rosa-brillante-50);
+  border-radius: 0 5px 5px 0;
+  align-items: center;
+  position: relative;
+}
+.buscador label {
+  position: absolute;
+  padding-left: 2%;
+  z-index: 1;
+}
+
+.activado {
+  font-size: 0.7rem;
+  top: 0;
+  left: 3%;
+  background-color: var(--color-rosa-brillante-50);
+}
+.buscador input {
+  padding: 2%;
+  z-index: 0;
+  font-size: 1.4rem;
+  background-color: var(--color-rosa-brillante-50);
+  color: var(--color-rosa-brillante-500);
+  margin: 0;
+  border: none;
+  width: 100%;
+  height: 100%;
+  outline: none;
+}
+.bordeado {
+  border: 1px solid;
 }
 
 .barra-navegacion {
   grid-area: barra-navegacion;
+  background-color: var(--color-rosa-brillante-400);
 }
 
-.color-barra-navegacion {
-  background-color: var(--color-rosa-brillante-400);
+.estilo-caja-navegacion {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  gap: 10px 0;
+  /* estilo del texto dentro de los divs */
+  color: var(--color-rosa-brillante-300);
+}
+
+.estilo-caja-navegacion > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 25%;
+  gap: 5% 0;
+  cursor: pointer;
+  border-bottom: 2px solid var(--color-rosa-brillante-300);
+}
+
+.texto-navegacion {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.selected {
+  color: var(--color-rosa-brillante-50);
+  font-size: 1.5rem;
+  transition: font-size 0.6s;
+}
+
+.selected span:last-child {
+  font-size: 1.5rem;
+  transition: font-size 0.6s;
 }
 
 .contenido {
   grid-area: contenido;
+  overflow-y: scroll;
+  background-color: var(--color-rosa-brillante-50);
+}
+
+.estilo-caja-contenido {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: 20px 20px;
+}
+
+.estilo-caja-contenido > div {
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.estilo-caja-contenido > div:first-child {
+  justify-content: flex-end;
+  grid-column: 1/-1;
+  margin-right: 5%;
+}
+
+.mostrar-ventas {
+  width: fit-content;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5% 1%;
+  gap: 0 5px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  background-color: var(--color-rosa-brillante-950);
+  color: var(--color-rosa-brillante-50);
+  cursor: pointer;
+}
+
+.mostrar-ventas input {
+  font-size: 1.2rem;
+  background-color: var(--color-rosa-brillante-950);
+  color: var(--color-rosa-brillante-50);
+}
+
+.mostrar-ventas:hover {
+  background-color: var(--color-rosa-brillante-700);
+}
+.mostrar-ventas:hover input {
+  background-color: var(--color-rosa-brillante-700);
+}
+
+.animal-contenedor {
+  width: 80%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal {
+  background-color: var(--color-rosa-brillante-100);
+  border-radius: 10px;
+  position: relative;
+  transition: box-shadow 0.4s ease;
+}
+
+.animal:hover {
+  box-shadow: 0px 10px 20px -10px var(--color-rosa-brillante-600);
+}
+
+.texto-animal {
+  padding-left: 5%;
+}
+
+.imagen {
+  position: relative;
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+
+  max-width: 400px;
+}
+
+.botones-animal {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  gap: 10px;
+  z-index: 200;
+}
+
+.botones-animal > div {
+  margin: 10px 0;
+}
+
+.botones-animal > div:last-child {
+  margin-right: 5px;
+}
+
+.cancelar {
+  background-color: var(--color-rosa-brillante-50);
+  border-radius: 12px;
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  padding-left: 6px;
+}
+
+.cancelar input {
+  background-color: var(--color-rosa-brillante-50);
+  border-radius: 50px;
+  padding: 6px 10px 6px 0;
+}
+.aceptar {
+  background-color: var(--color-rosa-brillante-600);
+  color: var(--color-rosa-brillante-50);
+  border-radius: 12px;
+  padding: 6px 10px;
 }

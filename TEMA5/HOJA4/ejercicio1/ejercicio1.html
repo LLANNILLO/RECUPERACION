@@ -36,20 +36,59 @@
         <div class="navegador color-barra-superior">
           <div class="estilo-caja-navegador">
             <!-- lupa del navegador -->
-            <div>
-              <span class="fa-solid fa-magnifying-glass"></span>
+            <div class="contenedor-busqueda">
+              <div class="lupa">
+                <span class="fa-solid fa-magnifying-glass"></span>
+              </div>
+              <!-- buscador del navegador -->
+              <div class="buscador">
+                <label for="busqueda">¿Que animal estas buscando?</label>
+                <input type="text" id="busqueda" />
+              </div>
             </div>
-
-            <!-- div para realizar las busquedas -->
-            <div></div>
           </div>
         </div>
 
         <!-- navegacion lateral -->
-        <div class="barra-navegacion color-barra-navegacion"></div>
+        <div class="barra-navegacion">
+          <div class="estilo-caja-navegacion">
+            <!-- navegacion de los animales -->
+            <div class="selected">
+              <span class="fa-solid fa-paw"></span>
+              <span class="texto-navegacion">Compra de mascotas</span>
+            </div>
+
+            <!-- navegacion de los productos -->
+            <div>
+              <span class="fa-solid fa-truck-field"></span>
+              <span class="texto-navegacion">Compra de productos</span>
+            </div>
+
+            <!-- navegacion de los veterinarios -->
+            <div>
+              <span class="fa-solid fa-shield-dog"></span>
+              <span class="texto-navegacion">Veterinarios</span>
+            </div>
+
+            <!-- navegacion de soporte -->
+            <div>
+              <span class="fa-solid fa-headset"></span>
+              <span class="texto-navegacion">Soporte</span>
+            </div>
+          </div>
+        </div>
         <!-- contenido web -->
 
-        <div class="contenido"></div>
+        <div class="contenido">
+          <div class="estilo-caja-contenido">
+            <div>
+              <div class="mostrar-ventas">
+                <span class="fa-solid fa-cash-register"></span
+                ><input type="button" value="Mostrar Ventas" id="mostrarVentas" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>

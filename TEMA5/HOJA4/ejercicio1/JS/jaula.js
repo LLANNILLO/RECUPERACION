@@ -16,7 +16,7 @@ class Jaula {
     this.animal = animal;
   }
 
-  getAnimal(animal) {
+  getAnimal() {
     return this.animal;
   }
 }
