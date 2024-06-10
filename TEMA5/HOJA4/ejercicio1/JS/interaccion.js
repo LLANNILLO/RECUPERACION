@@ -79,7 +79,7 @@ window.addEventListener("load", () => {
   function crearContenedorImagen(src) {
     const figura = document.createElement("figure");
     const imagen = crearElementoConClase("img", "imagen");
-    imagen.src = src;
+    imagen.src = "./" + src;
     figura.appendChild(imagen);
     return figura;
   }
