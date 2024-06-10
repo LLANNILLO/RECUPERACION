@@ -3,7 +3,7 @@
 window.addEventListener("load", () => {
   const drop = document.querySelector(".drop");
   const drag = document.querySelector(".drag");
-  const draggable = document.querySelector(".caja-arrastre");
+  const draggable = document.querySelector(".draggable-box");
 
   function allowDrop(ev) {
     ev.preventDefault();
