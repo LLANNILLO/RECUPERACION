@@ -7,7 +7,12 @@ let modalidades = [
   "Maquinas",
 ];
 
-let socios = [];
+let socios;
+if (sessionStorage.getItem("socios")) {
+  socios = JSON.parse(sessionStorage.getItem("socios"));
+} else {
+  socios = [];
+}
 
 window.addEventListener("load", () => {
   // crear el codigo del nuevo cliente
@@ -19,7 +24,6 @@ window.addEventListener("load", () => {
   // funcion para crear el codigo del cliente
   function crearCodigoCliente() {
     let socioNumero = 1;
-    console.log(socios.length);
     if (socios.length > 0) {
       socioNumero = socios.length + 1;
     }
@@ -114,15 +118,12 @@ window.addEventListener("load", () => {
     let codigo = codigoSocioText.value;
     let modalidades = verModalidades();
 
-    let nuevoSocio = new FichaClub(codigo, nombre, modalidades);
+    let nuevoSocio = { codigo, nombre, modalidades };
 
     socios.push(nuevoSocio);
+    sessionStorage.setItem("socios", JSON.stringify(socios));
 
-    nombreSocioText.value = "";
-    apellidosSocioText.value = "";
-    codigoSocioText.value = "";
-    modalidadesAgregadas.innerHTML = "";
-    reiniciarSelect();
+    window.location.href = "asociados.html";
   });
 
   // funcion para ver todas las modalidades seleccionadas
