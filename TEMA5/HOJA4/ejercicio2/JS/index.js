@@ -92,15 +92,16 @@ window.addEventListener("load", () => {
   }
 
   // funcion para volver a agregar las selecciones
-  function eliminarModalidad(divPadre) {
-    modalidadesAgregadas.removeChild(divPadre);
-  }
-  // funcion para eliminar la modalidad div
   function agregarSelecciones(seleccion) {
     let option = document.createElement("option");
     option.value = seleccion;
     option.text = seleccion;
     selectorModalidad.appendChild(option);
+  }
+
+  // funcion para eliminar la modalidad div
+  function eliminarModalidad(divPadre) {
+    modalidadesAgregadas.removeChild(divPadre);
   }
 
   // crear al nuevo socio
@@ -125,5 +126,18 @@ window.addEventListener("load", () => {
     apellidosSocioText.value = "";
     codigoSocioText.value = "";
     modalidadesAgregadas.innerHTML = "";
+    reiniciarSelect();
   });
+
+  function reiniciarSelect() {
+    // Limpiar todas las opciones del select
+    selectorModalidad.innerHTML = "";
+    // Volver a agregar todas las modalidades originales
+    modalidades.forEach((modalidad) => {
+      let option = document.createElement("option");
+      option.value = modalidad;
+      option.text = modalidad;
+      selectorModalidad.appendChild(option);
+    });
+  }
 });
