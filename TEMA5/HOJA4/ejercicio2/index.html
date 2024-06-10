@@ -43,13 +43,46 @@
                 <option value="Maquinas">Maquinas</option>
               </select>
               <input
-                class="agregar-modalidad"
+                class="boton-clase"
                 type="button"
                 id="agregarModalidad"
                 value="Agregar Modalidad"
               />
             </div>
           </form>
+
+          <div class="tarifa">
+            <div class="contenedor-tarifa">
+              <div class="detalle-precio">
+                <details class="tarifa-final">
+                  <summary class="tarifa-subtitulo">Tarifa final</summary>
+                  <div class="detalles-modalidades sublineado titulos-tarifas">
+                    <div>Tarifa base:</div>
+                    <div>30€</div>
+                  </div>
+                  <div
+                    id="seccionModalidad"
+                    class="detalles-modalidades titulos-tarifas"
+                  >
+                    <div>Modalidad</div>
+                    <div>Precio</div>
+                  </div>
+                  <div class="detalles-modalidades modalidades-tarifa"></div>
+
+                  <div class="detalles-modalidades suplineado titulos-tarifas">
+                    <div>Total pago:</div>
+                    <div id="precioFinal"></div>
+                  </div>
+                </details>
+              </div>
+              <input
+                type="button"
+                class="boton-clase"
+                id="calcularTarifa"
+                value="Calcular tarifa"
+              />
+            </div>
+          </div>
         </div>
 
         <footer>

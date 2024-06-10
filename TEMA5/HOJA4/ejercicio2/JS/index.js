@@ -112,11 +112,7 @@ window.addEventListener("load", () => {
     let nombre = nombreSocioText.value + " " + apellidosSocioText.value;
 
     let codigo = codigoSocioText.value;
-    let modalidades = Array.from(
-      modalidadesAgregadas.querySelectorAll(".modalidad")
-    ).map((modalidad) => {
-      return modalidad.firstChild.nodeValue;
-    });
+    let modalidades = verModalidades();
 
     let nuevoSocio = new FichaClub(codigo, nombre, modalidades);
 
@@ -129,6 +125,17 @@ window.addEventListener("load", () => {
     reiniciarSelect();
   });
 
+  // funcion para ver todas las modalidades seleccionadas
+  function verModalidades() {
+    let modalidades = Array.from(
+      modalidadesAgregadas.querySelectorAll(".modalidad")
+    ).map((modalidad) => {
+      return modalidad.firstChild.nodeValue;
+    });
+    return modalidades;
+  }
+
+  // funcion para reiniciar los valores del select
   function reiniciarSelect() {
     // Limpiar todas las opciones del select
     selectorModalidad.innerHTML = "";
@@ -140,4 +147,39 @@ window.addEventListener("load", () => {
       selectorModalidad.appendChild(option);
     });
   }
+
+  const calcularTarifaBtn = document.getElementById("calcularTarifa");
+  const modalidadesTarifa = document.querySelector(".modalidades-tarifa");
+
+  // funcion para generar el precio de la tarifa final
+
+  function calcularTarifa() {
+    modalidadesTarifa.innerHTML = "";
+    let modalidades = verModalidades();
+
+    modalidades.forEach((modalidad) => {
+      let modalidadCrear = crearDivTarifa(modalidad);
+      modalidadesTarifa.appendChild(modalidadCrear);
+    });
+
+    const precioFinal = document.getElementById("precioFinal");
+
+    let modalidadesCantidadPrecio = modalidades.length * 6;
+
+    precioFinal.textContent = `${modalidadesCantidadPrecio + 30}`;
+  }
+
+  function crearDivTarifa(modalidad) {
+    let div = document.createElement("div");
+    let modalidadDiv = document.createElement("div");
+    modalidadDiv.textContent = modalidad;
+    let precio = document.createElement("div");
+    precio.textContent = "6€";
+
+    div.appendChild(modalidadDiv);
+    div.appendChild(precio);
+    return div;
+  }
+
+  calcularTarifaBtn.addEventListener("click", calcularTarifa);
 });
