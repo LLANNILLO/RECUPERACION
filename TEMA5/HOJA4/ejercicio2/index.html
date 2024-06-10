@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hazte socio</title>
+    <link rel="stylesheet" href="./Estilo/estilo.css" />
+    <script src="./JS/class/FichaClub.js"></script>
+    <script src="./JS/index.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="contenedor">
+        <header>
+          <h1>Hazte socio hoy mismo</h1>
+        </header>
+        <div class="formulario">
+          <form action="">
+            <div class="nombre-codigo">
+              <div>
+                <label for="nombreSocio">Nombre</label>
+                <input type="text" id="nombreSocio" pattern="[a-zA-z]+" />
+              </div>
+              <div>
+                <label for="apellidosSocio">Apellidos</label>
+                <input type="text" id="apellidosSocio" pattern="[a-zA-z]+" />
+              </div>
+              <div>
+                <label for="codigoSocio">Codigo socio</label>
+                <input type="text" id="codigoSocio" readonly />
+              </div>
+            </div>
+
+            <div id="modalidades"></div>
+
+            <div class="seleccion-modalidad">
+              <select id="selectorModalidades">
+                <option value="Natación">Natacion</option>
+                <option value="Pilates">Pilates</option>
+                <option value="AquaGym">AquaGym</option>
+                <option value="Resistencia">Resistencia</option>
+                <option value="Zumba">Zumba</option>
+                <option value="Maquinas">Maquinas</option>
+              </select>
+              <input
+                class="agregar-modalidad"
+                type="button"
+                id="agregarModalidad"
+                value="Agregar Modalidad"
+              />
+            </div>
+          </form>
+        </div>
+
+        <footer>
+          <div class="asociarse">
+            <input
+              class="asociarse-boton"
+              type="button"
+              value="hacerse miembro"
+              id="asociarse"
+            />
+          </div>
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
