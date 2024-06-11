@@ -12,9 +12,16 @@ class Television extends Electrodomestico {
     this.sintonizador = sintonizador;
   }
 
-  precioFinal(){
-      
+  precioFinal() {
+    let precio = super.precioFinal();
+
+    if (this.resolucion > 40) {
+      precio *= 1.3;
+    }
+    if (this.sintonizador) {
+      precio += 50;
+    }
+
+    return precio;
   }
-
-
 }
