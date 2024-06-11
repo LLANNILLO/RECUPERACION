@@ -6,10 +6,10 @@
 
 body {
   font-family: Arial, sans-serif;
-
   --negro: rgb(32, 32, 32);
   --gris: rgb(238, 237, 237);
   --gris-oscuro: rgb(202, 201, 201);
+  line-height: 1.6rem;
 }
 
 /* Estilo de todos los enlaces del proyecto */
@@ -34,7 +34,6 @@ header {
   height: 12vh;
   justify-content: space-between;
   background-color: var(--negro);
-  font-size: 1.4rem;
 }
 
 .logo-proyecto {

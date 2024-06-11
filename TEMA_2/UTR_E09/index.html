@@ -8,8 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-1,100..900&display=swap"
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
   </head>
   <body>
@@ -25,7 +28,7 @@
         </a>
         <div>
           <!-- icono de busqueda oculto hasta hacer click en la barra de busqueda -->
-          <div></div>
+          <div><span class="fa-solid fa-magnifying-glass"></span></div>
           <!-- barra de busqueda -->
           <input type="text" name="" id="" value="Whisky" readonly />
           <div>
@@ -45,52 +48,52 @@
         <img src="" alt="" />
         <input type="button" />
       </div>
-    </header>
-    <!-- otros apartados con la nav -->
-    <nav>
-      <div>
-        <ul>
-          <li>
-            <a href="/">
-              <img src="" alt="" />
-              <span>Todo</span>
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src="" alt="" />
-              <span>Imagenes</span>
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src="" alt="" />
-              <span>Noticias</span>
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src="" alt="" />
-              <span>Vídeos</span>
-            </a>
-          </li>
-          <li>
-            <a href="/">
-              <img src="" alt="" />
-              <span>Googles</span>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
 
+      <!-- otros apartados con la nav -->
+      <nav>
+        <div>
+          <ul>
+            <li>
+              <a href="/">
+                <img src="" alt="" />
+                <span>Todo</span>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="" alt="" />
+                <span>Imagenes</span>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="" alt="" />
+                <span>Noticias</span>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="" alt="" />
+                <span>Vídeos</span>
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="" alt="" />
+                <span>Googles</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <main>
       <!-- contenido de imagenes relativo a la busqueda -->
-      <div>
+      <div class="contenedor-imagenes">
         <!-- image-0 -->
-        <div>
+        <div class="ficha">
           <!-- imagen.jpeg -->
-          <div data-image="0">
+          <div class="imagen" data-image="0">
             <img src="./imagenes/whisky_0.jpg" alt="image-0" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -99,9 +102,9 @@
           <div></div>
         </div>
         <!-- image-1 -->
-        <div data-image="1">
+        <div class="ficha" data-image="1">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_1.jpg" alt="image-1" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -110,9 +113,9 @@
           <div></div>
         </div>
         <!-- image-2 -->
-        <div data-image="2">
+        <div class="ficha" data-image="2">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen" class="imagen">
             <img src="./imagenes/whisky_2.jpg" alt="image-2" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -121,9 +124,9 @@
           <div></div>
         </div>
         <!-- image-3 -->
-        <div data-image="3">
+        <div class="ficha" data-image="3">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_3.jpg" alt="image-3" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -132,9 +135,9 @@
           <div></div>
         </div>
         <!-- image-4 -->
-        <div data-image="4">
+        <div class="ficha" data-image="4">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_4.jpg" alt="image-4" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -143,9 +146,9 @@
           <div></div>
         </div>
         <!-- image-5 -->
-        <div data-image="5">
+        <div class="ficha" data-image="5">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_5.jpg" alt="image-5" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -154,9 +157,9 @@
           <div></div>
         </div>
         <!-- image-6 -->
-        <div data-image="6">
+        <div class="ficha" data-image="6">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_6.jpg" alt="image-6" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -165,9 +168,9 @@
           <div></div>
         </div>
         <!-- image-7 -->
-        <div data-image="7">
+        <div class="ficha" data-image="7">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_7.jpg" alt="image-7" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -176,9 +179,9 @@
           <div></div>
         </div>
         <!-- image-8 -->
-        <div data-image="8">
+        <div class="ficha" data-image="8">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_8.jpg" alt="image-8" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -187,9 +190,9 @@
           <div></div>
         </div>
         <!-- image-9 -->
-        <div data-image="9">
+        <div class="ficha" data-image="9">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_9.jpg" alt="image-9" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -198,9 +201,9 @@
           <div></div>
         </div>
         <!-- image-10 -->
-        <div data-image="10">
+        <div class="ficha" data-image="10">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_10.jpg" alt="image-10" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -209,9 +212,9 @@
           <div></div>
         </div>
         <!-- image-11 -->
-        <div data-image="11">
+        <div class="ficha" data-image="11">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_11.jpg" alt="image-11" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -220,9 +223,9 @@
           <div></div>
         </div>
         <!-- image-12 -->
-        <div data-image="12">
+        <div class="ficha" data-image="12">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_12.jpg" alt="image-12" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -231,9 +234,9 @@
           <div></div>
         </div>
         <!-- image-13 -->
-        <div data-image="13">
+        <div class="ficha" data-image="13">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_13.jpg" alt="image-13" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -242,9 +245,9 @@
           <div></div>
         </div>
         <!-- image-14 -->
-        <div data-image="14">
+        <div class="ficha" data-image="14">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_14.jpg" alt="image-14" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -253,9 +256,9 @@
           <div></div>
         </div>
         <!-- image-15 -->
-        <div data-image="15">
+        <div class="ficha" data-image="15">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_15.jpg" alt="image-15" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -264,9 +267,9 @@
           <div></div>
         </div>
         <!-- image-16 -->
-        <div data-image="16">
+        <div class="ficha" data-image="16">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_16.jpg" alt="image-16" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -275,9 +278,9 @@
           <div></div>
         </div>
         <!-- image-17 -->
-        <div data-image="17">
+        <div class="ficha" data-image="17">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_17.jpg" alt="image-17" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -286,9 +289,9 @@
           <div></div>
         </div>
         <!-- image-18 -->
-        <div data-image="18">
+        <div class="ficha" data-image="18">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_18.jpg" alt="image-18" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
@@ -297,9 +300,9 @@
           <div></div>
         </div>
         <!-- image-19 -->
-        <div data-image="19">
+        <div class="ficha" data-image="19">
           <!-- imagen.jpeg -->
-          <div>
+          <div class="imagen">
             <img src="./imagenes/whisky_19.jpg" alt="image-19" />
           </div>
           <!-- fuente de proveniencia de la imagen -->
