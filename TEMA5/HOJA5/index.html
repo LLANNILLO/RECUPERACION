@@ -5,10 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio</title>
+    <link rel="stylesheet" href="./Estilo/estilo.css" />
     <script src="./JS/class/Electrodomestico.js"></script>
     <script src="./JS/class/Lavadora.js"></script>
     <script src="./JS/class/Television.js"></script>
     <script src="./JS/class/index.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Crear Electrodomesticos</h1>
+    </header>
+
+    <main>
+      <div>
+        <span>Tipo de electrodomestico</span>
+        <select id="electrodomesticoAgregar">
+          <option value="nada">---</option>
+          <option value="lavadora">Lavadora</option>
+          <option value="television">Television</option>
+        </select>
+      </div>
+
+      <form action="">
+        <div>
+          <div>
+            <label for="precio">Precio electrodomestico:</label>
+            <input type="text" id="precio" />
+          </div>
+          <div>
+            <label for="color">Color electrodomestico:</label>
+            <input type="text" id="color" />
+          </div>
+          <div>
+            <label for="peso">Peso electrodomestico:</label>
+            <input type="text" id="peso" />
+          </div>
+          <div>
+            <label for="consumo">Consumo electrodomestico:</label>
+            <select id="consumo">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <div class="lavadora">
+            <fieldset>
+              <legend>Lavadora</legend>
+              <div>
+                <label for="carga">Resolucion television:</label>
+                <input type="text" id="carga" />
+              </div>
+            </fieldset>
+          </div>
+          <div class="televisor">
+            <fieldset>
+              <legend>Television</legend>
+              <div>
+                <div>
+                  <label for="resolucion">Resolucion television:</label>
+                  <input type="text" id="resolucion" />
+                </div>
+                <div>
+                  <label for="sintetizador">Sintetizador television:</label>
+                  <input type="text" id="sintetizador" />
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
 </html>
