@@ -11,3 +11,29 @@
 .lavadora {
   display: none;
 }
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 60vh;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form > div:last-child {
+  margin-top: 12px;
+}
+
+.electrodomestico-elegido {
+  margin-top: 60px;
+  display: flex;
+}
