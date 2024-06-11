@@ -1,36 +1,5 @@
-function reconstruirElectrodomesticos(data) {
-  return data.map((item) => {
-    if (item.carga) {
-      return new Lavadora(
-        parseInt(item.precioBase),
-        item.color,
-        item.consumoEnergetico,
-        item.peso,
-        item.carga
-      );
-    } else if (item.resolucion) {
-      return new Television(
-        parseInt(item.precioBase),
-        item.color,
-        item.consumoEnergetico,
-        item.peso,
-        item.pulgadas,
-        item.sintonizadorTDT
-      );
-    } else {
-      return new Electrodomestico(
-        parseInt(item.precioBase),
-        item.color,
-        item.consumoEnergetico,
-        item.peso
-      );
-    }
-  });
-}
-
-let electrodomesticosData =
-  JSON.parse(sessionStorage.getItem("electrodomesticos")) || [];
-let electrodomesticos = reconstruirElectrodomesticos(electrodomesticosData);
+let electrodomesticosData = getFromSessionStorage("electrodomesticos") || [];
+let electrodomesticos = deserializeElectrodomesticos(electrodomesticosData);
 
 window.addEventListener("load", () => {
   let textarea = document.querySelector("textarea");
@@ -59,7 +28,6 @@ window.addEventListener("load", () => {
   textarea.textContent = preciosElectrodomesticos(electrodomesticos);
 
   const volverBtn = document.getElementById("volver");
-
   volverBtn.addEventListener("click", () => {
     window.location.href = "index.html";
   });
