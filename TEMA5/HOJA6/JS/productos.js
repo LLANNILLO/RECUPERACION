@@ -1,0 +1,24 @@
+let Productos = {
+  productos: [
+    { nombre: "Ajo", precio: "0.4", imagen: "imagenes/ajo.jpg" },
+    { nombre: "Cebolla", precio: "0.75", imagen: "imagenes/cebolla.jpg" },
+    {
+      nombre: "Hamburguesas no veganas",
+      precio: "5.99",
+      imagen: "imagenes/hamburguesa.jpg",
+    },
+    { nombre: "Ketchup", precio: "0.00", imagen: "imagenes/ketchup.jpg" },
+    { nombre: "Mayonesa", precio: "2.5", imagen: "imagenes/mayonesa.jpg" },
+    { nombre: "Mostaza", precio: "0.75", imagen: "imagenes/mostaza.jpg" },
+    { nombre: "Pan de ajo", precio: "1.99", imagen: "imagenes/pan_ajo.jpg" },
+    { nombre: "Patata", precio: "0.5", imagen: "imagenes/patata.jpg" },
+    { nombre: "Pimiento", precio: "0.75", imagen: "imagenes/pimiento.jpg" },
+    { nombre: "Pizza vegana", precio: "4.20", imagen: "imagenes/pizza.jpg" },
+    {
+      nombre: "Tarta de queso",
+      precio: "2.99",
+      imagen: "imagenes/tarta_queso.jpg",
+    },
+    { nombre: "Tomate", precio: "0.60", imagen: "imagenes/tomate.jpg" },
+  ],
+};

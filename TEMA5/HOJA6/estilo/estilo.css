@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tienda {
+  width: 100vw;
+  height: 50vh;
+  display: grid;
+  grid-template-areas: "productos carrito";
+  grid-template-columns: 3fr 2fr;
+  align-items: center;
+}
+
+.productos {
+  grid-area: productos;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 200px));
+}
+
+.carrito {
+  grid-area: carrito;
+}
