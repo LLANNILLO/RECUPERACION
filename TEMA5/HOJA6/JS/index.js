@@ -1,6 +1,25 @@
 window.addEventListener("load", () => {
+  //Variables para el display de la web
   $productosDiv = document.querySelector(".productos");
+  $productosCarrito = document.querySelector(".productos-carrito");
+  //crear fragmento de elementos HTML
   $productosFragment = document.createDocumentFragment();
+
+  //Variables para la interaccion de la web
+  $vaciarCesta = document.getElementById("vaciarCesta");
+  $precioFinal = document.getElementById("precioFinal");
+
+  //funcion para crear los elementos con una clase y/o contenido determinado
+  function crearElementoConClase(tag, className = "", contenido = "") {
+    const elementoCrear = document.createElement(tag);
+    if (className) {
+      elementoCrear.classList.add(className);
+    }
+    if (contenido) {
+      elementoCrear.innerHTML = contenido;
+    }
+    return elementoCrear;
+  }
 
   //emplear la funcion fetch() para trabajar con API (productos.json)
   fetch("JS/productos.json")
@@ -38,6 +57,10 @@ window.addEventListener("load", () => {
           "&plus;"
         );
 
+        anadirProductoDiv.addEventListener("click", () => {
+          eventoAgregarProducto(producto.nombre, producto.precio);
+        });
+
         //Realizar los apendices del precio-producto div
         precioProductoDiv.appendChild(precioDiv);
         precioProductoDiv.appendChild(precioNumDiv);
@@ -61,14 +84,67 @@ window.addEventListener("load", () => {
       $productosFragment.innerHTML = `<div>Error ${error.status}: ${message}</div>`;
     });
 
-  function crearElementoConClase(tag, className = "", contenido = "") {
-    const elementoCrear = document.createElement(tag);
-    if (className) {
-      elementoCrear.classList.add(className);
+  //funcion para agregar el evento de agregar producto a la lista
+  function eventoAgregarProducto(nombre, valor) {
+    let productoCarrito = $productosCarrito.querySelector(
+      `[data-name='${nombre}']`
+    );
+
+    if (!productoCarrito) {
+      productoCarrito = crearElementoConClase("div", "producto-cesta");
+      const cantidadProducto = crearElementoConClase(
+        "div",
+        "",
+        `<span class=cantidad>1</span> x ${nombre} - <span class=valor>${valor}</span>€`
+      );
+      const eliminarProducto = crearElementoConClase(
+        "div",
+        "eliminar-productos",
+        "&times;"
+      );
+
+      eliminarProducto.addEventListener("click", (event) => {
+        eventoEliminarProducto(event);
+      });
+
+      productoCarrito.dataset.name = nombre;
+
+      productoCarrito.appendChild(cantidadProducto);
+      productoCarrito.appendChild(eliminarProducto);
+      alterarPrecioFinal(valor);
+      $productosCarrito.appendChild(productoCarrito);
+    } else {
+      let cantidadSpan = productoCarrito.querySelector(".cantidad");
+      let cantidad = parseFloat(cantidadSpan.textContent);
+      alterarPrecioFinal(valor);
+      cantidad++;
+      cantidadSpan.textContent = cantidad;
     }
-    if (contenido) {
-      elementoCrear.innerHTML = contenido;
+  }
+
+  function alterarPrecioFinal(valor) {
+    let precioFinal = parseFloat($precioFinal.innerHTML);
+
+    let precio = parseFloat(valor);
+    precioFinal += precio;
+    $precioFinal.innerHTML = precioFinal.toFixed(2);
+  }
+  function eventoVaciarCesta() {
+    $productosCarrito.innerHTML = "";
+    $precioFinal.innerHTML = "0.00€";
+  }
+
+  $vaciarCesta.addEventListener("click", () => {
+    eventoVaciarCesta();
+  });
+
+  function eventoEliminarProducto(event) {
+    let parent = event.target.parentNode;
+
+    console.log($productosCarrito.childElementCount);
+    if ($productosCarrito.childElementCount < 2) {
+      $precioFinal.innerHTML = "0.00";
     }
-    return elementoCrear;
+    $productosCarrito.removeChild(parent);
   }
 });
