@@ -6,18 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tienduca de Mariano</title>
     <link rel="stylesheet" href="./estilo/estilo.css" />
-    <script src="./JS/productos.js"></script>
+
     <script src="./JS/index.js"></script>
   </head>
   <body>
     <!-- Contenedor de la tienda y del carrito del usuario -->
     <div class="tienda">
       <!-- contenedor de productos -->
-      <div class="productos">
-        <div class="producto">
-          <img src="./imagenes/ajo.jpg" />
-        </div>
-      </div>
+      <div class="productos"></div>
 
       <!-- contenedor del carrito -->
       <div class="carrito">
@@ -28,27 +24,21 @@
 
         <!-- contenedor con las opciones de alterar el carrito -->
         <div class="opciones-carrito">
-          <!-- contenedor de las compras realizadas -->
-          <div>
-            <!-- productos en carrito -->
-            <div class="productos-carrito">
-              <div class="producto-cesta">
-                <div>5 x Fresas - 0.6€</div>
-                <div>&times;</div>
-              </div>
-              <div class="producto-cesta">
-                <div>5 x Calabacin - 2.1€</div>
-                <div class="eliminar-productos">&times;</div>
-              </div>
+          <!-- productos en carrito -->
+          <div class="productos-carrito">
+            <div class="producto-cesta">
+              <div>5 x Calabacin - 2.1€</div>
+              <div class="eliminar-productos">&times;</div>
             </div>
-            <!-- total del precio -->
-            <div>Total: 13.50€</div>
           </div>
+        </div>
 
-          <!-- vaciado del carrito -->
-          <div class="vaciar-carrito">
-            <div class="vaciar-boton">Vaciar</div>
-          </div>
+        <!-- total del precio -->
+        <div class="total-compra" id="totalCompra">Total: 13.50€</div>
+
+        <!-- vaciado del carrito -->
+        <div>
+          <div class="vaciar-carrito" id="vaciarCesta">Vaciar</div>
         </div>
       </div>
     </div>
