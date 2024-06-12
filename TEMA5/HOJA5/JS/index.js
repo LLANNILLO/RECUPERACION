@@ -1,5 +1,5 @@
 // Controlar las sesiones de los electrodomesticos
-let electrodomesticos = getFromSessionStorage("electrodomesticos") || [];
+let electrodomesticos = obtenerDeSessionStorage("electrodomesticos") || [];
 
 window.addEventListener("load", () => {
   const selectorElectrodomestico = document.getElementById(
@@ -71,11 +71,9 @@ window.addEventListener("load", () => {
     }
 
     //añade el electrodomestico y va al textarea con la informacion
-    addToSessionStorage("electrodomesticos", nuevoElectrodomestico);
+    anadirASessionStorage("electrodomesticos", nuevoElectrodomestico);
     irA("electrodomesticos.html");
   }
 
-  function irA(href) {
-    window.location.href = href;
-  }
+  
 });

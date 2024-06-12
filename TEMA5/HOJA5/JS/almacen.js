@@ -1,5 +1,5 @@
-let electrodomesticosData = getFromSessionStorage("electrodomesticos") || [];
-let electrodomesticos = deserializeElectrodomesticos(electrodomesticosData);
+let electrodomesticosData = obtenerDeSessionStorage("electrodomesticos") || [];
+let electrodomesticos = deserializarElectrodomesticos(electrodomesticosData);
 
 window.addEventListener("load", () => {
   let textarea = document.querySelector("textarea");
@@ -29,6 +29,6 @@ window.addEventListener("load", () => {
 
   const volverBtn = document.getElementById("volver");
   volverBtn.addEventListener("click", () => {
-    window.location.href = "index.html";
+    irA("index.html");
   });
 });
