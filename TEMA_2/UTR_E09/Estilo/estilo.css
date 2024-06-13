@@ -14,6 +14,7 @@
 body {
   font-family: "Inter";
   --fondo-caja-imagen: rgb(241, 241, 241);
+  --color-enlaces: rgb(150, 149, 149);
 }
 
 header {
@@ -23,20 +24,35 @@ header {
 
 /* Estilo del contenido de la busqueda */
 
+/*  */
+main {
+}
+
 .contenedor-imagenes {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 25px;
 }
 
 .ficha {
-  height: 230px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+}
+
+.ficha > div {
+  /* cambiar esta propiedad para que el texto se adapte al tamaño de la imagen */
+  max-width: 300px;
+  white-space: nowrap; /* Evita el salto de línea */
+  overflow: hidden; /* Oculta el texto que desborda */
+  text-overflow: ellipsis;
 }
 
 .imagen {
-  height: 230px;
-  max-height: 80%;
+  height: 180px;
+  max-height: 225px;
   border-radius: 5%;
   background-color: var(--fondo-caja-imagen);
   overflow: hidden;
@@ -45,12 +61,23 @@ header {
   align-items: center;
 }
 
-/* 
-W!!: tengo que varia estos porcentajes para hacer un mejor reescalado de las
-imagenes que no abarcan en su totalidad el width y height 
-dentro del contenedor y que muestran el color de fondo del div
- */
+.ficha:hover .imagen {
+  box-shadow: 0 0 10px;
+}
+
 .imagen img {
-  max-width: 100%;
-  max-height: 100%;
+  width: fit-content;
+  height: 100%;
+  object-position: center;
+  object-fit: contain;
+}
+
+.ficha a {
+  text-decoration: none;
+
+  color: var(--color-enlaces);
+}
+
+.ficha a:hover {
+  text-decoration: underline;
 }
