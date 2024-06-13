@@ -124,7 +124,7 @@ window.addEventListener("load", () => {
       $productosCarrito.appendChild(productoCarrito);
     } else {
       //modificamos el valor de los productos seleccionados
-      let productoCarritoValor = parseFloat(valor);
+      let productoCarritoValor = parseFloat(productoCarrito.dataset.value);
       productoCarritoValor += parseFloat(valor);
       productoCarrito.dataset.value = productoCarritoValor;
 
@@ -157,12 +157,18 @@ window.addEventListener("load", () => {
       precioFinal -= precio;
       $precioFinal.innerHTML = precioFinal.toFixed(2);
     }
+
+    //si el precio es cero mostrar el siguiente contenido
+    if (parseInt($precioFinal.innerHTML) === 0) {
+      $precioFinal.innerHTML = "0.00";
+    }
   }
 
   //funcion con para borrar el producto de la cesta
   function eventoEliminarProducto(event) {
     //obtenemos el elemento padre de la cesta que sera lo que borremos
     let parent = event.target.parentNode;
+
     $productosCarrito.removeChild(parent);
   }
 
