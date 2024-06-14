@@ -18,74 +18,89 @@
   <body>
     <!-- barra de navegacion -->
     <header>
-      <!-- contenido de la barra de busqueda -->
-      <div>
-        <a href="/">
-          <img
-            src="./imagenes/logo/brave-logo-light.BR9nBcVE.svg"
-            alt="brave"
-          />
-        </a>
-        <div>
-          <!-- icono de busqueda oculto hasta hacer click en la barra de busqueda -->
-          <div><span class="fa-solid fa-magnifying-glass"></span></div>
-          <!-- barra de busqueda -->
-          <input type="text" name="" id="" value="Whisky" readonly />
+      <!-- contenedor del buscador  -->
+      <div class="buscador">
+        <!-- imagen de google -->
+
+        <img src="./imagenes/logo/google.png" />
+
+        <!-- busqueda -->
+        <div class="busqueda">
+          <!-- informacion buscada -->
+
           <div>
-            <!-- boton para eliminar el valor de busqueda -->
+            <svg class="icono oculto">
+              <path
+                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              ></path>
+            </svg>
+          </div>
+          <textarea>whisky</textarea>
+
+          <!-- mas opciones -->
+          <div class="opciones-buscador">
             <div>
-              <input type="button" value="" />
+              <svg class="icono borrar-busqueda">
+                <path
+                  d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                ></path>
+              </svg>
+              <span class="tooltip">Borrar</span>
             </div>
-            <!-- boton para realizar la busqueda -->
+            <div class="barra"></div>
             <div>
-              <input type="button" value="" />
+              <svg class="icono voz-busqueda">
+                <path
+                  fill="#4285f4"
+                  d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z"
+                ></path>
+                <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                <path
+                  fill="#fbbc04"
+                  d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z"
+                ></path>
+                <path
+                  fill="#ea4335"
+                  d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z"
+                ></path>
+              </svg>
+              <span class="tooltip">Busqueda por voz</span>
+            </div>
+            <div>
+              <svg class="icono imagenes-busqueda" viewBox="0 0 192 192">
+                <rect fill="none" height="192" width="192"></rect>
+                <g>
+                  <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
+                  <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
+                  <path
+                    fill="#ea4335"
+                    d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z"
+                  ></path>
+                  <path
+                    fill="#fbbc04"
+                    d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z"
+                  ></path>
+                  <path
+                    fill="#4285f4"
+                    d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z"
+                  ></path>
+                </g>
+              </svg>
+              <span class="tooltip">Búsqueda por imágenes</span>
+            </div>
+            <div>
+              <svg class="icono lupa-busqueda">
+                <path
+                  d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                ></path>
+              </svg>
+              <span class="tooltip">Buscar</span>
             </div>
           </div>
         </div>
       </div>
-      <!-- settings -->
-      <div>
-        <img src="" alt="" />
-        <input type="button" />
-      </div>
-
-      <!-- otros apartados con la nav -->
-      <nav>
-        <div>
-          <ul>
-            <li>
-              <a href="/">
-                <img src="" alt="" />
-                <span>Todo</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <img src="" alt="" />
-                <span>Imagenes</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <img src="" alt="" />
-                <span>Noticias</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <img src="" alt="" />
-                <span>Vídeos</span>
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                <img src="" alt="" />
-                <span>Googles</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <!-- contenedor con +opciones y la cuenta de usuario -->
+      <div class="usuario"></div>
     </header>
     <main>
       <!-- contenido de imagenes relativo a la busqueda -->
@@ -95,8 +110,14 @@
           <div class="imagen" data-image="0">
             <img src="./imagenes/whisky_0.jpg" alt="image-0" />
           </div>
-
-          <div><a href=""> Whisky </a></div>
+          <div></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-con-cubitos-de-hielo-V1zGiNVPumM"
+            >
+              Whisky
+            </a>
+          </div>
 
           <div>Este whisky hara de tus papilas gustativas un deleite</div>
         </div>
@@ -106,7 +127,11 @@
             <img src="./imagenes/whisky_1.jpg" alt="image-1" />
           </div>
           <div>
-            <a href=""> Whisky </a>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-con-liquido-naranja-4aWCVJA2uSo"
+            >
+              Whisky
+            </a>
           </div>
           <!-- titulo de la imagen -->
           <div>
@@ -164,7 +189,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_5.jpg" alt="image-5" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-con-liquido-amarillo-y-hojas-verdes-uyQ9lQcdI-Q"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Tarantino whisly style</div>
         </div>
@@ -173,7 +204,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_6.jpg" alt="image-6" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/licor-vertido-en-vaso-de-chupito-transparente-dmkmrNptMpw"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>La elegancia de un buen whisky</div>
         </div>
@@ -197,7 +234,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_8.jpg" alt="image-8" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-con-liquido-amarillo-UyF3Tal_KXw"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Un vaso de whisty cualquiera #2</div>
         </div>
@@ -207,7 +250,11 @@
             <img src="./imagenes/whisky_9.jpg" alt="image-9" />
           </div>
           <div>
-            <a href=""> Whisky </a>
+            <a
+              href="https://unsplash.com/es/fotos/foto-de-persona-sosteniendo-una-botella-de-vidrio-pe9T4ROjpzQ"
+            >
+              Whisky
+            </a>
           </div>
           <!-- titulo de la imagen -->
           <div>¿Whisky o aceite? ¿Qué es mejor?</div>
@@ -248,7 +295,11 @@
             <img src="./imagenes/whisky_12.jpg" alt="image-12" />
           </div>
           <div>
-            <a href=""> Whisky </a>
+            <a
+              href="https://unsplash.com/es/fotos/persona-vertiendo-liquido-marron-en-un-vaso-transparente-STB-TUCDGn8"
+            >
+              Whisky
+            </a>
           </div>
           <!-- titulo de la imagen -->
           <div>¿Cómo se sirve un buen whisky? Guía para principiantes</div>
@@ -258,7 +309,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_13.jpg" alt="image-13" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/lote-de-marco-de-fotos-redondo-en-la-pared-PUDQGDlM_V8"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Lujuria en la bodega</div>
         </div>
@@ -267,7 +324,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_14.jpg" alt="image-14" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-lleno-de-liquido-marron-0u7uZ6hMsBE"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Drop Ice in a glass of whisky</div>
         </div>
@@ -276,7 +339,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_15.jpg" alt="image-15" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/jack-daniels-old-no-7-tennessee-whiskey-PtGwPV5fKn0"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>El whisky que nunca pasa de moda</div>
         </div>
@@ -285,7 +354,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_16.jpg" alt="image-16" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-transparente-con-liquido-marron-en-el-interior-VyfllVu3BvI"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>La botella de la bruja</div>
         </div>
@@ -294,7 +369,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_17.jpg" alt="image-17" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/vaso-de-chupito-transparente-jdxCzIltbBE"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Un buen whisky servido en una buena copa</div>
         </div>
@@ -303,7 +384,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_18.jpg" alt="image-18" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/botellas-de-vidrio-transparente-sobre-la-mesa-TUZva3dfRv4"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>El laboratorio del loco</div>
         </div>
@@ -312,7 +399,13 @@
           <div class="imagen">
             <img src="./imagenes/whisky_19.jpg" alt="image-19" />
           </div>
-          <div><a href=""> Whisky </a></div>
+          <div>
+            <a
+              href="https://unsplash.com/es/fotos/bebida-marron-con-aceitunas-y-hierbas-en-vidrio-de-roca-en-fotografia-macro-gj7BLlSzIFs"
+            >
+              Whisky
+            </a>
+          </div>
           <!-- titulo de la imagen -->
           <div>Hola, compañero</div>
         </div>

@@ -12,19 +12,122 @@
 }
 
 body {
-  font-family: "Inter";
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  /* eliminar */
   --fondo-caja-imagen: rgb(241, 241, 241);
-  --color-enlaces: rgb(150, 149, 149);
+  --color-gray-1: rgb(192, 192, 192);
+  --color-gray-2: rgb(150, 149, 149);
 }
 
+/* Estilo para la cabecera del proyecto */
+
 header {
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* estilos de las opciones de busqueda */
+.buscador {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 10%;
+}
+
+/* logo de google */
+.buscador img {
+  width: 100px;
+  aspect-ratio: auto 100/33;
+}
+
+/* bloque redondeado del buscador */
+.busqueda {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 22px;
+  padding: 10px 20px;
+  border-radius: 24px;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 /0.16);
+}
+/* engrandecer la sombra para destacar mas la barra de busqueda */
+.busqueda:hover {
+  box-shadow: 0 2px 5px 3px rgb(64 60 67 /0.16);
+}
+
+.busqueda textarea {
+  /* eliminar la redimension del textarea */
+  outline: 0;
+  resize: none;
+  /* establecer la fuente al tipo que se este usando */
+  font-family: inherit;
+  height: 22px;
+  width: 400px;
+  font-size: 0.9em;
+  line-height: 22px;
+  border: 0; /* Agrega un borde para que sea visible */
+  overflow: hidden; /* Para manejar el desbordamiento del contenido */
+}
+
+.opciones-buscador {
+  display: flex;
+  gap: 10px;
+}
+
+.opciones-buscador > div {
+  position: relative;
+}
+
+/* agregar una pequeña barra de separacion para el borrado */
+.barra {
+  border-right: 1px solid var(--color-gray-1);
+}
+
+/* estilo de los tooltips del buscador */
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  background-color: black;
+  color: white;
+  transform: translate(-50%, 200%);
+  left: 50%;
+  white-space: nowrap;
+  padding: 5px 10px;
+  z-index: 1;
+  font-size: 0.7em;
+  transition: opacity 0.3s;
+}
+
+/* agregada la creacion de la flecha de los tooltips con polygon */
+.tooltip::before {
+  content: "";
+  position: absolute;
+  clip-path: polygon(50% 0%, 100% 50%, 0% 50%);
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  border-width: 10px;
+  border-style: solid;
+}
+
+.opciones-buscador > div:hover .tooltip {
+  opacity: 1;
+}
+
+.icono {
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.oculto {
   display: none;
 }
 
 /* Estilo del contenido de la busqueda */
 
-/*  */
 main {
 }
 
@@ -38,22 +141,27 @@ main {
 
 .ficha {
   display: flex;
+  height: 230px;
   flex-direction: column;
   cursor: pointer;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .ficha > div {
   /* cambiar esta propiedad para que el texto se adapte al tamaño de la imagen */
-  max-width: 300px;
+  max-width: 200px;
   white-space: nowrap; /* Evita el salto de línea */
   overflow: hidden; /* Oculta el texto que desborda */
   text-overflow: ellipsis;
 }
 
 .imagen {
+  align-self: center;
   height: 180px;
   max-height: 225px;
   border-radius: 5%;
+  /* eliminar */
   background-color: var(--fondo-caja-imagen);
   overflow: hidden;
   display: flex;
@@ -66,7 +174,6 @@ main {
 }
 
 .imagen img {
-  width: fit-content;
   height: 100%;
   object-position: center;
   object-fit: contain;
@@ -74,8 +181,7 @@ main {
 
 .ficha a {
   text-decoration: none;
-
-  color: var(--color-enlaces);
+  color: var(--color-gray-2);
 }
 
 .ficha a:hover {
