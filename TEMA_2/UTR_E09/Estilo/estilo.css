@@ -182,6 +182,11 @@ main {
   color: var(--color-gray-2);
 }
 
-.ficha a:hover {
+.ficha a:hover span {
   text-decoration: underline;
+}
+
+.icono-enlace {
+  width: 10px;
+  height: 10px;
 }
