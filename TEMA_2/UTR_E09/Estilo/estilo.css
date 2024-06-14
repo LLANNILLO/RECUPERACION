@@ -15,15 +15,24 @@ body {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   /* eliminar */
   --fondo-caja-imagen: rgb(241, 241, 241);
-  --color-gray-1: rgb(192, 192, 192);
+  --color-barra: rgb(192, 192, 192);
+  --color-gray-1: rgb(77, 77, 77);
   --color-gray-2: rgb(150, 149, 149);
+  --color-gray-3: #f1f3f4;
+  --color-redondeo: #f8f9fa;
 }
 
-/* Estilo para la cabecera del proyecto */
+/* ---------------------------------------------------------- */
+/* --------------------- ESTILO BUSCADOR -------------------- */
+/* ---------------------------------------------------------- */
 
-header {
+.cabecera-buscador {
+  position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  width: 100%;
 }
 
 /* estilos de las opciones de busqueda */
@@ -31,7 +40,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 /* logo de google */
@@ -80,7 +89,7 @@ header {
 
 /* agregar una pequeña barra de separacion para el borrado */
 .barra {
-  border-right: 1px solid var(--color-gray-1);
+  border-right: 1px solid var(--color-barra);
 }
 
 /* estilo de los tooltips del buscador */
@@ -122,21 +131,28 @@ header {
   cursor: pointer;
 }
 
-.oculto {
-  display: none;
-}
+/* ---------------------------------------------------------- */
+/* --------------------- ESTILO IMAGENES -------------------- */
+/* ---------------------------------------------------------- */
 
-/* Estilo del contenido de la busqueda */
-
+/* grid para el layout alternativo */
 main {
+  margin-top: 93px;
+  margin-inline: 25px;
+  display: grid;
+  grid-template-areas: "galeria detalles";
+  grid-template-columns: 60% 40%;
 }
 
 .contenedor-imagenes {
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  /* hacer con flex y wrap para que se vea que las fichas varian en el width */
   display: flex;
   flex-wrap: wrap;
   gap: 40px 25px;
+}
+
+.aumentar-tamaño {
+  grid-column: span 2;
 }
 
 .ficha {
@@ -179,6 +195,7 @@ main {
 
 .ficha a {
   text-decoration: none;
+  font-size: 0.7em;
   color: var(--color-gray-2);
 }
 
@@ -189,4 +206,119 @@ main {
 .icono-enlace {
   width: 10px;
   height: 10px;
+}
+
+/* ---------------------------------------------------------- */
+/* -------------------- ESTILO ALTERNATIVO ------------------ */
+/* ---------------------------------------------------------- */
+
+/* clase del JS para variar el layout */
+.desaparecen-detalles {
+  display: none;
+}
+.detalles {
+  /* hacer al elemento flotante */
+
+  width: calc(40% - 50px);
+  margin-inline: 25px;
+  position: fixed;
+  right: 0;
+  border-radius: 12px;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  overflow: hidden;
+  background-color: white;
+}
+
+/* estilo de la cabecera */
+.cabecera-detalles {
+  background-color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 16px;
+}
+
+/* display del titulo y el logo*/
+.titulo-detalles {
+  min-height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.contenedor-logo-detalles {
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 32px;
+  background-color: var(--color-gray-3);
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.logo-detalles {
+  background-color: white;
+  width: 20px;
+  height: 20px;
+}
+/* estilo del enlace de los detalles */
+.titulo-detalles a {
+  text-decoration: none;
+  color: var(--color-gray-1);
+  font-size: 0.9em;
+}
+
+.titulo-detalles a:hover {
+  text-decoration: underline;
+}
+
+/* display de los botones a mostrar */
+.opciones-detalles {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* estilo del redondeo */
+.redondeo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* estilo para mostrar el redondeo de los botones de detalles */
+.redondeo > svg {
+  width: 25px;
+}
+.redondeo:hover {
+  background-color: var(--color-redondeo);
+}
+
+/* clase para girar la otra flecha */
+.girar {
+  transform: scaleX(-1);
+}
+
+.contenedor-imagen-detalles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: var(--color-gray-3);
+  overflow: hidden;
+}
+
+.imagen-detalles {
+  height: 100%;
+  object-fit: contain;
+}
+
+.descripcion-detalles {
+  margin: 16px;
 }
